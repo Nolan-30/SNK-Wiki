@@ -1,3 +1,4 @@
+// --- 1. DONNÉES DU QUIZ ---
 const donneesQuiz = {
   personnages: [
     {
@@ -28,7 +29,6 @@ const donneesQuiz = {
         },
       ],
     },
-
     {
       id: "mikasa",
       nom: "Mikasa Ackerman",
@@ -59,45 +59,77 @@ const donneesQuiz = {
       ],
     },
     {
-      id: "mikasa",
-      nom: "Mikasa Ackerman",
+      id: "armin",
+      nom: "Armin Arlert",
       questions: [
         {
-          q: "Quel objet précieux Mikasa porte-t-elle toujours ?",
-          indice: "C'est un vêtement rouge pour la protéger du froid. 🧣",
-          choix: ["Un collier", "Une écharpe", "Un bracelet", "Une bague"],
-          reponse: "Une écharpe",
+          q: "Quel est le rêve d'enfance qu'Armin partage avec Eren ?",
+          indice: "Il l'a lu dans un livre interdit de son grand-père. 🌊",
+          choix: [
+            "Voir l'Océan",
+            "Devenir Major",
+            "Tuer le Titan Colossal",
+            "Vivre à l'intérieur du mur Sina",
+          ],
+          reponse: "Voir l'Océan",
+        },
+      ],
+    },
+    {
+      id: "levi",
+      nom: "Levi Ackerman",
+      questions: [
+        {
+          q: "Quel est le 'tic' ou l'obsession de Livaï qu'il impose à son escouade ?",
+          indice: "Regardez l'état de la pièce... ✨",
+          choix: [
+            "Le polissage des bottes",
+            "Le nettoyage extrême",
+            "Le brossage des chevaux",
+            "Le port de la cravate",
+          ],
+          reponse: "Le nettoyage extrême",
         },
       ],
     },
   ],
 };
 
+// --- VARIABLES DE SUIVI ---
 let indexPersoActuel = 0;
 let indexQuestionActuelle = 0;
-let tempsEcoule = 0;
 let intervalId = null;
+let tempsEcoule = 0;
 
-//
-const boutonChrono = document.getElementById("btn-action");
-const affichageChrono = document.getElementById("affichage");
-const toutesLesCartes = document.querySelectorAll(".personnage-carte");
+// --- FONCTIONS ---
+
+const lancerChrono = () => {
+  const affichage = document.getElementById("affichage");
+  tempsEcoule = 0;
+  clearInterval(intervalId);
+  intervalId = setInterval(() => {
+    tempsEcoule += 1000;
+    const minutes = Math.floor(tempsEcoule / 60000);
+    const secondes = Math.floor((tempsEcoule % 60000) / 1000);
+    affichage.innerText = `${String(minutes).padStart(2, "0")}:${String(secondes).padStart(2, "0")}`;
+  }, 1000);
+};
 
 const gererChrono = () => {
-  // On vérifie si on a fini le jeu
-  if (indexPersoActuel >= donneesQuiz.personnages.length) {
-    alert("Tous les personnages sont débloqués !");
+  const toutesLesCartes = document.querySelectorAll(".personnage-carte");
+
+  if (indexPersoActuel >= toutesLesCartes.length) {
+    alert("Félicitations ! Vous avez débloqués tous les personnages sont !");
     return;
   }
 
-  // on ne cible que la carte actuelle
   const carteActuelle = toutesLesCartes[indexPersoActuel];
   const conteneurInterne = carteActuelle.querySelector(".flip-cards");
 
-  // On cache l'image de la carte
+  // on masque la carte pr afficher le quiz
   conteneurInterne.style.opacity = "0";
 
-  // creation de la zone de jeu ou la carte actuelle a ete caché
+  // créer la zone de quiz noire si elle n'existe pas
   let zoneJeu = document.getElementById("jeu-dans-carte");
   if (!zoneJeu) {
     zoneJeu = document.createElement("div");
@@ -105,17 +137,7 @@ const gererChrono = () => {
     carteActuelle.appendChild(zoneJeu);
   }
 
-  // Chrono
-  clearInterval(intervalId);
-  tempsEcoule = 0;
-  intervalId = setInterval(() => {
-    tempsEcoule += 1000;
-    const minutes = Math.floor(tempsEcoule / 1000 / 60);
-    const secondes = Math.floor((tempsEcoule / 1000) % 60);
-    affichageChrono.innerText = `${String(minutes).padStart(2, "0")}:${String(secondes).padStart(2, "0")}`;
-  }, 1000);
-
-  // 1ere qst
+  lancerChrono();
   chargerEtapeQuiz(zoneJeu, conteneurInterne);
 };
 
@@ -123,21 +145,16 @@ const chargerEtapeQuiz = (zoneJeu, carteVisuelle) => {
   const perso = donneesQuiz.personnages[indexPersoActuel];
   const etape = perso.questions[indexQuestionActuelle];
 
-  // affichage de l'indice
-  zoneJeu.innerHTML = `
-    <div style="padding:15px; color:white; text-align:center;">
-      <h3 style="color: #ffcc00; font-size: 16px;">INDICE</h3>
-      <p style="font-size: 14px;">${etape.indice}</p>
-    </div>
-  `;
+  // 1. Affichage de l'indice
+  zoneJeu.innerHTML = `<div><h3>INDICE</h3><p>${etape.indice}</p></div>`;
 
-  // Après 2 secondes, on affiche la question et les choix
+  // 2. Affichage de la question après 3 secondes
   setTimeout(() => {
     zoneJeu.innerHTML = `
-      <div style="padding:10px; text-align:center;">
-        <p style="font-size: 14px; font-weight: bold;">${etape.q}</p>
-        <div id="options-boutons" style="margin-top: 10px;"></div>
-        <p id="feedback-mini" style="font-weight: bold; margin-top: 10px;"></p>
+      <div>
+        <h2>${etape.q}</h2>
+        <div id="options-boutons"></div>
+        <p id="feedback-mini"></p>
       </div>
     `;
 
@@ -146,10 +163,7 @@ const chargerEtapeQuiz = (zoneJeu, carteVisuelle) => {
     etape.choix.forEach((choixTexte) => {
       const bouton = document.createElement("button");
       bouton.innerText = choixTexte;
-      bouton.classList.add("btn-reponse");
-      bouton.style.display = "block";
-      bouton.style.width = "90%";
-      bouton.style.margin = "5px auto";
+      bouton.classList.add("btn-reponse-quiz");
 
       bouton.onclick = () => {
         const feedback = document.getElementById("feedback-mini");
@@ -157,28 +171,49 @@ const chargerEtapeQuiz = (zoneJeu, carteVisuelle) => {
           indexQuestionActuelle++;
 
           if (indexQuestionActuelle < perso.questions.length) {
-            feedback.innerText = "✅ Bien joué ! Suite...";
+            feedback.innerText = "✅ Bien joué !";
             feedback.style.color = "lightgreen";
-            setTimeout(() => chargerEtapeQuiz(zoneJeu, carteVisuelle), 1500);
+            setTimeout(() => chargerEtapeQuiz(zoneJeu, carteVisuelle), 1000);
           } else {
-            // Toutes les questions du perso sont finies
+            // --- C'EST ICI QUE LE CHANGEMENT S'APPLIQUE ---
+            // Si c'est fini pour ce personnage
             clearInterval(intervalId);
-            zoneJeu.remove(); // On enlève la zone noire
-            carteVisuelle.style.opacity = "1"; // L'image revient
-            carteVisuelle.classList.add("est-retournee"); // on retourne la carte
+            zoneJeu.innerHTML = "<h2 style='color:lightgreen;'>DÉBLOQUÉ !</h2>";
 
-            // On passe au personnage suivant
-            indexPersoActuel++;
-            indexQuestionActuelle = 0;
+            setTimeout(() => {
+              zoneJeu.remove();
+              carteVisuelle.style.opacity = "1";
+              carteVisuelle.classList.add("est-retournee");
+
+              // On passe au personnage suivant
+              indexPersoActuel++;
+              indexQuestionActuelle = 0;
+
+              // --- VÉRIFICATION DE VICTOIRE TOTALE ---
+              const toutesLesCartes =
+                document.querySelectorAll(".personnage-carte");
+              if (indexPersoActuel >= toutesLesCartes.length) {
+                // On affiche le gros message de félicitations
+                const messageFinal = document.getElementById(
+                  "message-victoire-final",
+                );
+                if (messageFinal) {
+                  messageFinal.style.display = "block";
+                }
+                // Cache le bouton Démarrer car le jeu est fini
+                document.getElementById("btn-action").style.display = "none";
+              }
+            }, 1500);
+            // --- FIN DU CHANGEMENT ---
           }
         } else {
-          feedback.innerText = "❌ Faux, essaie encore !";
+          feedback.innerText = "❌ Réessaie !";
           feedback.style.color = "red";
         }
       };
       conteneurBoutons.appendChild(bouton);
     });
-  }, 3000);
+  }, 1500);
 };
 
-boutonChrono.addEventListener("click", gererChrono);
+document.getElementById("btn-action").addEventListener("click", gererChrono);

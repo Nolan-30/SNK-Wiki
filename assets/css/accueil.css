@@ -364,8 +364,8 @@ a {
 .card-yellow::before {
   background-color: #fbbf24;
 }
-.card-purple::before {
-  background-color: #fafafa;
+.card-green::before {
+  background-color: green;
 }
 
 .icon-box {
@@ -382,8 +382,8 @@ a {
 .card-yellow .icon-box {
   color: #fbbf24;
 }
-.card-purple .icon-box {
-  color: #8b5cf6;
+.card-green .icon-box {
+  color: green;
 }
 
 .card h3 {

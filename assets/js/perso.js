@@ -1,5 +1,5 @@
 // --- 1. DONNÉES DU QUIZ ---
-const donneesQuiz = {
+const donneesQuizPerso = {
   personnages: [
     {
       id: "eren",
@@ -142,7 +142,7 @@ const gererChrono = () => {
 };
 
 const chargerEtapeQuiz = (zoneJeu, carteVisuelle) => {
-  const perso = donneesQuiz.personnages[indexPersoActuel];
+  const perso = donneesQuizPerso.personnages[indexPersoActuel];
   const etape = perso.questions[indexQuestionActuelle];
 
   // 1. Affichage de l'indice

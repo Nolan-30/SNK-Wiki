@@ -31,73 +31,204 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les Neuf Titans</title>
-
     <link rel="stylesheet" href="assets/CSS/titans.css" />
   </head>
   <body>
     <main class="titans-container" data-aos="fade-up">
       <h1 class="titre">
-        <span class="degrader-rouge">Les Neufs Titans Primordiaux</span>
+        <span class="degrader-jaune">Les Neufs Titans Primordiaux</span>
       </h1>
       <span class="founding-titan"
         ><img
-          src="/assets/Images/primordial.jpg"
+          src="/assets/Images/titan-originel.jpg"
           height="500"
+          width="600"
           alt="titan originel"
         />
       </span>
       <div class="border-grey"></div>
 
-      <article class="titan-card" data-aos="fade-up">
-        <div class="card-visual visual-assaillant">
-          <img
-            src="/assets/Images/assaillant.jpg"
-            height="400"
-            alt="titan assaillant"
-          />
+      <div class="chrono">
+        <button id="btn-action">Démarrer</button>
+        <div id="affichage">00:00</div>
+      </div>
+      <!---------------------------------------->
+      <!--------      ASSAILLANT   --------------->
+      <!------------------------------------------>
+      <div class="personnage-carte" id="assaillant">
+        <div class="flip-cards">
+          <div class="face-avant">
+            <span class="face-avant">
+              <img
+                src="/assets/Images/face-avant-titans.jpg"
+                width="auto"
+                height="400"
+                draggable="false"
+            /></span>
+          </div>
+
+          <div class="face-arriere">
+            <article class="titan-card reverse">
+              <div class="card-visual visual-assaillant">
+                <img
+                  src="/assets/Images/assaillant.jpg"
+                  alt="titan assaillant"
+                />
+              </div>
+              <div class="card-content">
+                <h2 class="titan-name">Le Titan Assaillant</h2>
+                <p class="titan-holder">
+                  Détenteur actuel :
+                  <strong><span class="holder-green">Eren Jaeger</span></strong>
+                </p>
+                <p class="titan-desc">
+                  Le Titan qui a toujours avancé pour la liberté. Il possède une
+                  caractéristique unique : la capacité de voir les souvenirs de
+                  ses futurs héritiers.
+                </p>
+                <ul class="titan-stats stats-green">
+                  <li>Force de combat élevée</li>
+                  <li>Endurance exceptionnelle</li>
+                </ul>
+              </div>
+            </article>
+          </div>
         </div>
+      </div>
 
-        <div class="card-content">
-          <h2 class="titan-name">Le Titan Assaillant</h2>
-          <p class="titan-holder">
-            Détenteur actuel :
-            <strong><span class="holder-green">Eren Jaeger</span> </strong>
-          </p>
-          <p class="titan-desc">
-            Le Titan qui a toujours avancé pour la liberté. Il possède une
-            caractéristique unique : la capacité de voir les souvenirs de ses
-            futurs héritiers.
-          </p>
+      <!-- ===================== CARTE 2 : BESTIAL ===================== -->
+      <div class="personnage-carte" id="bestial">
+        <div class="flip-cards">
+          <div class="face-avant">
+            <img
+              src="/assets/Images/face-avant-titans.jpg"
+              width="auto"
+              height="400"
+              draggable="false"
+            />
+          </div>
 
-          <ul class="titan-stats stats-green">
-            <li>
-              <i class="fa-solid fa-hand-fist"></i> Force de combat élevée
-            </li>
-            <li>
-              <i class="fa-solid fa-person-running"></i> Endurance
-              exceptionnelle
-            </li>
-          </ul>
+          <div class="face-arriere">
+            <article class="titan-card reverse">
+              <div class="card-visual visual-bestial">
+                <img
+                  src="/assets/Images/bestial.jpg"
+                  height="400"
+                  alt="titan bestial"
+                />
+              </div>
+              <div class="card-content">
+                <h2 class="titan-name">Le Titan Bestial</h2>
+                <p class="titan-holder">
+                  Détenteur :
+                  <strong><span class="holder-brown">Zeke Jäger</span></strong>
+                </p>
+                <p class="titan-desc">
+                  Son corps est recouvert d'une fourrure épaisse et ses longs
+                  bras lui confèrent une force de lancer extrême. Il agit comme
+                  l'artillerie de Mahr.
+                </p>
+                <ul class="titan-stats stats-brown">
+                  <li>Force de combat élevée</li>
+                  <li>Endurance exceptionnelle</li>
+                </ul>
+              </div>
+            </article>
+          </div>
         </div>
-      </article>
+      </div>
 
-      <!-- <article class="titan-card reverse">
-     
+      <!-- ===================== CARTE 3 : MARTEAU ===================== -->
+      <div class="personnage-carte" id="marteau">
+        <div class="flip-cards">
+          <div class="face-avant">
+            <img
+              src="/assets/Images/face-avant-titans.jpg"
+              width="auto"
+              height="400"
+              draggable="false"
+            />
+          </div>
 
-        <div class="card-content">
-          <h2 class="titan-name">Le Titan Colossal</h2>
-          <p class="titan-holder">
-            Détenteurs : <strong>Bertholt Hoover / Armin Arlert</strong>
-          </p>
-          <p class="titan-desc">
-            Un géant de 60 mètres capable d'émettre une vapeur brûlante massive.
-            Sa transformation provoque une explosion dévastatrice comparable à
-            une bombe nucléaire.
-          </p>
+          <div class="face-arriere">
+            <article class="titan-card">
+              <div class="card-visual visual-marteau">
+                <img
+                  src="/assets/Images/marteau.jpg"
+                  height="400"
+                  width="400"
+                  alt="titan marteau"
+                />
+              </div>
+              <div class="card-content">
+                <h2 class="titan-name">Le Titan Marteau</h2>
+                <p class="titan-holder">
+                  Détenteur :
+                  <strong><span class="holder-cyan">Lara Tybur</span></strong>
+                </p>
+                <p class="titan-desc">
+                  Son corps peut créer et manier des armes et des structures à
+                  partir de son corps cristallin, lui conférant une polyvalence
+                  offensive et défensive. Il agit comme l'arme stratégique de
+                  Mahr.
+                </p>
+                <ul class="titan-stats stats-cyan">
+                  <li>Force de combat élevée</li>
+                  <li>Endurance exceptionnelle</li>
+                </ul>
+              </div>
+            </article>
+          </div>
         </div>
-      </article> -->
+      </div>
 
-      <article class="titan-card reverse">
+      <!-- ===================== CARTE 4 : FÉMININ ===================== -->
+      <div class="personnage-carte" id="feminin">
+        <div class="flip-cards">
+          <div class="face-avant">
+            <img
+              src="/assets/Images/face-avant-titans.jpg"
+              width="auto"
+              height="400"
+              draggable="false"
+            />
+          </div>
+
+          <div class="face-arriere">
+            <article class="titan-card reverse">
+              <div class="card-visual visual-feminin">
+                <img
+                  src="/assets/Images/feminin.jpg"
+                  height="400"
+                  alt="titan feminin"
+                />
+              </div>
+              <div class="card-content">
+                <h2 class="titan-name">Le Titan Féminin</h2>
+                <p class="titan-holder">
+                  Détenteur :
+                  <strong
+                    ><span class="holder-white">Annie Leonhart</span></strong
+                  >
+                </p>
+                <p class="titan-desc">
+                  Agile et polyvalente, elle peut durcir sa peau en cristal et
+                  attirer des Titans Purs par ses cris. Après sa défaite à
+                  Stohess, Annie s'est enfermée dans un cristal indestructible.
+                </p>
+                <ul class="titan-stats stats-white">
+                  <li>Agilité hors norme</li>
+                  <li>Durcissement cristallin</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-grey"></div>
+
+      <article class="titan-card reverse" data-aos="fade-up">
         <div class="card-visual visual-armored">
           <span
             ><img
@@ -106,12 +237,11 @@
               alt="titan cuirasse"
           /></span>
         </div>
-
         <div class="card-content">
           <h2 class="titan-name">Le Titan Cuirassé</h2>
           <p class="titan-holder">
             Détenteur :
-            <strong> <span class="holder-beige">Reiner Braun</span></strong>
+            <strong><span class="holder-beige">Reiner Braun</span></strong>
           </p>
           <p class="titan-desc">
             Son corps est recouvert de plaques blindées extrêmement résistantes,
@@ -119,18 +249,13 @@
             le bouclier de Mahr.
           </p>
           <ul class="titan-stats stats-beige">
-            <li>
-              <i class="fa-solid fa-hand-fist"></i> Force de combat élevée
-            </li>
-            <li>
-              <i class="fa-solid fa-person-running"></i> Endurance
-              exceptionnelle
-            </li>
+            <li>Force de combat élevée</li>
+            <li>Endurance exceptionnelle</li>
           </ul>
         </div>
       </article>
 
-      <article class="titan-card">
+      <article class="titan-card" data-aos="fade-up">
         <div class="card-visual visual-colossal">
           <img
             src="/assets/Images/colossal.jpg"
@@ -138,16 +263,13 @@
             alt="titan colossal"
           />
         </div>
-
         <div class="card-content">
           <h2 class="titan-name">Le Titan Colossal</h2>
           <p class="titan-holder">
             Détenteurs :
             <strong>
-              <span class="holder-red"
-                >Bertholt Hoover / Armin Arlert
-              </span></strong
-            >
+              <span class="holder-red">Bertholt Hoover / Armin Arlert</span>
+            </strong>
           </p>
           <p class="titan-desc">
             Un géant de 60 mètres capable d'émettre une vapeur brûlante massive.
@@ -155,94 +277,55 @@
             une bombe nucléaire.
           </p>
           <ul class="titan-stats stats-red">
-            <li>
-              <i class="fa-solid fa-hand-fist"></i> Force de combat élevée
-            </li>
-            <li>
-              <i class="fa-solid fa-person-running"></i> Endurance
-              exceptionnelle
-            </li>
+            <li>Force de combat élevée</li>
+            <li>Endurance exceptionnelle</li>
           </ul>
         </div>
       </article>
 
-      <article class="titan-card reverse">
-        <div class="card-visual visual-bestial">
-          <span
-            ><img
-              src="/assets/Images/bestial.jpg"
-              height="400"
-              alt="titan bestial"
-          /></span>
-        </div>
-
-        <div class="card-content">
-          <h2 class="titan-name">Le Titan Bestial</h2>
-          <p class="titan-holder">
-            Détenteur :
-            <strong> <span class="holder-brown">Zeke Jäger </span></strong>
-          </p>
-          <p class="titan-desc">
-            Son corps est recouvert d'une fourrure épaisse et ses longs bras lui
-            confèrent une force de lancer extrême. Il agit comme l'artillerie de
-            Mahr.
-          </p>
-          <ul class="titan-stats stats-brown">
-            <li>
-              <i class="fa-solid fa-hand-fist"></i> Force de combat élevée
-            </li>
-            <li>
-              <i class="fa-solid fa-person-running"></i> Endurance
-              exceptionnelle
-            </li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="titan-card">
-        <div class="card-visual visual-marteau">
-          <span
-            ><img
-              src="/assets/Images/marteau.jpg"
-              height="400"
-              width="400"
-              alt="titan marteau"
-          /></span>
-        </div>
-
-        <div class="card-content">
-          <h2 class="titan-name">Le Titan Marteau</h2>
-          <p class="titan-holder">
-            Détenteur :
-            <strong> <span class="holder-cyan">Lara Tybur </span></strong>
-          </p>
-          <p class="titan-desc">
-            Son corps peut créer et manier des armes et des structures à partir
-            de son corps cristallin, lui conférant une polyvalence offensive et
-            défensive. Il agit comme l'arme stratégique de Mahr.
-          </p>
-          <ul class="titan-stats stats-cyan">
-            <li>
-              <i class="fa-solid fa-hand-fist"></i> Force de combat élevée
-            </li>
-            <li>
-              <i class="fa-solid fa-person-running"></i> Endurance
-              exceptionnelle
-            </li>
-          </ul>
-        </div>
-      </article>
-
-      <p class="others-list">
-        Autres : Titan Femelle, Mâchoire, Charrette, Originel.
-      </p>
+      <p class="others-list">Autres : Titan Mâchoire, Charrette, Originel.</p>
     </main>
+
     <footer>
       <div class="fin-page" data-aos="fade-up">
         <h3>SHINZOU WO SASAGEYO !</h3>
         <p>2025 - Site crée par Nolan et Ethan</p>
       </div>
     </footer>
+
+    <div
+      id="message-victoire-final"
+      style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.95);
+        color: #b30000;
+        padding: 50px;
+        border: 5px solid rgba(41, 41, 41, 0.489);
+        border-radius: 20px;
+        text-align: center;
+        z-index: 1000;
+        width: 80%;
+      "
+    >
+      <h1 style="font-size: 3rem">FÉLICITATIONS !</h1>
+      <p style="color: white; font-size: 1.5rem">
+        Bravo vous avez débloqués tous les titans
+      </p>
+      <button
+        onclick="location.reload()"
+        style="margin-top: 20px; padding: 10px 20px; cursor: pointer"
+      >
+        <p>Rejouer</p>
+      </button>
+      <button class="page-suivante">
+        <a href="saisons.html">Page Suivante</a>
+      </button>
+    </div>
+
     <script src="/assets/js/titans.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

@@ -2,15 +2,15 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
 
-/* --- HEADER --- */
-
-.degrader-rouge {
-  background: linear-gradient(to right, #ffffff, #ff0000);
+/* Titre */
+.degrader-jaune {
+  background: linear-gradient(to right, #ffffff, #e7f47b);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* --- HEADER --- */
 header {
   display: flex;
   position: fixed;
@@ -175,16 +175,35 @@ h1 {
   font-weight: 900;
 }
 
+/* mettre l'image de face au milieu */
+.face-avant {
+  display: flex;
+  justify-content: center;
+}
+/* s'assurer d'avoir mis le hover en 2 temps que pr que quand j'enleve ma souris le survol ne s'enleve pas brusquemment */
+
+.face-avant img {
+  transition: transform 1s ease-out;
+}
+.face-avant:hover img {
+  transform: scale(1.03);
+
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
 .titans-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 60px 20px;
 }
 
+/* img d'accueil */
 .founding-titan {
   display: flex;
   justify-content: center;
-  margin-bottom: 10%;
+  align-items: center;
+  margin: 0 auto 10%;
+  width: 100%;
 }
 
 .founding-titan img {
@@ -193,7 +212,6 @@ h1 {
     linear-gradient(to right, #868686, #767676, #ff0000, #a40000, #5b0000)
       border-box;
 
-  transition: transform 1s ease-out;
   transition: transform 1s ease-out;
   border-radius: 10px;
 }
@@ -220,16 +238,16 @@ h1 {
   display: flex;
   justify-content: center;
 }
-/* --- STRUCTURE DE LA CARTE TITAN --- */
+
 .titan-card {
   display: flex;
   flex-direction: row;
   background-color: transparent;
   border-radius: 12px;
-  overflow: hidden; /* Important pour que l'image respecte les bords arrondis */
+  overflow: hidden;
   margin-bottom: 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  min-height: 320px; /* Hauteur minimale pour l'équilibre */
+  min-height: 320px;
 }
 
 .titan-card.reverse {
@@ -444,43 +462,45 @@ h1 {
   color: rgb(122, 197, 255);
 }
 
-/* retournement carte */
-
-.flip-cards {
-  position: relative;
+.personnage-carte {
+  perspective: 1200px;
   width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 1s;
-  transform-style: preserve-3d;
+  margin-bottom: 20%;
+  cursor: pointer;
 }
 
-/* retournement carte */
+.face-avant img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
 
 .flip-cards {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 1s;
+  transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
 .face-avant,
 .face-arriere {
-  position: absolute;
-
-  -webkit-backface-visibility: hidden; /* Cache la face arrière lorsque l'élément tourne */
+  width: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
+/* face arriere caché de base */
 .face-arriere {
   transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.est-retournee {
-  transform: rotateY(-180deg);
+.flip-cards.est-retournee {
+  transform: rotateY(180deg);
 }
 
 /* --- LISTE "AUTRES" EN BAS --- */
@@ -489,6 +509,98 @@ h1 {
   color: #6c757d;
   font-size: 0.9rem;
   margin-top: 40px;
+}
+
+/* QUIZ */
+
+.chrono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+#btn-action {
+  width: 10%;
+  height: 50px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, #380000, #b40000);
+  /* rouge au lieu de vert pour coller au thème Titans */
+}
+
+#affichage {
+  margin-top: 2%;
+}
+
+.btn-reponse-quiz {
+  background-color: #e0e0e0;
+  color: #000000;
+  border: none;
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.jeu-dans-carte {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  padding: 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+}
+
+.jeu-dans-carte h3 {
+  color: #ff4444;
+  margin-bottom: 10px;
+}
+
+#message-victoire-final {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: #129d00;
+  padding: 50px;
+  border: 5px solid rgba(41, 41, 41, 0.489);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  width: 80%;
+  height: 30%;
+  box-shadow: 0 0 50px rgba(0, 125, 2, 0.5);
+  display: none;
+}
+
+#message-victoire-final h1 {
+  font-family: "Cinzel", serif;
+  font-size: 3rem;
+  margin: 0;
+}
+
+#message-victoire-final p {
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.page-suivante a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 10px;
 }
 
 /* --- RESPONSIVE --- */

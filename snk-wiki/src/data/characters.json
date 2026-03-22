@@ -1,0 +1,22 @@
+[
+  {
+    "id": "eren",
+    "nom": "Eren Jaeger",
+    "description": "Eren est le héros principal de l'histoire. Il a une rage immense et combat pour la liberté à tout prix."
+  },
+  {
+    "id": "mikasa",
+    "nom": "Mikasa Ackerman",
+    "description": "Mikasa est une soldate d'élite incroyablement puissante. Elle est dévouée à protéger Eren."
+  },
+  {
+    "id": "armin",
+    "nom": "Armin Arlert",
+    "description": "Armin est l'ami intelligent et le stratège du groupe. C'est lui qui trouve les solutions et les plans."
+  },
+  {
+    "id": "levi",
+    "nom": "Levi Ackerman",
+    "description": "Levi est le caporal-chef du Bataillon d'Exploration, reconnu comme le soldat le plus fort de l'humanité."
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "personnages": [
+    {
+      "id": "eren",
+      "nom": "Eren Jaeger",
+      "description": "Eren est le héros principal de l'histoire. Il a une rage immense et combat pour la liberté à tout prix.",
+      "questions": [
+        {
+          "q": "Quel est le but ultime qu'Eren se fixe après avoir vu sa mère se faire dévorer ?",
+          "indice": "Sa colère est dirigée vers une espèce entière... 😡",
+          "choix": [
+            "Devenir le roi",
+            "S'enfuir vers l'océan",
+            "Exterminer jusqu'au dernier des Titans",
+            "Vivre confortablement"
+          ],
+          "reponse": "Exterminer jusqu'au dernier des Titans"
+        },
+        {
+          "q": "Comment s'appelle le Titan qu'Eren possède depuis le début ?",
+          "indice": "Il porte le nom de la liberté. 🕊️",
+          "choix": [
+            "Le Titan Marteau",
+            "Le Titan Assaillant",
+            "Le Titan Cuirassé",
+            "Le Titan Bestial"
+          ],
+          "reponse": "Le Titan Assaillant"
+        }
+      ]
+    },
+    {
+      "id": "mikasa",
+      "nom": "Mikasa Ackerman",
+      "description": "Mikasa est une soldate d'élite incroyablement puissante. Elle est dévouée à protéger Eren.",
+      "questions": [
+        {
+          "q": "Quel objet Mikasa brise-t-elle par émotion lors de la bataille de Trost ?",
+          "indice": "C'est une partie de son équipement pour trancher les Titans. 🗡️",
+          "choix": [
+            "Ses lames",
+            "Son grappin",
+            "Son réservoir de gaz",
+            "Sa poignée"
+          ],
+          "reponse": "Ses lames"
+        },
+        {
+          "q": "De quel clan rare Mikasa est-elle la descendante du côté de sa mère ?",
+          "indice": "Un peuple venu d'une terre lointaine à l'Est. 🌸",
+          "choix": [
+            "Le clan Reiss",
+            "Le clan Tybur",
+            "Le clan Azumabito",
+            "Le clan Ackerman"
+          ],
+          "reponse": "Le clan Azumabito"
+        }
+      ]
+    },
+    {
+      "id": "armin",
+      "nom": "Armin Arlert",
+      "description": "Armin est l'ami intelligent et le stratège du groupe. C'est lui qui trouve les solutions et les plans.",
+      "questions": [
+        {
+          "q": "Quel est le rêve d'enfance qu'Armin partage avec Eren ?",
+          "indice": "Il l'a lu dans un livre interdit de son grand-père. 🌊",
+          "choix": [
+            "Voir l'Océan",
+            "Devenir Major",
+            "Tuer le Titan Colossal",
+            "Vivre à l'intérieur du mur Sina"
+          ],
+          "reponse": "Voir l'Océan"
+        }
+      ]
+    },
+    {
+      "id": "levi",
+      "nom": "Levi Ackerman",
+      "description": "Levi est le caporal-chef du Bataillon d'Exploration, reconnu comme le soldat le plus fort de l'humanité.",
+      "questions": [
+        {
+          "q": "Quel est le 'tic' ou l'obsession de Livaï qu'il impose à son escouade ?",
+          "indice": "Regardez l'état de la pièce... ✨",
+          "choix": [
+            "Le polissage des bottes",
+            "Le nettoyage extrême",
+            "Le brossage des chevaux",
+            "Le port de la cravate"
+          ],
+          "reponse": "Le nettoyage extrême"
+        }
+      ]
+    }
+  ]
+}

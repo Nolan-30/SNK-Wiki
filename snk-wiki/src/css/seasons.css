@@ -1,0 +1,378 @@
+/* importation des  bibliotheques */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
+
+body {
+  background-color: black;
+}
+
+/* --- HEADER --- */
+
+.degrader-blanc {
+  background: linear-gradient(to right, #ffffff, #5a5a5a);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  background: #000000;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.489);
+}
+
+.menu li a {
+  color: yellow;
+}
+
+header img {
+  margin-left: 30px;
+  border-radius: 10px;
+}
+
+header p {
+  margin-left: 2%;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+
+  font-family: "Lato", sans-serif;
+  font-weight: 1000;
+}
+
+header .menu {
+  margin: 0 auto;
+
+  border-radius: 20px 20px 20px 20px;
+
+  padding: 15px;
+
+  display: flex;
+
+  gap: 40px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: -95%;
+}
+
+header .menu li {
+  list-style-type: none;
+  color: rgb(255, 255, 255);
+}
+a {
+  transition: color 1s;
+}
+
+/* SURLIGNEMENT */
+
+.menu li a {
+  position: relative;
+
+  padding-bottom: 5px; /* le surlignement sera legerement un peu + en dessous */
+}
+
+.menu li a::after {
+  content: ""; /* permet un ptit surlignement au survol de la list*/
+  position: absolute; /* definition d'une position fixe pr que le surlignement bouge jms */
+  width: 0;
+  height: 2px; /* hauteur du surlignement */
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at center, #ff0303 0%, #000000 100%);
+  transition: width 1s ease; /* largeur de l'animation de la ligne */
+}
+
+.menu li a:hover::after {
+  width: 100%; /* pr que le surlignement prenne tt la largeur de chaque au moment du survol */
+}
+
+/* SURLIGNEMENT BLANC POUR LA PFP */
+
+.pfp {
+  position: relative;
+}
+
+.pfp::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px; /* distance sous l'image */
+  left: 15px;
+  background: radial-gradient(
+    circle at center,
+    hsl(0, 0%, 100%) 0%,
+    #000000 100%
+  );
+  transition: width 0.5s ease;
+}
+
+.pfp:hover::after {
+  width: 100%;
+}
+
+.menu li a img {
+  margin-left: 30%;
+}
+
+.presentation h1 {
+  text-align: center;
+  font-style: italic;
+}
+
+.presentation img {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+/* --- FIN DU HEADER --- */
+
+h1 {
+  margin-top: 5%;
+}
+
+.presentation h1 {
+  text-align: center;
+  font-style: italic;
+}
+
+.presentation img {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+/* --- FIN DU HEADER --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: "Lato", sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+}
+.seasons-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* --- TITRE --- */
+.page-title {
+  font-family: "Poppins", sans-serif;
+
+  font-weight: 900;
+  font-size: 3.5rem;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+}
+
+.season-card {
+  background-color: #11141d;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-left-width: 5px;
+  border-left-style: solid;
+}
+
+/* --- BORDURES COLORÉES --- */
+.border-white {
+  border-left-color: #fcfcfc;
+}
+.border-yellow {
+  border-left-color: #ecca64;
+}
+.border-grey {
+  border-left-color: #ababab;
+}
+.border-orange {
+  border-left-color: #df7f02;
+}
+
+.season-thumbnail {
+  width: 280px;
+  height: 160px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.season-thumbnail span {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Etiquette saison 1 */
+.season-thumbnail .s1 img {
+  transition: transform 1s ease-out;
+  border-radius: 10px;
+}
+.season-thumbnail .s1 img:hover {
+  display: flex;
+  border-radius: 10px;
+  transform: scale(1.05);
+  /* petit effet doré sur les bordures qd on passe dessus*/
+  box-shadow: 0 0 10px #ababab;
+}
+
+/* Etiquette saison 2 */
+.season-thumbnail .s2 img {
+  transition: transform 1s ease-out;
+  border-radius: 10px;
+}
+.season-thumbnail .s2 img:hover {
+  display: flex;
+  border-radius: 10px;
+  transform: scale(1.05);
+  /* petit effet doré sur les bordures qd on passe dessus*/
+  box-shadow: 0 0 10px #ecca64;
+}
+
+/* Etiquette saison 3 */
+.season-thumbnail .s3 img {
+  transition: transform 1s ease-out;
+  border-radius: 10px;
+}
+.season-thumbnail .s3 img:hover {
+  display: flex;
+  border-radius: 10px;
+  transform: scale(1.05);
+  /* petit effet doré sur les bordures qd on passe dessus*/
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+/* Etiquette saison 4 */
+.season-thumbnail .s4 img {
+  transition: transform 1s ease-out;
+  border-radius: 10px;
+}
+.season-thumbnail .s4 img:hover {
+  display: flex;
+  border-radius: 10px;
+  transform: scale(1.05);
+  /* petit effet doré sur les bordures qd on passe dessus*/
+  box-shadow: 0 0 10px #df7f02;
+}
+/* --- CONTENU TEXTE --- */
+.season-content {
+  flex: 1;
+}
+
+a,
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.season-content h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.season-content h2 {
+  position: relative;
+
+  padding-bottom: 5px; /* le surlignement sera legerement un peu + en dessous */
+}
+
+.season-content h2::after {
+  content: "";
+  position: absolute; /* definition d'une position fixe pr que le surlignement ne bouge jms */
+  width: 0;
+  height: 2px; /* hauteur du surlignement */
+  bottom: 0;
+  left: 235px;
+  background: white;
+  transition: width 1s ease; /* largeur de l'animation de la ligne */
+}
+
+.season-content h2:hover::after {
+  width: 20%;
+}
+
+.description {
+  color: #aeb4c0;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  max-width: 600px;
+}
+
+.highlight {
+  color: #6e7681;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .season-card {
+    flex-direction: column; /* Empile image et texte sur mobile */
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .season-thumbnail {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+footer {
+  border-top: 1px solid rgba(85, 85, 85, 0.489);
+
+  padding: 10px;
+  margin-top: 5%;
+  background-color: black;
+}
+
+.fin-page h3,
+p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.fin-page h3 {
+  margin-top: 3%;
+  margin-bottom: 15px;
+  font-size: 40px;
+}
+
+.fin-page p {
+  font-family: "Lato", sans-serif;
+  font-weight: 1000;
+  font-size: 20px;
+}

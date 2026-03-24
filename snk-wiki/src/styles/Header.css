@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+
+.header {
+  display: flex;
+  position: fixed;
+  background: #000000;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.489);
+  box-sizing: border-box;
+}
+
+.header-logo {
+  margin-left: 30px;
+  border-radius: 10px;
+  transition: transform 1s ease-out;
+}
+
+.header-logo:hover {
+  transform: scale(1.02);
+}
+
+.menu {
+  position: absolute;
+  top: -4px;
+  right: 50px;
+  left: 450px;
+  margin: 10px auto 0;
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  gap: 40px;
+  width: 400px;
+}
+
+.menu li {
+  list-style-type: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 1s;
+}
+
+.menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at center, #ff0303 0%, #000000 100%);
+  transition: width 1s ease;
+}
+
+.menu li a:hover::after {
+  width: 100%;
+}
+
+.pfp {
+  position: relative;
+}
+
+.pfp::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 15px;
+  background: radial-gradient(circle at center, #ffffff 0%, #000000 100%);
+  transition: width 0.5s ease;
+}
+
+.pfp:hover::after {
+  width: 100%;
+}

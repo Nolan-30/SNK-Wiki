@@ -1,5 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Playfair+Display:ital,wght@1,700&display=swap");
 
+/* accueil de la page perso */
+
+.vert {
+  /* mettre un dégradé a un txt */
+  background: linear-gradient(to right, #008b0042, #00ae0c);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bataillon {
+  margin-top: 10%;
+  font-family: "Poppins", sans-serif;
+
+  font-weight: 900;
+
+  text-align: center;
+
+  font-size: 2rem;
+  background-color: black;
+
+  border-bottom: 1px solid rgba(85, 85, 85, 0.489);
+
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+.bataillon h1 {
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+.link {
+  font-style: oblique;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.bataillon p a:hover {
+  color: green;
+}
+
+.img-bat {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.img-bat img {
+  margin-top: 3%;
+  transition: transform 1s ease-out;
+
+  border-radius: 10px;
+}
+.img-bat img:hover {
+  /* Petit zoom */
+  transform: scale(1.02);
+  /* petit effet doré sur les bordures qd on passe dessus*/
+  box-shadow: 0 0 10px rgba(0, 162, 0, 0.993);
+}
+
+/*  */
 .perso-section {
   background-color: black;
   color: white;
@@ -35,4 +99,96 @@
   background: linear-gradient(to right, rgb(0, 226, 45), #007527);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+#jeu-dans-carte {
+  background-color: #000;
+  border: 1px solid rgba(85, 85, 85, 0.489);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto 40px;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+}
+
+#jeu-dans-carte h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+#jeu-dans-carte h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.btn-reponse-quiz {
+  background-color: #e0e0e0;
+  color: #000;
+  border: none;
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-reponse-quiz:hover {
+  background-color: #ffffff;
+}
+
+#message-victoire-final {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: #129d00;
+  padding: 50px;
+  border: 5px solid rgba(41, 41, 41, 0.489);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  width: 80%;
+}
+
+#message-victoire-final h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+#message-victoire-final p {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.chrono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+#btn-action {
+  width: 10%;
+  height: 50px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, #00380c, #00b415);
+  color: white;
+  cursor: pointer;
+}
+
+#btn-action:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#affichage {
+  margin-top: 2%;
+  color: white;
+  font-size: 1.5rem;
 }

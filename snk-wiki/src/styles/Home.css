@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Pour un défilement fluide au clic du bouton */
+}
+
+body {
+  background-color: black;
+  font-family: "Lato", sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.logo-bataillon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --snk-red: #c92a2a;
+  --bg-dark: #1a1a1a;
+  --card-bg: #232631;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+  /* --- CORRECTIONS ICI --- */
+  /* 1. On utilise le chemin relatif vers ton dossier public ou assets */
+  background-image: url("/Images/snk-cover.jpg");
+
+  /* 2. On sépare les propriétés pour éviter les conflits */
+  background-size: cover;
+  background-position: center; /* "center" est souvent mieux que "top" pour une cover */
+  background-attachment: fixed; /* C'est ici qu'on met l'effet de fixité */
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+/* Optionnel : Ajoute un léger voile noir pour que ton titre ressorte bien comme sur la 1ère image */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Voile à 40% d'opacité */
+  z-index: 0;
+}
+
+/* On s'assure que le texte passe au dessus du voile */
+.hero-title,
+.hero-separator,
+.hero-quote,
+.hero-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: "Cinzel", serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-separator {
+  width: 60%;
+  max-width: 600px;
+  height: 3px;
+  background-color: var(--snk-red);
+  margin: 0 auto 25px auto;
+  box-shadow: 0 0 10px rgba(201, 42, 42, 0.5);
+}
+
+.hero-quote {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #b3b3b3;
+  margin-bottom: 50px;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: var(--snk-red);
+  color: white;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btn:hover {
+  background-color: #a31f1f;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(201, 42, 42, 0.4);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background-color: var(--bg-dark);
+  background-color: black;
+}
+
+#intro {
+  background-color: black;
+}
+
+/* --- SECTION INTRODUCTION --- */
+.intro-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.intro-label {
+  color: var(--snk-red);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.main-title {
+  font-family: "Cinzel", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: #8c8c8c;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* --- CADRE IMAGE  --- */
+.image-placeholder {
+  background-color: #101010;
+  width: 100%;
+  height: 450px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.image-placeholder span {
+  font-size: 2rem;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  color: #555;
+}
+
+/* --- GRID DES CARTES --- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* --- STYLE DES CARTES --- */
+.card {
+  background-color: var(--card-bg);
+  padding: 35px 30px;
+  border-radius: 6px;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.card-red::before {
+  background-color: var(--snk-red);
+}
+.card-blue::before {
+  background-color: #3b82f6;
+}
+.card-yellow::before {
+  background-color: #fbbf24;
+}
+.card-green::before {
+  background-color: green;
+}
+
+.icon-box {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+}
+
+.card-red .icon-box {
+  color: var(--snk-red);
+}
+.card-blue .icon-box {
+  color: #3b82f6;
+}
+.card-yellow .icon-box {
+  color: #fbbf24;
+}
+.card-green .icon-box {
+  color: green;
+}
+
+.card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.card p {
+  color: #9ca3af; /* Gris clair */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import CharacterCard from "./CharacterCard";
 import "../styles/Characters.css";
 
-// --- CORRECTION DES IMPORTS ---
 import donneesQuiz from "../data/Characters.json";
 import charactersInfo from "../data/CharactersInfos.json";
 

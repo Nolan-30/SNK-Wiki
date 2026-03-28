@@ -21,16 +21,16 @@ const Header = () => {
           </li>
           <li>
             {/* 2. On remplace tous les <a> par des <Link> pour éviter le rechargement de page */}
-            <Link to="/histoire">Histoire</Link>
+            <Link to="/Histoire">Histoire</Link>
           </li>
           <li>
-            <Link to="/perso">Personnages</Link>
+            <Link to="/Personnages">Personnages</Link>
           </li>
           <li>
-            <Link to="/titans">Titans</Link>
+            <Link to="/Titans">Titans</Link>
           </li>
           <li>
-            <Link to="/saisons">Saisons</Link>
+            <Link to="/Saisons">Saisons</Link>
           </li>
           <li className="pfp">
             {/* Même chose ici, on enlève "public/" */}

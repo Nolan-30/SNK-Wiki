@@ -1,0 +1,247 @@
+/* Titans.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
+
+.degraderJaune {
+  background: linear-gradient(to right, #ffffff, #e7f47b);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bgBlack {
+  background-color: black;
+}
+
+.presentation h1 {
+  text-align: center;
+  font-style: italic;
+}
+
+.presentation img {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.bodySimule {
+  background-color: black;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.titrePage {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5%;
+  margin-top: 10%;
+}
+
+.faceAvant {
+  display: flex;
+  justify-content: center;
+}
+
+.faceAvant img {
+  transition: transform 1s ease-out;
+}
+
+.faceAvant:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+.titansContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.foundingTitan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10%;
+  width: 100%;
+}
+
+.foundingTitan img {
+  background:
+    linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)) padding-box,
+    linear-gradient(to right, #868686, #767676, #ff0000, #a40000, #5b0000)
+      border-box;
+  transition: transform 1s ease-out;
+  border-radius: 10px;
+}
+
+.foundingTitan img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.borderGrey {
+  margin: 5% 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.489);
+}
+
+.titanCard {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  min-height: 320px;
+}
+
+.titanCard.reverse {
+  flex-direction: row-reverse;
+}
+
+.cardVisual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cardVisual img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 1s ease-out;
+  display: block;
+}
+
+.visualAssaillant {
+  background: radial-gradient(circle at center, #03a52c 0%, #000000 100%);
+}
+
+.visualAssaillant img {
+  border-radius: 10px;
+  transition: transform 1s ease-out;
+}
+
+.visualAssaillant img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(0, 114, 13);
+}
+
+.visualColossal {
+  background: radial-gradient(circle at center, #ff0000 0%, #000000 100%);
+}
+
+.visualColossal img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+.cardContent {
+  flex: 1;
+  background-color: #0d1321;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titanName {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.titanHolder {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: #8d99ae;
+  margin-bottom: 20px;
+}
+
+.holderGreen {
+  color: #00410a;
+}
+.holderBeige {
+  color: rgb(230, 213, 132);
+}
+.holderRed {
+  color: red;
+}
+
+.titanDesc {
+  color: #bdc3c7;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.titanStats {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.titanStats li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.statsGreen li {
+  color: #00410a;
+}
+
+.btnReponseQuiz {
+  background-color: #e0e0e0;
+  color: #000000;
+  border: none;
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.othersList {
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+.messageVictoireFinal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: #129d00;
+  padding: 50px;
+  border: 5px solid rgba(41, 41, 41, 0.489);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  width: 80%;
+  height: 30%;
+  box-shadow: 0 0 50px rgba(0, 125, 2, 0.5);
+}
+
+@media (max-width: 768px) {
+  .titanCard {
+    flex-direction: column;
+  }
+}

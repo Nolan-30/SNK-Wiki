@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import History from "./components/History";
 import Characters from "./components/Characters";
 import Seasons from "./components/Seasons";
-// import Titans from "./components/Titans";
+import Titans from "./components/Titans";
 
 function App() {
   useEffect(() => {
@@ -27,7 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Histoire" element={<History />} />
           <Route path="/Personnages" element={<Characters />} />
-          {/* <Route path="/Titans" element={<Titans />} /> */}
+          <Route path="/Titans" element={<Titans />} />
           <Route path="/saisons" element={<Seasons />} />
         </Routes>
       </main>

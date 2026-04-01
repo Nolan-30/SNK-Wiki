@@ -1,0 +1,32 @@
+# Dépendances (Le plus important)
+node_modules/
+.pnp
+.pnp.js
+
+# Production / Build
+dist/
+dist-ssr/
+build/
+
+# Logs et Vite
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+vite.config.js.timestamp-*
+
+# Environnement (Clés secrètes)
+.env
+.env.*
+!.env.example
+
+# IDE et Système
+.vscode/
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,147 @@
+[
+  {
+    "id": "assaillant",
+    "nom": "Le Titan Assaillant",
+    "image": "images/assaillant.jpg",
+    "reverse": true,
+    "visualClass": "visual-assaillant",
+    "holderClass": "holder-green",
+    "statsClass": "stats-green",
+    "holder": "Eren Jaeger",
+    "desc": "Le Titan qui a toujours avancé pour la liberté. Il possède une caractéristique unique : la capacité de voir les souvenirs de ses futurs héritiers.",
+    "stats": [
+      "Force de combat élevée",
+      "Endurance exceptionnelle"
+    ],
+    "q": "Quel pouvoir unique distingue le Titan Assaillant des huit autres lignées ?",
+    "indice": "Son regard traverse le temps... 👁️",
+    "choix": [
+      "Une immunité totale au contrôle mental du Titan Originel",
+      "Une force qui décuple selon la colère de son possesseur",
+      "La capacité de voir les souvenirs de ses futurs héritiers",
+      "L'absorption définitive des pouvoirs des Titans qu'il blesse"
+    ],
+    "reponse": "La capacité de voir les souvenirs de ses futurs héritiers"
+  },
+    {
+    "id": "feminin",
+    "nom": "Le Titan Féminin",
+    "image": "images/feminin.png",
+    "reverse": true,
+    "visualClass": "visual-feminin",
+    "holderClass": "holder-white",
+    "statsClass": "stats-white",
+    "holder": "Annie Leonhart",
+    "desc": "Agile et polyvalente, elle peut durcir sa peau en cristal et attirer des Titans Purs par ses cris. Après sa défaite à Stohess, Annie s'est enfermée dans un cristal indestructible.",
+    "stats": [
+      "Agilité hors norme",
+      "Durcissement cristallin"
+    ],
+    "q": "Quelle technique de défense absolue Annie utilise-t-elle après sa défaite à Stohess pour éviter de se faire interroger ?",
+    "indice": "C'est une prison éternelle et transparente... ❄️",
+    "choix": [
+      "Elle libère une fumée brûlante pour s'évaporer",
+      "Elle se crée une armure de plaques osseuses",
+      "Elle transfère son esprit dans le sol",
+      "Elle s'enferme dans un cristal indestructible"
+    ],
+    "reponse": "Elle s'enferme dans un cristal indestructible"
+  },
+  {
+    "id": "bestial",
+    "nom": "Le Titan Bestial",
+    "image": "images/bestial.jpg",
+    "reverse": true,
+    "visualClass": "visual-bestial",
+    "holderClass": "holder-brown",
+    "statsClass": "stats-brown",
+    "holder": "Zeke Jäger",
+    "desc": "Son corps est recouvert d'une fourrure épaisse et ses longs bras lui confèrent une force de lancer extrême. Il agit comme l'artillerie de Mahr.",
+    "stats": [
+      "Force de combat élevée",
+      "Endurance exceptionnelle"
+    ],
+    "q": "Quelle particularité génétique de Sieg Jäger rend son Titan Bestial plus puissant que ceux de ses prédécesseurs ?",
+    "indice": "L'héritage d'une couronne oubliée coule dans ses veines... 👑",
+    "choix": [
+      "Un entraînement militaire intensif",
+      "Une mutation rare due à l'absorption d'une quantité massive",
+      "La capacité de copier instantanément les techniques de combat",
+      "Son sang royal lui permet de transformer des Sujets d'Ymir en Titans et de les contrôler par le cri"
+    ],
+    "reponse": "Son sang royal lui permet de transformer des Sujets d'Ymir en Titans et de les contrôler par le cri"
+  },
+  {
+    "id": "marteau",
+    "nom": "Le Titan Marteau",
+    "image": "images/marteau.jpg",
+    "reverse": false,
+    "visualClass": "visual-marteau",
+    "holderClass": "holder-cyan",
+    "statsClass": "stats-cyan",
+    "holder": "Lara Tybur",
+    "desc": "Son corps peut créer et manier des armes et des structures à partir de son corps cristallin, lui conférant une polyvalence offensive et défensive.",
+    "stats": [
+      "Force de combat élevée",
+      "Endurance exceptionnelle"
+    ],
+    "q": "Quelle caractéristique unique de l'hôte du Titan Marteau d'Armes le différencie de tous les autres détenteurs de Titans ?",
+    "indice": "Le pilote n'est pas dans la cabine... 💎",
+    "choix": [
+      "L'hôte peut rester transformé indéfiniment",
+      "Le corps de l'hôte n'est pas dans la nuque, mais caché dans un cristal souterrain relié au Titan par un câble",
+      "L'hôte possède deux cœurs",
+      "Le détenteur fusionne physiquement avec la chair du Titan"
+    ],
+    "reponse": "Le corps de l'hôte n'est pas dans la nuque, mais caché dans un cristal souterrain relié au Titan par un câble"
+  },
+
+  {
+    "id": "cuirasse",
+    "nom": "Le Titan Cuirassé",
+    "image": "images/cuirasse.jpg",
+    "reverse": true,
+    "visualClass": "visual-armored",
+    "holderClass": "holder-beige",
+    "statsClass": "stats-beige",
+    "holder": "Reiner Braun",
+    "desc": "Son corps est recouvert de plaques blindées extrêmement résistantes, le rendant insensible aux lames et canons standards. Il peut cependant briser son armure pour gagner en vitesse.",
+    "stats": [
+      "Force de combat élevée",
+      "Résistance physique extrême"
+    ],
+    "q": "Quelle est la faiblesse structurelle spécifique de l'armure du Cuirassé, exploitée par Eren et Mikasa lors de leurs affrontements ?",
+    "indice": "Pour bouger, il faut des articulations souples... 🦵",
+    "choix": [
+      "La nuque est la seule zone sans plaques",
+      "Les plaques se détachent d'elles-mêmes après 10 minutes",
+      "L'absence de blindage derrière les genoux et aux coudes pour permettre la mobilité",
+      "Le blindage fond au contact de l'eau salée"
+    ],
+    "reponse": "L'absence de blindage derrière les genoux et aux coudes pour permettre la mobilité"
+  },
+  {
+    "id": "colossal",
+    "nom": "Le Titan Colossal",
+    "image": "images/colossal.png",
+    "reverse": false,
+    "visualClass": "visual-colossal",
+    "holderClass": "holder-red",
+    "statsClass": "stats-red",
+    "holder": "Bertholt Hoover / Armin Arlert",
+    "desc": "Un géant de 60 mètres capable d'émettre une vapeur brûlante massive. Sa transformation provoque une explosion dévastatrice comparable à une bombe.",
+    "stats": [
+      "Puissance de destruction totale",
+      "Taille gigantesque (60m)"
+    ],
+    "q": "Quelle est la conséquence physique directe et inévitable pour le Titan Colossal lorsqu'il utilise sa vapeur brûlante de manière prolongée ?",
+    "indice": "Le feu brûle son propre carburant... 🔥",
+    "choix": [
+      "Il perd sa capacité de vision",
+      "Sa masse musculaire diminue progressivement jusqu'à ne laisser que les os",
+      "Il finit par exploser spontanément",
+      "Il devient incapable de bouger pendant 3 jours"
+    ],
+    "reponse": "Sa masse musculaire diminue progressivement jusqu'à ne laisser que les os"
+  }
+]

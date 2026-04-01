@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap");
+
+.personnage-carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+  cursor: pointer;
+  width: 250px;
+  height: 480px;
+}
+
+.flip-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.face-avant,
+.face-arriere {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.face-arriere {
+  transform: rotateY(180deg);
+}
+
+.est-retournee {
+  transform: rotateY(-180deg);
+}
+
+.personnage-carte img {
+  border: 3px solid transparent;
+  border-radius: 16px;
+  margin: 0;
+  border-top: 1px solid rgba(41, 41, 41, 0.489);
+  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  margin-bottom: 5%;
+  transition: transform 1s ease-out;
+}
+
+.personnage-carte:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nom-perso {
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin: 10px 0 5px 0;
+}
+
+.nom-perso a {
+  text-decoration: none;
+  transition: 1s;
+}
+
+.degrader-blanc {
+  background: linear-gradient(to right, #ffffff, #5a5a5a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description-perso {
+  display: flex;
+  margin-top: -20px;
+  margin-left: 5%;
+}
+
+.description-perso p {
+  margin-top: 20px;
+  transition: 1s;
+  border-radius: 10px;
+  border-top: 1px solid rgba(41, 41, 41, 0.489);
+  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 100px;
+  max-height: 100px;
+}
+
+.description-perso p:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgb(134, 134, 134);
+}

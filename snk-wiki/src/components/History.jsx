@@ -12,7 +12,7 @@ const History = () => {
           </span>
         </h1>
         <img
-          src="images/ymir.jpg"
+          src="public/images/ymir.jpg"
           height="500"
           alt="la naissance du pouvoir des Titans et des neuf Titans originaux"
           className={styles.historyHeroImg}

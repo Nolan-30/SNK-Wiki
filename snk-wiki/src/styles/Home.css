@@ -41,21 +41,15 @@ a {
   align-items: center;
   text-align: center;
   padding: 20px;
-
-  /* --- CORRECTIONS ICI --- */
-  /* 1. On utilise le chemin relatif vers ton dossier public ou assets */
-  background-image: url("images/snk-cover.jpg");
-
-  /* 2. On sépare les propriétés pour éviter les conflits */
-  background-size: cover;
-  background-position: center; /* "center" est souvent mieux que "top" pour une cover */
-  background-attachment: fixed; /* C'est ici qu'on met l'effet de fixité */
-  background-repeat: no-repeat;
-
   position: relative;
+
+  background-image: url("public/images/snk-cover.jpg");
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-/* Optionnel : Ajoute un léger voile noir pour que ton titre ressorte bien comme sur la 1ère image */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -63,11 +57,10 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Voile à 40% d'opacité */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
-/* On s'assure que le texte passe au dessus du voile */
 .hero-title,
 .hero-separator,
 .hero-quote,
@@ -136,7 +129,6 @@ a {
   background-color: black;
 }
 
-/* --- SECTION INTRODUCTION --- */
 .intro-section {
   text-align: center;
   margin-bottom: 60px;
@@ -169,7 +161,6 @@ a {
   font-weight: 400;
 }
 
-/* --- CADRE IMAGE  --- */
 .image-placeholder {
   background-color: #101010;
   width: 100%;
@@ -190,14 +181,12 @@ a {
   color: #555;
 }
 
-/* --- GRID DES CARTES --- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
 }
 
-/* --- STYLE DES CARTES --- */
 .card {
   background-color: var(--card-bg);
   padding: 35px 30px;
@@ -267,7 +256,7 @@ a {
 }
 
 .card p {
-  color: #9ca3af; /* Gris clair */
+  color: #9ca3af;
   font-size: 0.95rem;
   line-height: 1.6;
 }

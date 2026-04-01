@@ -48,6 +48,55 @@
     "reponse": "Elle s'enferme dans un cristal indestructible"
   },
   {
+    "id": "colossal",
+    "nom": "Le Titan Colossal",
+    "image": "images/colossal.png",
+    "reverse": false,
+    "visualClass": "visual-colossal",
+    "holderClass": "holder-red",
+    "statsClass": "stats-red",
+    "holder": "Bertholt Hoover / Armin Arlert",
+    "desc": "Un géant de 60 mètres capable d'émettre une vapeur brûlante massive. Sa transformation provoque une explosion dévastatrice comparable à une bombe.",
+    "stats": [
+      "Puissance de destruction totale",
+      "Taille gigantesque (60m)"
+    ],
+    "q": "Quelle est la conséquence physique directe et inévitable pour le Titan Colossal lorsqu'il utilise sa vapeur brûlante de manière prolongée ?",
+    "indice": "Le feu brûle son propre carburant... 🔥",
+    "choix": [
+      "Il perd sa capacité de vision",
+      "Sa masse musculaire diminue progressivement jusqu'à ne laisser que les os",
+      "Il finit par exploser spontanément",
+      "Il devient incapable de bouger pendant 3 jours"
+    ],
+    "reponse": "Sa masse musculaire diminue progressivement jusqu'à ne laisser que les os"
+  },
+   {
+    "id": "cuirasse",
+    "nom": "Le Titan Cuirassé",
+    "image": "images/cuirasse.jpg",
+    "reverse": true,
+    "visualClass": "visual-armored",
+    "holderClass": "holder-beige",
+    "statsClass": "stats-beige",
+    "holder": "Reiner Braun",
+    "desc": "Son corps est recouvert de plaques blindées extrêmement résistantes, le rendant insensible aux lames et canons standards. Il peut cependant briser son armure pour gagner en vitesse.",
+    "stats": [
+      "Force de combat élevée",
+      "Résistance physique extrême"
+    ],
+    "q": "Quelle est la faiblesse structurelle spécifique de l'armure du Cuirassé, exploitée par Eren et Mikasa lors de leurs affrontements ?",
+    "indice": "Pour bouger, il faut des articulations souples... 🦵",
+    "choix": [
+      "La nuque est la seule zone sans plaques",
+      "Les plaques se détachent d'elles-mêmes après 10 minutes",
+      "L'absence de blindage derrière les genoux et aux coudes pour permettre la mobilité",
+      "Le blindage fond au contact de l'eau salée"
+    ],
+    "reponse": "L'absence de blindage derrière les genoux et aux coudes pour permettre la mobilité"
+  },
+  
+  {
     "id": "bestial",
     "nom": "Le Titan Bestial",
     "image": "images/bestial.jpg",
@@ -94,54 +143,7 @@
       "Le détenteur fusionne physiquement avec la chair du Titan"
     ],
     "reponse": "Le corps de l'hôte n'est pas dans la nuque, mais caché dans un cristal souterrain relié au Titan par un câble"
-  },
-
-  {
-    "id": "cuirasse",
-    "nom": "Le Titan Cuirassé",
-    "image": "images/cuirasse.jpg",
-    "reverse": true,
-    "visualClass": "visual-armored",
-    "holderClass": "holder-beige",
-    "statsClass": "stats-beige",
-    "holder": "Reiner Braun",
-    "desc": "Son corps est recouvert de plaques blindées extrêmement résistantes, le rendant insensible aux lames et canons standards. Il peut cependant briser son armure pour gagner en vitesse.",
-    "stats": [
-      "Force de combat élevée",
-      "Résistance physique extrême"
-    ],
-    "q": "Quelle est la faiblesse structurelle spécifique de l'armure du Cuirassé, exploitée par Eren et Mikasa lors de leurs affrontements ?",
-    "indice": "Pour bouger, il faut des articulations souples... 🦵",
-    "choix": [
-      "La nuque est la seule zone sans plaques",
-      "Les plaques se détachent d'elles-mêmes après 10 minutes",
-      "L'absence de blindage derrière les genoux et aux coudes pour permettre la mobilité",
-      "Le blindage fond au contact de l'eau salée"
-    ],
-    "reponse": "L'absence de blindage derrière les genoux et aux coudes pour permettre la mobilité"
-  },
-  {
-    "id": "colossal",
-    "nom": "Le Titan Colossal",
-    "image": "images/colossal.png",
-    "reverse": false,
-    "visualClass": "visual-colossal",
-    "holderClass": "holder-red",
-    "statsClass": "stats-red",
-    "holder": "Bertholt Hoover / Armin Arlert",
-    "desc": "Un géant de 60 mètres capable d'émettre une vapeur brûlante massive. Sa transformation provoque une explosion dévastatrice comparable à une bombe.",
-    "stats": [
-      "Puissance de destruction totale",
-      "Taille gigantesque (60m)"
-    ],
-    "q": "Quelle est la conséquence physique directe et inévitable pour le Titan Colossal lorsqu'il utilise sa vapeur brûlante de manière prolongée ?",
-    "indice": "Le feu brûle son propre carburant... 🔥",
-    "choix": [
-      "Il perd sa capacité de vision",
-      "Sa masse musculaire diminue progressivement jusqu'à ne laisser que les os",
-      "Il finit par exploser spontanément",
-      "Il devient incapable de bouger pendant 3 jours"
-    ],
-    "reponse": "Sa masse musculaire diminue progressivement jusqu'à ne laisser que les os"
   }
+
+  
 ]

@@ -98,11 +98,7 @@ a {
   height: 2px;
   bottom: -5px;
   left: 15px;
-  background: radial-gradient(
-    circle at center,
-    hsl(0, 0%, 100%) 0%,
-    #000000 100%
-  );
+  background: radial-gradient(circle at center, #ff0303 0%, #000000 100%);
   transition: width 0.5s ease;
 }
 

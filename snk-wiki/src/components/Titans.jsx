@@ -96,7 +96,7 @@ const Titans = () => {
 
         <span className={styles["founding-titan"]}>
           <img
-            src="images/titan-originel.jpg"
+            src="public/images/titan-originel.jpg"
             height="500"
             width="600"
             alt="titan originel"
@@ -133,7 +133,7 @@ const Titans = () => {
                 {/* dos de la carte  */}
                 <div className={styles["face-avant"]}>
                   <img
-                    src="images/face-avant-titans.jpg"
+                    src="public/images/face-avant-titans.jpg"
                     width="auto"
                     height="400"
                     draggable="false"

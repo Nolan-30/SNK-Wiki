@@ -1,36 +1,23 @@
-/* Titans.module.css */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
 
-.degraderJaune {
+.degrader-jaune {
   background: linear-gradient(to right, #ffffff, #e7f47b);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.bgBlack {
+.bg-black {
   background-color: black;
 }
 
-.presentation h1 {
-  text-align: center;
-  font-style: italic;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.presentation img {
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-}
-
-.bodySimule {
-  background-color: black;
-  color: #ffffff;
-  line-height: 1.6;
-}
-
-.titrePage {
+.titre {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 3.5rem;
@@ -42,27 +29,29 @@
   margin-top: 10%;
 }
 
-.faceAvant {
+.face-avant {
   display: flex;
   justify-content: center;
 }
 
-.faceAvant img {
+.face-avant img {
+  border-radius: 10px;
   transition: transform 1s ease-out;
 }
 
-.faceAvant:hover img {
+.face-avant:hover img {
   transform: scale(1.03);
   box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
-.titansContainer {
+.titans-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 60px 20px;
+  color: #ffffff;
 }
 
-.foundingTitan {
+.founding-titan {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +59,7 @@
   width: 100%;
 }
 
-.foundingTitan img {
+.founding-titan img {
   background:
     linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)) padding-box,
     linear-gradient(to right, #868686, #767676, #ff0000, #a40000, #5b0000)
@@ -79,18 +68,18 @@
   border-radius: 10px;
 }
 
-.foundingTitan img:hover {
+.founding-titan img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
-.borderGrey {
+.border-grey {
   margin: 5% 0;
   width: 100%;
   border-bottom: 1px solid rgba(85, 85, 85, 0.489);
 }
 
-.titanCard {
+.titan-card {
   display: flex;
   flex-direction: row;
   background-color: transparent;
@@ -101,11 +90,11 @@
   min-height: 320px;
 }
 
-.titanCard.reverse {
+.titan-card.reverse {
   flex-direction: row-reverse;
 }
 
-.cardVisual {
+.card-visual {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -113,37 +102,71 @@
   padding: 20px;
 }
 
-.cardVisual img {
+.card-visual img {
   max-width: 100%;
   height: auto;
   transition: transform 1s ease-out;
   display: block;
+  border-radius: 10px;
 }
 
-.visualAssaillant {
+.visual-assaillant {
   background: radial-gradient(circle at center, #03a52c 0%, #000000 100%);
 }
-
-.visualAssaillant img {
-  border-radius: 10px;
-  transition: transform 1s ease-out;
-}
-
-.visualAssaillant img:hover {
+.visual-assaillant img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 10px rgb(0, 114, 13);
 }
 
-.visualColossal {
+.visual-colossal {
   background: radial-gradient(circle at center, #ff0000 0%, #000000 100%);
 }
-
-.visualColossal img:hover {
+.visual-colossal img:hover {
   transform: scale(1.03);
   box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
-.cardContent {
+.visual-armored {
+  background: radial-gradient(circle at center, #ffffff 0%, #887544 100%);
+}
+.visual-armored img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(230, 213, 132);
+}
+
+.visual-bestial {
+  background: radial-gradient(
+    circle at center,
+    rgb(128, 89, 0) 0%,
+    #000000 100%
+  );
+}
+.visual-bestial img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(60, 42, 0);
+}
+
+.visual-marteau {
+  background: radial-gradient(
+    circle at center,
+    rgb(18, 129, 213) 0%,
+    #000000 100%
+  );
+}
+.visual-marteau img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.visual-feminin {
+  background: radial-gradient(circle at center, #ffffff 0%, #6e6e6e 100%);
+}
+.visual-feminin img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #ffffff;
+}
+
+.card-content {
   flex: 1;
   background-color: #0d1321;
   padding: 40px;
@@ -152,7 +175,7 @@
   justify-content: center;
 }
 
-.titanName {
+.titan-name {
   font-family: "Cinzel", serif;
   font-size: 1.8rem;
   color: #ffffff;
@@ -161,7 +184,7 @@
   letter-spacing: 1px;
 }
 
-.titanHolder {
+.titan-holder {
   display: flex;
   flex-direction: column;
   font-size: 0.95rem;
@@ -169,29 +192,42 @@
   margin-bottom: 20px;
 }
 
-.holderGreen {
+.holder-green {
   color: #00410a;
 }
-.holderBeige {
+.holder-beige {
   color: rgb(230, 213, 132);
 }
-.holderRed {
+.holder-red {
   color: red;
 }
+.holder-brown {
+  color: rgb(60, 42, 0);
+}
+.holder-cyan {
+  color: rgb(122, 197, 255);
+}
+.holder-white {
+  color: #ffffff;
+}
 
-.titanDesc {
+.titan-holder strong {
+  color: #edf2f4;
+}
+
+.titan-desc {
   color: #bdc3c7;
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 25px;
 }
 
-.titanStats {
+.titan-stats {
   list-style: none;
   margin-top: 10px;
 }
 
-.titanStats li {
+.titan-stats li {
   font-size: 0.9rem;
   margin-bottom: 8px;
   display: flex;
@@ -200,48 +236,181 @@
   font-weight: 700;
 }
 
-.statsGreen li {
+.stats-green {
   color: #00410a;
 }
-
-.btnReponseQuiz {
-  background-color: #e0e0e0;
-  color: #000000;
-  border: none;
-  padding: 8px;
-  margin: 5px 0;
-  width: 100%;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
+.stats-red {
+  color: red;
+}
+.stats-beige {
+  color: rgb(230, 213, 132);
+}
+.stats-brown {
+  color: rgb(60, 42, 0);
+}
+.stats-cyan {
+  color: rgb(122, 197, 255);
+}
+.stats-white {
+  color: #ffffff;
 }
 
-.othersList {
+.personnage-carte {
+  perspective: 1200px;
+  width: 100%;
+  margin-bottom: 10%;
+  position: relative;
+}
+
+.flip-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition:
+    transform 0.8s,
+    opacity 0.5s;
+  transform-style: preserve-3d;
+}
+
+.face-avant,
+.face-arriere {
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.face-arriere {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.est-retournee {
+  transform: rotateY(180deg);
+}
+
+.others-list {
   text-align: center;
   color: #6c757d;
   font-size: 0.9rem;
   margin-top: 40px;
 }
 
-.messageVictoireFinal {
+.chrono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+#btn-action {
+  width: 10%;
+  height: 50px;
+  font-size: 20px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, #380000, #b40000);
+  color: white;
+  cursor: pointer;
+}
+
+#affichage {
+  margin-top: 2%;
+  font-size: 1.5rem;
+}
+
+.jeu-dans-carte {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  padding: 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.jeu-dans-carte h3 {
+  color: #ff4444;
+  margin-bottom: 10px;
+}
+
+.options-boutons-titans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-reponse-quiz {
+  background-color: #e0e0e0;
+  color: #000000;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.feedback-mini-titans {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* btn continuer */
+.btn-continuer-titan {
+  display: block;
+  margin: 20px auto;
+  margin-top: 10%;
+  margin-left: 0px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #e7f47b;
+
+  border: none;
+  border-radius: 5px;
+}
+
+#message-victoire-final {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.95);
-  color: #129d00;
+  color: #b30000;
   padding: 50px;
   border: 5px solid rgba(41, 41, 41, 0.489);
   border-radius: 20px;
   text-align: center;
   z-index: 1000;
   width: 80%;
-  height: 30%;
   box-shadow: 0 0 50px rgba(0, 125, 2, 0.5);
 }
 
+.page-suivante a {
+  text-decoration: none;
+  color: black;
+}
+
 @media (max-width: 768px) {
-  .titanCard {
+  .titan-card,
+  .titan-card.reverse {
     flex-direction: column;
+  }
+  #btn-action {
+    width: 40%;
   }
 }

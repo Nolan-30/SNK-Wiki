@@ -44,7 +44,7 @@ a {
 
   /* --- CORRECTIONS ICI --- */
   /* 1. On utilise le chemin relatif vers ton dossier public ou assets */
-  background-image: url("/Images/snk-cover.jpg");
+  background-image: url("images/snk-cover.jpg");
 
   /* 2. On sépare les propriétés pour éviter les conflits */
   background-size: cover;

@@ -1,17 +1,25 @@
 .seasonsMain {
-  padding: 100px 20px 50px;
+  padding: 100px 20px;
   background-color: black;
   min-height: 100vh;
+  color: white;
 }
 
 .pageTitle {
+  margin-top: 5%;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 900;
   font-size: 3rem;
-  color: white;
   margin-bottom: 50px;
-  text-transform: uppercase;
+}
+
+.bannerImage {
+  display: block;
+  margin: 0 auto 40px;
+
+  height: 600px;
+  width: auto;
+  border-radius: 15px;
 }
 
 .degraderBlanc {
@@ -20,99 +28,137 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Système de Flip Card */
 .seasonsGrid {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 
-.seasonCard {
-  display: flex;
+.cardContainer {
+  perspective: 1000px;
+  height: 350px;
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.isFlipped {
+  transform: rotateY(180deg);
+}
+
+.faceAvant,
+.faceArriere {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
   background-color: #111827;
-  border-radius: 12px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  border-left: 5px solid transparent;
+  border-left: 8px solid transparent;
 }
 
-.seasonCard:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+.faceArriere {
+  transform: rotateY(180deg);
+  display: flex;
 }
 
-/* Bordures de couleurs */
+/* Couleurs de bordures */
 .borderBlue {
-  border-left-color: #3b82f6;
+  border-color: #3b82f6;
 }
 .borderRed {
-  border-left-color: #ef4444;
+  border-color: #ef4444;
 }
 .borderGreen {
-  border-left-color: #10b981;
+  border-color: #10b981;
 }
 .borderOrange {
-  border-left-color: #f59e0b;
+  border-color: #f59e0b;
 }
 
+/* Contenu Quiz */
+.quizContent {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.quizBtn {
+  background: #1f2937;
+  color: white;
+  border: 1px solid #374151;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.continueBtn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Face Arrière */
 .seasonThumbnail {
-  flex: 0 0 250px;
+  width: 40%;
 }
-
 .seasonThumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .seasonContent {
   padding: 30px;
+  width: 60%;
+}
+
+.startContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  margin-bottom: 40px;
+}
+.startBtn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
-.seasonContent h2 {
-  color: white;
-  font-family: "Cinzel", serif;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
+.success {
+  color: #10b981;
 }
-
-.seasonContent h2:hover::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 2px;
-  background: white;
-  bottom: -5px;
-  left: 0;
+.error {
+  color: #ef4444;
 }
-
-.description {
-  color: #aeb4c0;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.highlight {
-  color: #6e7681;
-  font-style: italic;
-  font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .seasonCard {
-    flex-direction: column;
-  }
-  .seasonThumbnail {
-    flex: 0 0 200px;
-  }
+.lockedContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5rem;
+  opacity: 0.5;
 }

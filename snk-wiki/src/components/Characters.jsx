@@ -111,7 +111,6 @@ const Characters = () => {
             )}
             {etape === "question" && questionActuelle && (
               <div>
-                {/* --- UTILISATION DE .qst AU LIEU DE .q --- */}
                 <h2>{questionActuelle.qst}</h2>
                 <div id="options-boutons">
                   {questionActuelle.choix.map((c) => (
@@ -138,7 +137,6 @@ const Characters = () => {
         )}
 
         <div className="personnages-container">
-          {/* --- ON MAP SUR LES INFOS DE DESCRIPTION --- */}
           {charactersInfo.map((info) => (
             <CharacterCard
               key={info.id}
@@ -154,13 +152,21 @@ const Characters = () => {
 
       {victoireFinale && (
         <div id="message-victoire-final" style={{ display: "block" }}>
-          <h1>FÉLICITATIONS!</h1>
-          <p>Tu as prouvé ta valeur. Tous les personnages sont débloqués !</p>
+          <h1>FÉLICITATIONS !</h1>
+          <p>Bravo, vous avez débloqué tous les personnages !</p>
           <button
             className="btn-reponse-quiz"
             onClick={() => window.location.reload()}
           >
             Rejouer
+          </button>
+          <button className="btn-reponse-quiz">
+            <a
+              href="titans.html"
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              Page Suivante
+            </a>
           </button>
         </div>
       )}

@@ -133,7 +133,7 @@ const Titans = () => {
                 {/* dos de la carte  */}
                 <div className={styles["face-avant"]}>
                   <img
-                    src="images/face-avant-titans.jpg"
+                    src="images/face-avant-titans.png"
                     width="auto"
                     height="400"
                     draggable="false"

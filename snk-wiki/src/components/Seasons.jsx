@@ -6,7 +6,7 @@ const Seasons = () => {
   // --- États ---
   const [quizLance, setQuizLance] = useState(false);
   const [unlockedCount, setUnlockedCount] = useState(0); // Gère quelle carte est retournée
-  const [currentStep, setCurrentStep] = useState(0); // Question 1 ou 2
+  const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
 
@@ -67,7 +67,7 @@ const Seasons = () => {
     if (currentStep < totalQuestions - 1) {
       setCurrentStep(currentStep + 1); // on passe a la qst suivante
     } else {
-      setUnlockedCount((prev) => prev + 1); // Debloque et retourne la carte
+      setUnlockedCount((prev) => prev + 1); // debloque et retourne la carte
       setCurrentStep(0);
     }
     setFeedback(null);
@@ -87,7 +87,7 @@ const Seasons = () => {
         className={styles.bannerImage}
       />
 
-      {/* Bouton de démarrage */}
+      {/* Btn de démarrage */}
       {!quizLance && (
         <div className={styles.startContainer}>
           <button

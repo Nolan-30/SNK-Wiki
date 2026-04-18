@@ -20,7 +20,6 @@ const Header = () => {
             <Link to="/">Accueil</Link>
           </li>
           <li>
-            {/* 2. On remplace tous les <a> par des <Link> pour éviter le rechargement de page */}
             <Link to="/Histoire">Histoire</Link>
           </li>
           <li>
@@ -33,8 +32,10 @@ const Header = () => {
             <Link to="/Saisons">Saisons</Link>
           </li>
           <li className="pfp">
-            {/* Même chose ici, on enlève "public/" */}
-            <img src="public/images/pfp.png" alt="Profil" height="40" />
+            <Link to="/profile">
+              {/* fix le double surlignage sur la pp */}
+              <img src="public/images/pfp.png" alt="Profil" height="40" />
+            </Link>
           </li>
         </ol>
       </nav>

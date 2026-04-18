@@ -82,7 +82,7 @@ const Seasons = () => {
         </span>
       </h1>
       <img
-        src="images/seasons.jpg"
+        src="public/images/seasons.jpg"
         alt="Bannière Saisons"
         className={styles.bannerImage}
       />

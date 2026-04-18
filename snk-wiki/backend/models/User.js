@@ -5,14 +5,14 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 
-  // stock les quiz debloqués
-  quizUnlocked: { type: [String], default: ["Saison 1"] },
-
-  // stocke les best quiz
-  bestScores: {
+  unlockedPages: {
     type: Map,
-    of: Number,
-    default: {},
+    of: Boolean,
+    default: {
+      Page1: true, // La première est débloqué par defaut(celle de l'accueul)
+      Page2: false,
+      Page3: false,
+    },
   },
 });
 

@@ -9,6 +9,7 @@ const History = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
+  const [startTime, setStartTime] = useState(null); // stocke l'heure de départ
 
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
@@ -37,6 +38,27 @@ const History = () => {
   // affichage d'un msg de victoire si tt les conditions dans le json sont remplies
   const isVictoireTotale = unlockedCount >= quizData.length;
 
+  const enregistrerProgression = async (tempsMis) => {
+    const username = localStorage.getItem("username"); // On récupère le nom de l'utilisateur
+
+    try {
+      const response = await fetch("http://localhost:5000/update-progression", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          pageName: "Page_Histoire", // nom de la page à débloquer
+          timeTaken: tempsMis,
+        }),
+      });
+
+      const data = await response.json();
+      console.log("Serveur :", data.message);
+    } catch (err) {
+      console.error("Erreur d'enregistrement :", err);
+    }
+  };
+
   return (
     <main className={styles.historyMain}>
       {/* PARTIE ACCUEIL */}
@@ -47,7 +69,7 @@ const History = () => {
           </span>
         </h1>
         <img
-          src="images/ymir.jpg"
+          src="public/images/ymir.jpg"
           alt="Ymir Fritz"
           className={styles.historyHeroImg}
         />
@@ -62,7 +84,10 @@ const History = () => {
             questions pour débloquer les archives.
           </p>
           <button
-            onClick={() => setQuizLance(true)}
+            onClick={() => {
+              setQuizLance(true);
+              setStartTime(Date.now()); //
+            }}
             className={styles.startBtn}
           >
             Démarrer l'Exploration ⚔️
@@ -86,6 +111,9 @@ const History = () => {
             ) : (
               <QuizZone
                 data={quizData[0]}
+                Commencer
+                le
+                quiz
                 currentStep={currentStep}
                 handleAnswer={handleAnswer}
                 feedback={feedback}

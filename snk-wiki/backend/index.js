@@ -81,6 +81,24 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/update-progression", async (req, res) => {
+  try {
+    const { username, pageName, timeTaken } = req.body;
+
+    const user = await User.findOne({ username });
+    if (!user) return res.status(404).json({ message: "Soldat introuvable" });
+
+    // debloquage et enregistrement du temps
+    user.unlockedPages.set(pageName, true);
+    user.completionTimes.set(pageName, timeTaken);
+
+    await user.save();
+    res.json({ message: "Progression enregistrée !", user });
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de la mise à jour" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Serveur lancé sur http://localhost:${PORT} `);
 });

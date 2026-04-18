@@ -5,6 +5,7 @@ const Profile = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
+  const [startTime, setStartTime] = useState(null); // stocker l'heure de départ
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +20,8 @@ const Profile = () => {
 
       const data = await response.json();
       if (response.ok) {
+        // On enregistre le pseudo
+        localStorage.setItem("username", formData.username);
         setMessage(
           `Succès ! Bienvenue soldat ${data.username || formData.username}`,
         );

@@ -41,14 +41,14 @@ git clone https://github.com/Nolan-30/SNK-Wiki.git
 cd SNK-Wiki
 
 ### 2️⃣ Lancer le Backend 🔌
-```bash
+bash
 cd backend
 npm install
 # Crée un fichier .env avec MONGO_URI=mongodb+srv://nolandalmeida07_db_user:lWayXS43UzvJlzDb@snk.l1rpqvy.mongodb.net/?retryWrites=true&w=majority&appName=SNK
 npm start
 
 ### 3️⃣ Lancer le Frontend 🖼️
-```bash
+bash
 cd snk-wiki
 npm install
 npm run dev

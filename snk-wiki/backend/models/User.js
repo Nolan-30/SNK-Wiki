@@ -5,13 +5,25 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 
+  // stock les pages bloques et debloques
   unlockedPages: {
     type: Map,
     of: Boolean,
     default: {
-      Page1: true, // La première est débloqué par defaut(celle de l'accueul)
+      Page1: true, // La 1ere est débloquée par défaut
       Page2: false,
       Page3: false,
+    },
+  },
+
+  // stock le temps mis pr debloquer une page
+  completionTimes: {
+    type: Map,
+    of: Number,
+    default: {
+      Page1: 0,
+      Page2: 0,
+      Page3: 0,
     },
   },
 });

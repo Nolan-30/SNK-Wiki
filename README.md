@@ -4,13 +4,13 @@ Bienvenue sur le projet **SNK-Wiki**, l'encyclopédie ultime sur l'univers de *L
 
 ---
 
-## 🚀 Ma Stack Technique (MERN-ish) 💻
+##  Stack Technique  💻
 
 Le projet est divisé en deux parties principales : un Frontend moderne et un Backend robuste.
 
 ### 🎨 Frontend
 - **React.js** ⚛️ : Pour une interface dynamique et réactive.
-- **React Router** 🛣️ : Pour la navigation entre les pages (Histoire, Titans, Quiz).
+- **React Router** 🛣️ : Pour la navigation entre les pages (Accueil, Histoire, Personnages Titans, Saisons).
 - **CSS Modules** 🎨 : Pour un style propre et isolé par composant.
 - **Vite** ⚡ : Pour un environnement de développement ultra-rapide.
 
@@ -18,18 +18,18 @@ Le projet est divisé en deux parties principales : un Frontend moderne et un Ba
 - **Node.js** 🟢 : L'environnement d'exécution JavaScript côté serveur.
 - **Express.js** 🚄 : Le framework pour gérer l'API et les routes.
 - **MongoDB Atlas** 🍃 : La base de données NoSQL dans le cloud pour stocker les scores.
-- **Mongoose** 🦅 : Pour structurer les données des utilisateurs (Schemas).
-- **Dotenv & CORS** 🔐 : Pour la sécurité des variables d'environnement et les autorisations.
+
 
 ---
 
 ## ✨ Fonctionnalités 🌟
-
-- **📖 Histoire** : Découvrez les secrets d'Ymir Fritz et l'origine des murs.
-- **👺 Encyclopédie des Titans** : Fiches détaillées sur les 9 Titans primordiaux.
 - **🧠 Quiz Interactif** : Testez vos connaissances sur l'univers de SNK.
+- **📖 Histoire** : Découvrez les secrets d'Ymir Fritz et l'origine des murs.
+- **👥 Personnages : Explorez les fiches détaillées des membres du Bataillon d'exploration et des Guerriers de Mahr.
+- **👹 Titans : Apprenez-en plus sur les 9 Titans Primordiaux, leurs détenteurs et leurs pouvoirs dévastateurs.
+- **🎬 Saisons : Retracez l'épopée complète, de la chute du Mur Maria jusqu'au Grand Terrassement.
 - **💾 Système de Score** : Vos performances sont enregistrées en base de données via l'API.
-- **🔓 Déblocage de Saisons** : Terminez les quiz pour débloquer l'accès aux infos des saisons suivantes !
+- **🔓 Déblocage de pages** : Terminez les quiz pour débloquer l'accès aux infos des pages suivantes !
 
 ---
 
@@ -37,5 +37,10 @@ Le projet est divisé en deux parties principales : un Frontend moderne et un Ba
 
 ### 1️⃣ Cloner le projet
 ```bash
-git clone [https://github.com/TON_PSEUDO/SNK-Wiki.git](https://github.com/TON_PSEUDO/SNK-Wiki.git)
+git clone https://github.com/Nolan-30/SNK-Wiki.git
 cd SNK-Wiki
+
+
+
+
+

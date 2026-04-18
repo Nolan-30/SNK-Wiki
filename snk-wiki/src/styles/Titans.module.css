@@ -326,22 +326,59 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+
+  /* background-color: #000; */
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #1a0000 100%
+  ); /* Exemple : dégradé noir -> rouge très sombre */
+
+  /* Ajuste la couleur de fin du dégradé selon tes préférences.
+     Quelques idées :
+     Vert très sombre : #001a00
+     Bleu très sombre : #00001a
+     Gris très sombre : #1a1a1a */
+
   padding: 15px;
   border-radius: 10px;
   box-sizing: border-box;
   color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
 }
 
 .jeu-dans-carte h3 {
   color: #ff4444;
   margin-bottom: 10px;
+}
+
+#message-victoire-final {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.95); /* Fond sombre identique aux persos */
+  color: #129d00; /* Vert pour la victoire */
+  padding: 50px;
+  border: 5px solid rgba(41, 41, 41, 0.489);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1000;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 50px rgba(0, 125, 2, 0.5); /* Lueur verte */
+}
+
+#message-victoire-final h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+#message-victoire-final p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
 
 .options-boutons-titans {
@@ -382,22 +419,6 @@
 
   border: none;
   border-radius: 5px;
-}
-
-#message-victoire-final {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.95);
-  color: #b30000;
-  padding: 50px;
-  border: 5px solid rgba(41, 41, 41, 0.489);
-  border-radius: 20px;
-  text-align: center;
-  z-index: 1000;
-  width: 80%;
-  box-shadow: 0 0 50px rgba(0, 125, 2, 0.5);
 }
 
 .page-suivante a {

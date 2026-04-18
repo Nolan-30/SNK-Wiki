@@ -1,76 +1,186 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/Seasons.module.css";
+import quizData from "../data/Seasons.json";
 
 const Seasons = () => {
+  // --- États ---
+  const [quizLance, setQuizLance] = useState(false);
+  const [unlockedCount, setUnlockedCount] = useState(0); // Gère quelle carte est retournée
+  const [currentStep, setCurrentStep] = useState(0);
+  const [feedback, setFeedback] = useState(null);
+  const [showNextBtn, setShowNextBtn] = useState(false);
+
+  // --- Données des Saisons ---
   const seasonsData = [
     {
       id: 1,
       title: "Saison 1",
-      url: "https://www.youtube.com/watch?v=LwaZnd36_68",
-      img: "public/images/saison1.jpg",
-      description:
-        "L'humanité vit en paix jusqu'à l'apparition du Titan Colossal. Eren, Mikasa et Armin rejoignent l'armée.",
-      highlight: "Incontournable : La bataille du district de Trost.",
+      img: "images/saison1.png",
+
       colorClass: styles.borderBlue,
+      description:
+        "L'humanité vit depuis un siècle protégée par d'immenses murs, jusqu'à l'apparition soudaine du Titan Colossal qui brise le Mur Maria. Après avoir vu sa mère dévorée, Eren Jaeger jure d'exterminer tous les Titans. Avec Mikasa et Armin, il rejoint la 104ème brigade d'entraînement pour apprendre à manier la manœuvre tridimensionnelle et reprendre le district de Trost, marquant ainsi la première victoire de l'humanité.",
+      highlight: "Incontournable : La bataille du district de Trost.",
     },
     {
       id: 2,
       title: "Saison 2",
-      url: "https://www.youtube.com/watch?v=z8Xy0N_uI6U",
       img: "public/images/saison2.jpg",
-      description:
-        "La découverte de Titans à l'intérieur des murs. L'identité des traîtres est révélée.",
-      highlight: "Moment fort : La trahison de Reiner et Bertholdt.",
       colorClass: styles.borderRed,
+      description:
+        "Le danger surgit de l'intérieur lorsque des Titans sont repérés au sein du Mur Rose sans qu'aucune brèche ne soit visible. La traque des traîtres s'intensifie au sein du Bataillon d'exploration, menant à la révélation choc des identités des Titans Cuirassé et Colossal. Eren découvre alors un pouvoir mystérieux, l'Axe, lors d'un affrontement désespéré pour sauver ses camarades.",
+      highlight: "Moment fort : La trahison de Reiner et Bertholdt.",
     },
     {
       id: 3,
       title: "Saison 3",
-      url: "https://www.youtube.com/watch?v=ou4zFtWBjAg",
       img: "public/images/saison3.jpg",
-      description:
-        "Partie 1 : Conflit politique et royauté. Partie 2 : Le retour à Shiganshina et la cave.",
-      highlight: "Clé : La vérité sur le monde extérieur et la mer.",
       colorClass: styles.borderGreen,
+      description:
+        "Le conflit devient politique lorsque le Bataillon d'exploration est pourchassé par la Brigade de police spéciale. Après avoir renversé le gouvernement corrompu et couronné Historia, les soldats lancent l'opération de reconquête du Mur Maria. Au prix de sacrifices déchirants, ils atteignent enfin la cave de Grisha Jaeger, découvrant la vérité sur le monde extérieur et l'existence d'Eldia et Mahr.",
+      highlight: "Clé : La vérité sur le monde extérieur et la mer.",
     },
     {
       id: 4,
       title: "Saison 4",
-      url: "https://www.youtube.com/watch?v=KnpVhlDoogM",
       img: "public/images/saison4.jpg",
-      description:
-        "Quatre ans plus tard à Mahr. La guerre éclate. Le Grand Terrassement commence.",
-      highlight: "Conclusion : La fin de l'ère des Titans.",
       colorClass: styles.borderOrange,
+      description:
+        "L'histoire traverse la mer pour se concentrer sur les guerriers de Mahr. La haine ancestrale entre les peuples atteint son paroxysme lorsqu'Eren lance une attaque dévastatrice sur Revelio. Alors que le monde entier se ligue contre l'île du Paradis, Eren active le Grand Terrassement, libérant des millions de Titans pour écraser toute vie hors de l'île, forçant ses anciens alliés à tenter l'impossible pour l'arrêter.",
+      highlight: "Conclusion : La fin de l'ère des Titans.",
     },
   ];
 
+  // --- Logique du Quiz ---
+  const handleAnswer = (choice, correctAnswer) => {
+    if (choice === correctAnswer) {
+      setFeedback({ msg: "Bonne réponse ! 🎉", isCorrect: true });
+      setShowNextBtn(true);
+    } else {
+      setFeedback({ msg: "Mauvaise réponse ! ❌", isCorrect: false });
+    }
+  };
+
+  const nextStep = () => {
+    const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
+
+    if (currentStep < totalQuestions - 1) {
+      setCurrentStep(currentStep + 1); // on passe a la qst suivante
+    } else {
+      setUnlockedCount((prev) => prev + 1); // debloque et retourne la carte
+      setCurrentStep(0);
+    }
+    setFeedback(null);
+    setShowNextBtn(false);
+  };
+
   return (
     <main className={styles.seasonsMain}>
-      <h1 className={styles.pageTitle} data-aos="fade-down">
-        <span className={styles.degraderBlanc}>Chronologie des Saisons</span>
+      <h1 className={styles.pageTitle}>
+        <span className={styles.degraderBlanc}>
+          Le Récit de Cent Ans de Lutte pour la Liberté
+        </span>
       </h1>
+      <img
+        src="images/seasons.jpg"
+        alt="Bannière Saisons"
+        className={styles.bannerImage}
+      />
+
+      {/* Btn de démarrage */}
+      {!quizLance && (
+        <div className={styles.startContainer}>
+          <button
+            onClick={() => setQuizLance(true)}
+            className={styles.startBtn}
+          >
+            Démarrer le Quiz ⚔️
+          </button>
+        </div>
+      )}
 
       <div className={styles.seasonsGrid}>
-        {seasonsData.map((season) => (
-          <article
-            key={season.id}
-            className={`${styles.seasonCard} ${season.colorClass}`}
-            data-aos="fade-up"
-          >
-            <div className={styles.seasonThumbnail}>
-              <img src={season.img} alt={season.title} />
-            </div>
+        {seasonsData.map((season, index) => {
+          const isUnlocked = index < unlockedCount;
+          const isCurrent = index === unlockedCount;
+          const currentQuiz = quizData[index];
 
-            <div className={styles.seasonContent}>
-              <a href={season.url} target="_blank" rel="noopener noreferrer">
-                <h2>{season.title}</h2>
-              </a>
-              <p className={styles.description}>{season.description}</p>
-              <p className={styles.highlight}>{season.highlight}</p>
+          return (
+            <div key={season.id} className={styles.cardContainer}>
+              <div
+                className={`${styles.flipCardInner} ${isUnlocked ? styles.isFlipped : ""}`}
+              >
+                {/* FACE AVANT  */}
+                <div className={`${styles.faceAvant} ${season.colorClass}`}>
+                  {quizLance && isCurrent && currentQuiz ? (
+                    <div className={styles.quizContent}>
+                      <p className={styles.stepIndicator}>
+                        Question {currentStep + 1} / 2
+                      </p>
+                      <p className={styles.questionText}>
+                        {currentQuiz.questions[currentStep].qst}
+                      </p>
+
+                      <div className={styles.optionsGrid}>
+                        {currentQuiz.questions[currentStep].choix.map((c) => (
+                          <button
+                            key={c}
+                            onClick={() =>
+                              handleAnswer(
+                                c,
+                                currentQuiz.questions[currentStep].reponse,
+                              )
+                            }
+                            className={styles.quizBtn}
+                          >
+                            {c}
+                          </button>
+                        ))}
+                      </div>
+
+                      {feedback && (
+                        <p
+                          className={
+                            feedback.isCorrect ? styles.success : styles.error
+                          }
+                        >
+                          {feedback.msg}
+                        </p>
+                      )}
+
+                      {showNextBtn && (
+                        <button
+                          onClick={nextStep}
+                          className={styles.continueBtn}
+                        >
+                          {currentStep === 0
+                            ? "Continuer →"
+                            : "Débloquer la saison ! 🔓"}
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                    <div className={styles.lockedContent}>
+                      <span>{isUnlocked ? "" : "🔒 Saison Verrouillée"}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* FACE ARRIÈRE */}
+                <div className={`${styles.faceArriere} ${season.colorClass}`}>
+                  <div className={styles.seasonThumbnail}>
+                    <img src={season.img} alt={season.title} />
+                  </div>
+                  <div className={styles.seasonContent}>
+                    <h2>{season.title}</h2>
+                    <p>{season.description}</p>
+                    <small>{season.highlight}</small>
+                  </div>
+                </div>
+              </div>
             </div>
-          </article>
-        ))}
+          );
+        })}
       </div>
     </main>
   );

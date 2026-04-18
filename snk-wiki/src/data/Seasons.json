@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nom": "Saison 1",
+    "questions": [
+      {
+        "qst": "Quel Titan apparaît soudainement pour briser le Mur Maria au tout début de la série ?",
+        "indice": "Il mesure 60 mètres et dégage de la vapeur... 🔥",
+        "choix": ["Le Titan Cuirassé", "Le Titan Colossal", "Le Titan Assaillant", "Le Titan Féminin"],
+        "reponse": "Le Titan Colossal"
+      },
+      {
+        "qst": "Dans quel district vivent Eren, Mikasa et Armin avant l'attaque ?",
+        "indice": "C'est la ville située au sud du Mur Maria... 🏠",
+        "choix": ["Trost", "Stohess", "Shiganshina", "Karanes"],
+        "reponse": "Shiganshina"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nom": "Saison 2",
+    "questions": [
+      {
+        "qst": "Que découvrent les soldats à l'intérieur d'une brèche du mur à la fin de la saison 1 ?",
+        "indice": "Il y a un visage dans la pierre... 🗿",
+        "choix": ["De l'or", "Un Titan vivant", "Une arme secrète", "Un escalier"],
+        "reponse": "Un Titan vivant"
+      },
+      {
+        "qst": "Quels personnages révèlent leur véritable identité de Titans sur le Mur Rose ?",
+        "indice": "L'un est le Cuirassé, l'autre le Colossal... 🎭",
+        "choix": ["Ymir et Christa", "Reiner et Bertholdt", "Annie et Jean", "Erwin et Levi"],
+        "reponse": "Reiner et Bertholdt"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nom": "Saison 3",
+    "questions": [
+      {
+        "qst": "Quelle est la véritable identité de Christa Lenz, révélée dans cette saison ?",
+        "indice": "Elle appartient à la véritable lignée royale... 👑",
+        "choix": ["Historia Reiss", "Frieda Tybur", "Ymir Fritz", "Carla Jaeger"],
+        "reponse": "Historia Reiss"
+      },
+      {
+        "qst": "Que contient la cave de Grisha Jaeger que les héros parviennent enfin à ouvrir ?",
+        "indice": "C'est la preuve que l'humanité n'a pas péri à l'extérieur... 📷",
+        "choix": ["Une arme anti-titans", "Le sérum du Titan Originel", "La vérité sur le monde extérieur", "Un trésor royal"],
+        "reponse": "La vérité sur le monde extérieur"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nom": "Saison 4",
+    "questions": [
+      {
+        "qst": "Dans quelle nation se trouve le camp de Revelio, où vivent les Eldiens de l'autre côté de la mer ?",
+        "indice": "C'est l'empire ennemi qui utilise le pouvoir des Titans... ⚓",
+        "choix": ["Hizuru", "Mahr", "Moyen-Orient", "Paradis"],
+        "reponse": "Mahr"
+      },
+      {
+        "qst": "Comment s'appelle l'événement dévastateur déclenché par Eren pour piétiner le monde ?",
+        "indice": "Les Titans des murs se mettent en marche... 👣",
+        "choix": ["Le Grand Terrassement", "La Purge Royale", "L'Aube de la Liberté", "Le Jugement Dernier"],
+        "reponse": "Le Grand Terrassement"
+      }
+    ]
+  }
+]

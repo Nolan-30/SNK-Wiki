@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-// test  pour créer un utilisateur
+// test  pour créer un user
 app.post("/api/user", async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -31,6 +31,56 @@ app.post("/api/user", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+// Route pour l'inscription
+app.post("/register", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // On vérifie si le soldat existe déjà
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ message: "Ce nom de soldat est déjà pris !" });
+    }
+
+    // creation du new user
+    const newUser = new User({ username, password });
+    await newUser.save();
+
+    res.status(201).json({
+      message: "Soldat enregistré avec succès !",
+      username: newUser.username,
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de l'inscription" });
+  }
+});
+
+// Route pour la connexion
+app.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // On cherche l'utilisateur dans la BDD
+    const user = await User.findOne({ username });
+    console.log("Utilisateur trouvé dans la base :", user);
+
+    // On vérifie si l'utilisateur existe et si le mdp correspond
+    if (!user || user.password !== password) {
+      return res
+        .status(401)
+        .json({ message: "Pseudo ou mot de passe incorrect." });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Connexion réussie !", username: user.username });
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de la connexion " });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Serveur lancé sur http://localhost:${PORT} `);
 });

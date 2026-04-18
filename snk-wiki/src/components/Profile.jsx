@@ -33,7 +33,8 @@ const Profile = () => {
   return (
     <div className={styles.profilContainer}>
       <div className={styles.authCard}>
-        <h2>{isLogin ? "Connexion" : "Rejoindre le Bataillon"}</h2>
+        {/* mettre une image au dessus du txt */}
+        <h2>{isLogin ? "Connexion" : "Rejoindre le Bataillon "}</h2>
         <form onSubmit={handleSubmit} className={styles.authForm}>
           <input
             type="text"

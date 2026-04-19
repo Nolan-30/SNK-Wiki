@@ -5,17 +5,18 @@ import quizData from "../data/Seasons.json";
 const Seasons = () => {
   // --- États ---
   const [quizLance, setQuizLance] = useState(false);
-  const [unlockedCount, setUnlockedCount] = useState(0); // Gère quelle carte est retournée
+  const [unlockedCount, setUnlockedCount] = useState(0); // gere quelle carte est retournée
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
+  const [startTime, setStartTime] = useState(null);
 
   // --- Données des Saisons ---
   const seasonsData = [
     {
       id: 1,
       title: "Saison 1",
-      img: "images/saison1.png",
+      img: "public/images/saison1.png",
 
       colorClass: styles.borderBlue,
       description:
@@ -51,6 +52,30 @@ const Seasons = () => {
     },
   ];
 
+  const enregistrerProgression = async () => {
+    if (!startTime) return;
+
+    const fin = Date.now();
+    const dureeEnSecondes = Math.floor((fin - startTime) / 1000);
+    const username = localStorage.getItem("username");
+
+    try {
+      const response = await fetch("http://localhost:5000/update-progression", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          pageName: "Page_Saisons",
+          timeTaken: dureeEnSecondes,
+        }),
+      });
+      const data = await response.json();
+      console.log("Progression Saisons sauvée :", data.message);
+    } catch (err) {
+      console.error("Erreur sauvegarde Saisons :", err);
+    }
+  };
+
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
     if (choice === correctAnswer) {
@@ -67,12 +92,19 @@ const Seasons = () => {
     if (currentStep < totalQuestions - 1) {
       setCurrentStep(currentStep + 1); // on passe a la qst suivante
     } else {
-      setUnlockedCount((prev) => prev + 1); // debloque et retourne la carte
+      if (unlockedCount === seasonsData.length - 1) {
+        enregistrerProgression();
+      }
+      setUnlockedCount((prev) => prev + 1);
       setCurrentStep(0);
     }
     setFeedback(null);
     setShowNextBtn(false);
   };
+
+  // vérifie si le nbr de saisons débloqees est égal au total des saisons
+  const isVictoireTotale =
+    unlockedCount >= seasonsData.length && seasonsData.length > 0;
 
   return (
     <main className={styles.seasonsMain}>
@@ -91,8 +123,12 @@ const Seasons = () => {
       {!quizLance && (
         <div className={styles.startContainer}>
           <button
-            onClick={() => setQuizLance(true)}
             className={styles.startBtn}
+            onClick={() => {
+              setQuizLance(true);
+
+              setStartTime(Date.now());
+            }}
           >
             Démarrer le Quiz ⚔️
           </button>
@@ -182,6 +218,18 @@ const Seasons = () => {
           );
         })}
       </div>
+      {isVictoireTotale && (
+        <div className={styles.messageVictoireFinal}>
+          <h1>FÉLICITATIONS ! 🏆</h1>
+          <p>Vous avez exploré toutes les saisons avec succès.</p>
+          <div className={styles.victoireBoutons}>
+            <button onClick={() => window.location.reload()}>Rejouer</button>
+            <button onClick={() => (window.location.href = "/characters")}>
+              Voir les Personnages
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 };

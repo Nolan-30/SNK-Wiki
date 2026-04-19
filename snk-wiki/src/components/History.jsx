@@ -21,13 +21,24 @@ const History = () => {
     }
   };
 
+  // --- DANS LA FONCTION nextStep ---
   const nextStep = () => {
     const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
 
     if (currentStep < totalQuestions - 1) {
+      // On passe à la question suivante de la même carte
       setCurrentStep(currentStep + 1);
     } else {
-      // debloquage de la carte suivante
+      // On a fini toutes les questions de la carte actuelle
+
+      // MODIFICATION : On vérifie si on vient de finir la DERNIÈRE carte
+      // Si unlockedCount est égal à la longueur du tableau - 1, c'est la fin !
+      if (unlockedCount === quizData.length - 1) {
+        // On lance l'enregistrement seulement ici
+        enregistrerProgression();
+      }
+
+      // On incrémente le compteur pour débloquer la suite ou afficher la victoire
       setUnlockedCount((prev) => prev + 1);
       setCurrentStep(0);
     }
@@ -38,24 +49,26 @@ const History = () => {
   // affichage d'un msg de victoire si tt les conditions dans le json sont remplies
   const isVictoireTotale = unlockedCount >= quizData.length;
 
-  const enregistrerProgression = async (tempsMis) => {
-    const username = localStorage.getItem("username"); // On récupère le nom de l'utilisateur
+  const enregistrerProgression = async () => {
+    if (!startTime) return;
+
+    const fin = Date.now();
+    const dureeEnSecondes = Math.floor((fin - startTime) / 1000);
+    const username = localStorage.getItem("username");
 
     try {
-      const response = await fetch("http://localhost:5000/update-progression", {
+      await fetch("http://localhost:5000/update-progression", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: username,
-          pageName: "Page_Histoire", // nom de la page à débloquer
-          timeTaken: tempsMis,
+          pageName: "Page_Histoire", // C'est ici qu'on définit le nom pour la BDD
+          timeTaken: dureeEnSecondes,
         }),
       });
-
-      const data = await response.json();
-      console.log("Serveur :", data.message);
+      console.log("Progression Histoire enregistrée !");
     } catch (err) {
-      console.error("Erreur d'enregistrement :", err);
+      console.error("Erreur de sauvegarde :", err);
     }
   };
 
@@ -110,10 +123,7 @@ const History = () => {
               </p>
             ) : (
               <QuizZone
-                data={quizData[0]}
-                Commencer
-                le
-                quiz
+                data={quizData[unlockedCount]}
                 currentStep={currentStep}
                 handleAnswer={handleAnswer}
                 feedback={feedback}

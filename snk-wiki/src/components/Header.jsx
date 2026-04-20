@@ -3,7 +3,7 @@ import "../styles/Header.css";
 
 const Header = () => {
   return (
-    <header className="header">
+    <header>
       {/* 1. En React/Vite, on ne met pas "public/" dans le chemin. Le dossier public est la racine "/" */}
       <Link to="/">
         <img
@@ -15,7 +15,7 @@ const Header = () => {
       </Link>
 
       <nav>
-        <ol className="menu">
+        <ol className="nav">
           <li>
             <Link to="/">Accueil</Link>
           </li>
@@ -34,7 +34,9 @@ const Header = () => {
           <li className="pfp">
             <Link to="/profile">
               {/* fix le double surlignage sur la pp */}
-              <img src="public/images/pfp.png" alt="Profil" height="40" />
+              <span>
+                <img src="public/images/pfp.png" alt="Profil" height="40" />
+              </span>
             </Link>
           </li>
         </ol>

@@ -54,7 +54,7 @@ const Home = () => {
 
           {/* Carte Personnages */}
           <article className="card card-green">
-            <Link to="/perso">
+            <Link to="/personnages">
               <div className="icon-box">
                 <i className="fa-solid fa-book-open"></i>
               </div>

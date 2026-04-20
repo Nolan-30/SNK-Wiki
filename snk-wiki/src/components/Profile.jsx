@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/Profile.module.css";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
-  const [startTime, setStartTime] = useState(null); // stocker l'heure de départ
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,8 +21,15 @@ const Profile = () => {
 
       const data = await response.json();
       if (response.ok) {
-        // On enregistre le pseudo
+        //enregistrement du pseudo
         localStorage.setItem("username", formData.username);
+        if (isLogin) {
+          setTimeout(() => {
+            navigate("/"); // redirige vers l'accueil
+          }, 500);
+        } else {
+          setIsLogin(true);
+        }
         setMessage(
           `Succès ! Bienvenue soldat ${data.username || formData.username}`,
         );
@@ -41,7 +49,7 @@ const Profile = () => {
         <form onSubmit={handleSubmit} className={styles.authForm}>
           <input
             type="text"
-            placeholder="Nom de soldat (Pseudo)"
+            placeholder="Nom de soldat "
             value={formData.username}
             onChange={(e) =>
               setFormData({ ...formData, username: e.target.value })

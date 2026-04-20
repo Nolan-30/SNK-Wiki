@@ -21,24 +21,17 @@ const History = () => {
     }
   };
 
-  // --- DANS LA FONCTION nextStep ---
   const nextStep = () => {
     const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
 
     if (currentStep < totalQuestions - 1) {
-      // On passe à la question suivante de la même carte
+      // passe a la qst suivante de la meme carte
       setCurrentStep(currentStep + 1);
     } else {
-      // On a fini toutes les questions de la carte actuelle
-
-      // MODIFICATION : On vérifie si on vient de finir la DERNIÈRE carte
-      // Si unlockedCount est égal à la longueur du tableau - 1, c'est la fin !
       if (unlockedCount === quizData.length - 1) {
-        // On lance l'enregistrement seulement ici
         enregistrerProgression();
       }
 
-      // On incrémente le compteur pour débloquer la suite ou afficher la victoire
       setUnlockedCount((prev) => prev + 1);
       setCurrentStep(0);
     }
@@ -62,7 +55,7 @@ const History = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: username,
-          pageName: "Page_Histoire", // C'est ici qu'on définit le nom pour la BDD
+          pageName: "Page_Histoire", // nom de la page qu'on debloque
           timeTaken: dureeEnSecondes,
         }),
       });

@@ -8,12 +8,34 @@ const Titans = () => {
   const [timerActive, setTimerActive] = useState(false);
 
   const [quizActive, setQuizActive] = useState(false);
-  const [etapeQuiz, setEtapeQuiz] = useState(""); // "indice", "question", "debloque"
+  const [etapeQuiz, setEtapeQuiz] = useState(""); // indice, question, debloque
   const [feedback, setFeedback] = useState({ texte: "", couleur: "" });
   const [showContinueBtn, setShowContinueBtn] = useState(false);
+  const [startTime, setStartTime] = useState(null);
 
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
+  const isVictoireTotale = unlockedCount >= donneesQuizTitans.length;
+
+  const enregistrerProgressionTitans = async () => {
+    const username = localStorage.getItem("username");
+    const dureeEnSecondes = Math.floor(tempsEcoule / 1000);
+
+    try {
+      await fetch("http://localhost:5000/update-progression", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          pageName: "Page_Titans",
+          timeTaken: dureeEnSecondes,
+        }),
+      });
+      console.log("Progression Titans enregistrée !");
+    } catch (err) {
+      console.error("Erreur de sauvegarde Titans :", err);
+    }
+  };
 
   // --- logique du chrono ---
   useEffect(() => {
@@ -26,6 +48,14 @@ const Titans = () => {
     }
     return () => clearInterval(timerRef.current);
   }, [timerActive]);
+
+  // declenchement de la save quand tous les titans sont débloqués
+  useEffect(() => {
+    // on verifie que la victoire est vrai et qu'on a bien débloqué tt les titans pour eviter les bugs
+    if (isVictoireTotale && unlockedCount > 0) {
+      enregistrerProgressionTitans();
+    }
+  }, [isVictoireTotale, unlockedCount]);
 
   const formatTime = (ms) => {
     const minutes = Math.floor(ms / 60000);
@@ -77,13 +107,11 @@ const Titans = () => {
       });
     }
 
-    // Lancement auto du prochain quiz après le scroll
+    // lancement auto du prochain quiz après le scroll
     setTimeout(() => {
       gererChrono();
     }, 800);
   };
-
-  const isVictoireTotale = unlockedCount >= donneesQuizTitans.length;
 
   return (
     <div className={styles["bg-black"]}>
@@ -141,7 +169,7 @@ const Titans = () => {
                   />
                 </div>
 
-                {/* contenu révélé (Face Arrière) */}
+                {/* face arriere */}
                 <div className={styles["face-arriere"]}>
                   <article
                     className={`${styles["titan-card"]} ${titan.reverse ? styles.reverse : ""}`}
@@ -229,7 +257,7 @@ const Titans = () => {
         </p>
       </main>
 
-      {/* --- msg du victoire --- */}
+      {/* --- msg de victoire --- */}
       {isVictoireTotale && (
         <div
           className={styles["message-victoire-final"]}

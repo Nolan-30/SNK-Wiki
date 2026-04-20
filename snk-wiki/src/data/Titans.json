@@ -2,7 +2,7 @@
   {
     "id": "assaillant",
     "nom": "Le Titan Assaillant",
-    "image": "images/assaillant.jpg",
+    "image": "public/images/assaillant.jpg",
     "reverse": true,
     "visualClass": "visual-assaillant",
     "holderClass": "holder-green",
@@ -26,7 +26,7 @@
     {
     "id": "feminin",
     "nom": "Le Titan Féminin",
-    "image": "images/feminin.png",
+    "image": "public/images/feminin.png",
     "reverse": true,
     "visualClass": "visual-feminin",
     "holderClass": "holder-white",
@@ -50,7 +50,7 @@
   {
     "id": "colossal",
     "nom": "Le Titan Colossal",
-    "image": "images/colossal.png",
+    "image": "public/images/colossal.png",
     "reverse": false,
     "visualClass": "visual-colossal",
     "holderClass": "holder-red",
@@ -74,7 +74,7 @@
    {
     "id": "cuirasse",
     "nom": "Le Titan Cuirassé",
-    "image": "images/cuirasse.jpg",
+    "image": "public/images/cuirasse.jpg",
     "reverse": true,
     "visualClass": "visual-armored",
     "holderClass": "holder-beige",
@@ -99,7 +99,7 @@
   {
     "id": "bestial",
     "nom": "Le Titan Bestial",
-    "image": "images/bestial.jpg",
+    "image": "public/images/bestial.jpg",
     "reverse": true,
     "visualClass": "visual-bestial",
     "holderClass": "holder-brown",
@@ -123,7 +123,7 @@
   {
     "id": "marteau",
     "nom": "Le Titan Marteau",
-    "image": "images/marteau.jpg",
+    "image": "public/images/marteau.jpg",
     "reverse": false,
     "visualClass": "visual-marteau",
     "holderClass": "holder-cyan",

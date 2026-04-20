@@ -352,35 +352,6 @@
   margin-bottom: 10px;
 }
 
-#message-victoire-final {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.95); /* Fond sombre identique aux persos */
-  color: #129d00; /* Vert pour la victoire */
-  padding: 50px;
-  border: 5px solid rgba(41, 41, 41, 0.489);
-  border-radius: 20px;
-  text-align: center;
-  z-index: 1000;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 0 50px rgba(0, 125, 2, 0.5); /* Lueur verte */
-}
-
-#message-victoire-final h1 {
-  font-family: "Poppins", sans-serif;
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-#message-victoire-final p {
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
-
 .options-boutons-titans {
   display: flex;
   flex-direction: column;
@@ -424,6 +395,55 @@
 .page-suivante a {
   text-decoration: none;
   color: black;
+}
+
+/* MSG DE WIN*/
+.message-victoire-final {
+  position: fixed; /* passe au dessus de tout */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centrage */
+  background: linear-gradient(135deg, #000000 0%, #333 100%);
+  padding: 3rem;
+  border-radius: 15px;
+  border: 2px solid #ffcc00; /* Un rappel du dégradé jaune des titans */
+  text-align: center;
+  box-shadow: 0 0 50px rgba(255, 204, 0, 0.3); /* Effet lumineux ✨ */
+  z-index: 1000;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* titre felitations*/
+.message-victoire-final h1 {
+  color: #ffcc00;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* les btns */
+.victoireBoutons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.victoireBoutons button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition:
+    transform 0.2s,
+    background 0.3s;
+  border: none;
+}
+
+.victoireBoutons button:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

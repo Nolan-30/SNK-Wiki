@@ -235,8 +235,8 @@ const History = () => {
           <p>Vous maîtrisez maintenant toute l'histoire de ce monde cruel.</p>
           <div className={styles.victoireBoutons}>
             <button onClick={() => window.location.reload()}>Rejouer</button>
-            <button onClick={() => (window.location.href = "/seasons")}>
-              Explorer les Saisons
+            <button onClick={() => (window.location.href = "/Personnages")}>
+              Explorer les Personnages
             </button>
           </div>
         </div>

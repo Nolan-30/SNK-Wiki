@@ -269,13 +269,8 @@ const Titans = () => {
           </p>
           <div className={styles.victoireBoutons}>
             <button onClick={() => window.location.reload()}>Rejouer</button>
-            <button>
-              <a
-                href="saisons.html"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                Page Suivante
-              </a>
+            <button onClick={() => (window.location.href = "/Saisons")}>
+              Explorer les Saisons
             </button>
           </div>
         </div>

@@ -184,13 +184,12 @@ const Characters = () => {
           >
             Rejouer
           </button>
-          <button className="btn-reponse-quiz">
-            <a
-              href="titans.html"
-              style={{ color: "black", textDecoration: "none" }}
-            >
-              Page Suivante
-            </a>
+
+          <button
+            className="btn-reponse-quiz"
+            onClick={() => (window.location.href = "/Titans")}
+          >
+            Explorer les Titans
           </button>
         </div>
       )}

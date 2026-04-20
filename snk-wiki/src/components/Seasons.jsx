@@ -224,8 +224,9 @@ const Seasons = () => {
           <p>Vous avez exploré toutes les saisons avec succès.</p>
           <div className={styles.victoireBoutons}>
             <button onClick={() => window.location.reload()}>Rejouer</button>
-            <button onClick={() => (window.location.href = "/characters")}>
-              Voir les Personnages
+
+            <button onClick={() => (window.location.href = "/")}>
+              Retourner à l'Accueil
             </button>
           </div>
         </div>

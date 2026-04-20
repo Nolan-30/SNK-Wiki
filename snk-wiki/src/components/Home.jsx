@@ -63,17 +63,6 @@ const Home = () => {
             </Link>
           </article>
 
-          {/* Carte Saisons */}
-          <article className="card card-blue">
-            <Link to="/saisons">
-              <div className="icon-box">
-                <i className="fa-solid fa-film"></i>
-              </div>
-              <h3>Saisons</h3>
-              <p>Récapitulatif de tous les arcs narratifs.</p>
-            </Link>
-          </article>
-
           {/* Carte Titans */}
           <article className="card card-yellow">
             <Link to="/titans">
@@ -82,6 +71,17 @@ const Home = () => {
               </div>
               <h3>Titans</h3>
               <p>Les 9 Titans primordiaux et leurs pouvoirs.</p>
+            </Link>
+          </article>
+
+          {/* Carte Saisons */}
+          <article className="card card-blue">
+            <Link to="/saisons">
+              <div className="icon-box">
+                <i className="fa-solid fa-film"></i>
+              </div>
+              <h3>Saisons</h3>
+              <p>Récapitulatif de tous les arcs narratifs.</p>
             </Link>
           </article>
         </section>

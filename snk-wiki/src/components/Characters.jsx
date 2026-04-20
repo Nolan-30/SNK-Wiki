@@ -15,12 +15,36 @@ const Characters = () => {
   const [victoireFinale, setVictoireFinale] = useState(false);
   const [temps, setTemps] = useState(0);
 
+  const enregistrerProgressionPersos = async () => {
+    const username = localStorage.getItem("username");
+
+    try {
+      await fetch("http://localhost:5000/update-progression", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          pageName: "Page_Personnages",
+          timeTaken: temps, //
+        }),
+      });
+      console.log("Progression Personnages enregistrée ! 🏆");
+    } catch (err) {
+      console.error("Erreur sauvegarde personnages :", err);
+    }
+  };
+
   // Chrono
   useEffect(() => {
     if (!jeuLance || victoireFinale) return;
     const id = setInterval(() => setTemps((t) => t + 1), 1000);
     return () => clearInterval(id);
   }, [jeuLance, victoireFinale]);
+  useEffect(() => {
+    if (victoireFinale === true) {
+      enregistrerProgressionPersos();
+    }
+  }, [victoireFinale]);
 
   const affichageChrono = `${String(Math.floor(temps / 60)).padStart(2, "0")}:${String(temps % 60).padStart(2, "0")}`;
 

@@ -28,7 +28,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Histoire" element={<History />} />
           <Route path="/Personnages" element={<Characters />} />
-          <Route path="/titans" element={<Titans />} />
+          <Route path="/Titans" element={<Titans />} />
           <Route path="/Saisons" element={<Seasons />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

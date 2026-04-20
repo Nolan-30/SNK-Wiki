@@ -24,17 +24,10 @@ header img:hover {
   transform: scale(1.02);
 }
 
-header p {
-  margin-left: 2%;
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .nav li a {
   text-decoration: none;
   color: white;
-  font-size: 18px;
+  font-size: 22px;
   font-family: "Lato", sans-serif;
   font-weight: 1000;
 }

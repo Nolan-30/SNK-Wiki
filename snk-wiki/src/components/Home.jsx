@@ -31,7 +31,7 @@ const Home = () => {
         </section>
 
         <div className="logo-bataillon">
-          <Link to="/perso">
+          <Link to="/personnages">
             <img
               src="public/Images/bataillon-logo.jpg"
               height="450"

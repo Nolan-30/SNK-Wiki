@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import quizData from "../data/history.json";
+import quizData from "../data/History.json";
 import styles from "../styles/History.module.css";
 
 const History = () => {
   // --- États ---
   const [quizLance, setQuizLance] = useState(false);
-  const [unlockedCount, setUnlockedCount] = useState(0);
+
+  // recupere la progression sauvegardée ou recommence le quiz
+  const [unlockedCount, setUnlockedCount] = useState(() => {
+    const sauvegarde = localStorage.getItem("progression_histoire");
+    return sauvegarde ? parseInt(sauvegarde, 10) : 0;
+  });
+
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
@@ -31,6 +37,10 @@ const History = () => {
       if (unlockedCount === quizData.length - 1) {
         enregistrerProgression();
       }
+
+      const nouvelleValeur = unlockedCount + 1;
+      setUnlockedCount(nouvelleValeur);
+      localStorage.setItem("progression_histoire", nouvelleValeur);
 
       setUnlockedCount((prev) => prev + 1);
       setCurrentStep(0);
@@ -75,7 +85,7 @@ const History = () => {
           </span>
         </h1>
         <img
-          src="public/images/ymir.jpg"
+          src="images/ymir.jpg"
           alt="Ymir Fritz"
           className={styles.historyHeroImg}
         />
@@ -234,7 +244,15 @@ const History = () => {
           <h1>Page Histoire Débloqué !</h1>
           <p>Vous maîtrisez maintenant toute l'histoire de ce monde cruel.</p>
           <div className={styles.victoireBoutons}>
-            <button onClick={() => window.location.reload()}>Rejouer</button>
+            {/* on vide le localStorage avant de recharger la page */}
+            <button
+              onClick={() => {
+                localStorage.removeItem("progression_histoire");
+                window.location.reload();
+              }}
+            >
+              Rejouer
+            </button>
             <button onClick={() => (window.location.href = "/Personnages")}>
               Explorer les Personnages
             </button>

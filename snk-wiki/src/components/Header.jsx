@@ -7,7 +7,7 @@ const Header = () => {
       {/* 1. En React/Vite, on ne met pas "public/" dans le chemin. Le dossier public est la racine "/" */}
       <Link to="/">
         <img
-          src="public/images/logo-snk.png"
+          src="images/logo-snk.png"
           alt="Logo SNK"
           height="75"
           className="header-logo"
@@ -35,7 +35,7 @@ const Header = () => {
             <Link to="/profile">
               {/* fix le double surlignage sur la pp */}
               <span>
-                <img src="public/images/pfp.png" alt="Profil" height="40" />
+                <img src="images/pfp.png" alt="Profil" height="40" />
               </span>
             </Link>
           </li>

@@ -14,6 +14,7 @@ const Seasons = () => {
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
+  const [canExplore, setCanExplore] = useState(true);
 
   // --- Données des Saisons ---
   const seasonsData = [
@@ -219,11 +220,14 @@ const Seasons = () => {
           );
         })}
       </div>
-      {isVictoireTotale && (
+      {isVictoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
           <h1>FÉLICITATIONS ! 🏆</h1>
           <p>Vous avez exploré toutes les saisons avec succès.</p>
           <div className={styles.victoireBoutons}>
+            <button onClick={() => setCanExplore(false)}>
+              Visiter le site
+            </button>
             <button
               onClick={() => {
                 localStorage.removeItem("progression_saisons");

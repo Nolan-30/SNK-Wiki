@@ -16,6 +16,7 @@ const History = () => {
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null); // stocke l'heure de départ
+  const [canExplore, setCanExplore] = useState(true);
 
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
@@ -239,11 +240,14 @@ const History = () => {
       )}
 
       {/* --- MSG DE WIN --- */}
-      {isVictoireTotale && (
+      {isVictoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
           <h1>Page Histoire Débloqué !</h1>
           <p>Vous maîtrisez maintenant toute l'histoire de ce monde cruel.</p>
           <div className={styles.victoireBoutons}>
+            <button onClick={() => setCanExplore(false)}>
+              Visiter le site
+            </button>
             {/* on vide le localStorage avant de recharger la page */}
             <button onClick={() => (window.location.href = "/")}>
               Retourner à l'Accueil

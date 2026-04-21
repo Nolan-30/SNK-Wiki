@@ -14,6 +14,7 @@ const Characters = () => {
   const [debloques, setDebloques] = useState([]);
   const [victoireFinale, setVictoireFinale] = useState(false);
   const [temps, setTemps] = useState(0);
+  const [canExplore, setCanExplore] = useState(true);
 
   const enregistrerProgressionPersos = async () => {
     const username = localStorage.getItem("username");
@@ -172,10 +173,11 @@ const Characters = () => {
         </div>
       </div>
 
-      {victoireFinale && (
+      {victoireFinale && canExplore && (
         <div id="message-victoire-final" style={{ display: "block" }}>
           <h1>FÉLICITATIONS !</h1>
           <p>Bravo, vous avez débloqué tous les personnages !</p>
+          <button onClick={() => setCanExplore(false)}>Visiter le site</button>
           <button
             className="btn-reponse-quiz"
             onClick={() => window.location.reload()}

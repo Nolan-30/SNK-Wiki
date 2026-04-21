@@ -16,12 +16,16 @@ const Titans = () => {
   const [feedback, setFeedback] = useState({ texte: "", couleur: "" });
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
+  const [canExplore, setCanExplore] = useState(true);
 
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
 
+  // On ne gagne que si on a au moins 1 point ET qu'on a atteint le maximum du JSON
   const isVictoireTotale =
-    donneesQuizTitans.length > 0 && unlockedCount >= donneesQuizTitans.length;
+    donneesQuizTitans.length > 0 &&
+    unlockedCount > 0 &&
+    unlockedCount >= donneesQuizTitans.length;
 
   const enregistrerProgressionTitans = async () => {
     const username = localStorage.getItem("username");
@@ -272,7 +276,7 @@ const Titans = () => {
       </main>
 
       {/* --- msg de victoire --- */}
-      {isVictoireTotale && (
+      {isVictoireTotale && canExplore && (
         <div
           className={styles["message-victoire-final"]}
           style={{ display: "block" }}
@@ -282,6 +286,9 @@ const Titans = () => {
             Bravo, vous avez débloqué tous les titans disponibles !
           </p>
           <div className={styles.victoireBoutons}>
+            <button onClick={() => setCanExplore(false)}>
+              Visiter le site
+            </button>
             <button
               onClick={() => {
                 localStorage.removeItem("progression_titans");

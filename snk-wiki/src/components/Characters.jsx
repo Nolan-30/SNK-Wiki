@@ -114,8 +114,6 @@ const Characters = () => {
       </div>
 
       <div className="perso-section">
-        <h2 id="perso-scroll">Personnages principaux</h2>
-
         <div className="chrono">
           {!victoireFinale && (
             <button id="btn-action" onClick={demarrer} disabled={jeuLance}>

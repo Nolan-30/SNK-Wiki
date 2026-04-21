@@ -245,6 +245,9 @@ const History = () => {
           <p>Vous maîtrisez maintenant toute l'histoire de ce monde cruel.</p>
           <div className={styles.victoireBoutons}>
             {/* on vide le localStorage avant de recharger la page */}
+            <button onClick={() => (window.location.href = "/")}>
+              Retourner à l'Accueil
+            </button>
             <button
               onClick={() => {
                 localStorage.removeItem("progression_histoire");
@@ -253,6 +256,7 @@ const History = () => {
             >
               Rejouer
             </button>
+
             <button onClick={() => (window.location.href = "/Personnages")}>
               Explorer les Personnages
             </button>

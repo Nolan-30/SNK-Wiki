@@ -3,7 +3,11 @@ import styles from "../styles/Titans.module.css";
 import donneesQuizTitans from "../data/titans.json";
 
 const Titans = () => {
-  const [unlockedCount, setUnlockedCount] = useState(0);
+  // Recup le nbr de titans debloques
+  const [unlockedCount, setUnlockedCount] = useState(() => {
+    const sauvegarde = localStorage.getItem("progression_titans");
+    return sauvegarde ? parseInt(sauvegarde, 10) : 0;
+  });
   const [tempsEcoule, setTempsEcoule] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
 
@@ -15,7 +19,9 @@ const Titans = () => {
 
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
-  const isVictoireTotale = unlockedCount >= donneesQuizTitans.length;
+
+  const isVictoireTotale =
+    donneesQuizTitans.length > 0 && unlockedCount >= donneesQuizTitans.length;
 
   const enregistrerProgressionTitans = async () => {
     const username = localStorage.getItem("username");
@@ -97,6 +103,14 @@ const Titans = () => {
   };
 
   const gererContinuer = () => {
+    const nouveauCompte = unlockedCount + 1;
+    setUnlockedCount(nouveauCompte);
+
+    // save de la progression
+    localStorage.setItem("progression_titans", nouveauCompte.toString());
+
+    setQuizActive(false);
+    setEtapeQuiz("");
     setShowContinueBtn(false);
 
     // on passe a la carte suivante
@@ -268,7 +282,14 @@ const Titans = () => {
             Bravo, vous avez débloqué tous les titans disponibles !
           </p>
           <div className={styles.victoireBoutons}>
-            <button onClick={() => window.location.reload()}>Rejouer</button>
+            <button
+              onClick={() => {
+                localStorage.removeItem("progression_titans");
+                window.location.reload();
+              }}
+            >
+              Rejouer
+            </button>
             <button onClick={() => (window.location.href = "/Saisons")}>
               Explorer les Saisons
             </button>

@@ -5,7 +5,11 @@ import quizData from "../data/Seasons.json";
 const Seasons = () => {
   // --- États ---
   const [quizLance, setQuizLance] = useState(false);
-  const [unlockedCount, setUnlockedCount] = useState(0); // gere quelle carte est retournée
+  // recupere la progression des saisons
+  const [unlockedCount, setUnlockedCount] = useState(() => {
+    const sauvegarde = localStorage.getItem("progression_saisons");
+    return sauvegarde ? parseInt(sauvegarde, 10) : 0;
+  });
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
@@ -87,17 +91,14 @@ const Seasons = () => {
   };
 
   const nextStep = () => {
-    const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
+    const nouveauCompte = unlockedCount + 1;
+    setUnlockedCount(nouveauCompte);
 
-    if (currentStep < totalQuestions - 1) {
-      setCurrentStep(currentStep + 1); // on passe a la qst suivante
-    } else {
-      if (unlockedCount === seasonsData.length - 1) {
-        enregistrerProgression();
-      }
-      setUnlockedCount((prev) => prev + 1);
-      setCurrentStep(0);
-    }
+    // save
+    localStorage.setItem("progression_saisons", nouveauCompte.toString());
+
+    setQuizLance(false);
+    setCurrentStep(0);
     setFeedback(null);
     setShowNextBtn(false);
   };
@@ -223,7 +224,14 @@ const Seasons = () => {
           <h1>FÉLICITATIONS ! 🏆</h1>
           <p>Vous avez exploré toutes les saisons avec succès.</p>
           <div className={styles.victoireBoutons}>
-            <button onClick={() => window.location.reload()}>Rejouer</button>
+            <button
+              onClick={() => {
+                localStorage.removeItem("progression_saisons");
+                window.location.reload();
+              }}
+            >
+              Rejouer
+            </button>
 
             <button onClick={() => (window.location.href = "/")}>
               Retourner à l'Accueil

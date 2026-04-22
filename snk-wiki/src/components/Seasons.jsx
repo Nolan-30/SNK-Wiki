@@ -15,6 +15,7 @@ const Seasons = () => {
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
+  const [victoireTotale, setVictoireTotale] = useState(false);
 
   // --- Données des Saisons ---
   const seasonsData = [
@@ -103,10 +104,6 @@ const Seasons = () => {
     setFeedback(null);
     setShowNextBtn(false);
   };
-
-  // vérifie si le nbr de saisons débloqees est égal au total des saisons
-  const isVictoireTotale =
-    unlockedCount >= seasonsData.length && seasonsData.length > 0;
 
   return (
     <main className={styles.seasonsMain}>
@@ -220,7 +217,7 @@ const Seasons = () => {
           );
         })}
       </div>
-      {isVictoireTotale && canExplore && (
+      {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
           <h1>FÉLICITATIONS ! 🏆</h1>
           <p>Vous avez exploré toutes les saisons avec succès.</p>

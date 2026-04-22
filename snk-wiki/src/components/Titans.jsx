@@ -21,11 +21,7 @@ const Titans = () => {
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
 
-  // On ne gagne que si on a au moins 1 point ET qu'on a atteint le maximum du JSON
-  const isVictoireTotale =
-    donneesQuizTitans.length > 0 &&
-    unlockedCount > 0 &&
-    unlockedCount >= donneesQuizTitans.length;
+  const [victoireTotale, setVictoireTotale] = useState(false);
 
   const enregistrerProgressionTitans = async () => {
     const username = localStorage.getItem("username");
@@ -62,10 +58,10 @@ const Titans = () => {
   // declenchement de la save quand tous les titans sont débloqués
   useEffect(() => {
     // on verifie que la victoire est vrai et qu'on a bien débloqué tt les titans pour eviter les bugs
-    if (isVictoireTotale && unlockedCount > 0) {
+    if (victoireTotale && unlockedCount > 0) {
       enregistrerProgressionTitans();
     }
-  }, [isVictoireTotale, unlockedCount]);
+  }, [victoireTotale, unlockedCount]);
 
   const formatTime = (ms) => {
     const minutes = Math.floor(ms / 60000);
@@ -110,6 +106,10 @@ const Titans = () => {
     const nouveauCompte = unlockedCount + 1;
     setUnlockedCount(nouveauCompte);
 
+    if (nouveauCompte >= donneesQuizTitans.length) {
+      setVictoireTotale(true);
+    }
+
     // save de la progression
     localStorage.setItem("progression_titans", nouveauCompte.toString());
 
@@ -151,7 +151,7 @@ const Titans = () => {
 
         <div className={styles["border-grey"]}></div>
 
-        {!isVictoireTotale && (
+        {!victoireTotale && (
           <div className={styles.chrono}>
             <button id={styles["btn-action"]} onClick={gererChrono}>
               {unlockedCount === 0 ? "Démarrer" : "Suivant"}
@@ -276,7 +276,7 @@ const Titans = () => {
       </main>
 
       {/* --- msg de victoire --- */}
-      {isVictoireTotale && canExplore && (
+      {victoireTotale && canExplore && (
         <div
           className={styles["message-victoire-final"]}
           style={{ display: "block" }}

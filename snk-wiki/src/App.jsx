@@ -12,7 +12,8 @@ import History from "./components/History";
 import Characters from "./components/Characters";
 import Seasons from "./components/Seasons";
 import Titans from "./components/Titans";
-import Profile from "./components/Profile";
+import Register from "./components/Register.jsx";
+import Login from "./components/Login.jsx";
 
 function App() {
   useEffect(() => {
@@ -30,7 +31,8 @@ function App() {
           <Route path="/Personnages" element={<Characters />} />
           <Route path="/Titans" element={<Titans />} />
           <Route path="/Saisons" element={<Seasons />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </main>
       <Footer />

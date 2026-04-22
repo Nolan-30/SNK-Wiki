@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "../styles/Profile.module.css";
+import { useNavigate, Link } from "react-router-dom";
+import styles from "../styles/Auth.module.css";
 
-const Profile = () => {
+const Register = () => {
   const navigate = useNavigate();
-  const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isLogin ? "/login" : "/register";
+
+    if (formData.username.length > 15) {
+      setMessage("Le nom ne doit pas dépasser 15 lettres !");
+      return;
+    }
 
     try {
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch("http://localhost:5000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -21,18 +24,8 @@ const Profile = () => {
 
       const data = await response.json();
       if (response.ok) {
-        //enregistrement du pseudo
-        localStorage.setItem("username", formData.username);
-        if (isLogin) {
-          setTimeout(() => {
-            navigate("/"); // redirige vers l'accueil
-          }, 500);
-        } else {
-          setIsLogin(true);
-        }
-        setMessage(
-          `Succès ! Bienvenue soldat ${data.username || formData.username}`,
-        );
+        setMessage("Inscription réussie ! Redirection vers la connexion...");
+        setTimeout(() => navigate("/login"), 1500);
       } else {
         setMessage(data.message || "Une erreur est survenue");
       }
@@ -44,13 +37,13 @@ const Profile = () => {
   return (
     <div className={styles.profilContainer}>
       <div className={styles.authCard}>
-        {/* mettre une image au dessus du txt */}
-        <h2>{isLogin ? "Connexion" : "Rejoindre le Bataillon "}</h2>
+        <h2>Rejoindre le Bataillon</h2>
         <form onSubmit={handleSubmit} className={styles.authForm}>
           <input
             type="text"
-            placeholder="Nom de soldat "
+            placeholder="Nom de soldat (max 15 lettres)"
             value={formData.username}
+            maxLength="15" // limite
             onChange={(e) =>
               setFormData({ ...formData, username: e.target.value })
             }
@@ -66,13 +59,11 @@ const Profile = () => {
             required
           />
           <button type="submit" className={styles.authButton}>
-            {isLogin ? "Se connecter" : "S'inscrire"}
+            S'inscrire
           </button>
         </form>
-        <p onClick={() => setIsLogin(!isLogin)} className={styles.toggleText}>
-          {isLogin
-            ? "Pas encore de compte ? S'inscrire"
-            : "Déjà soldat ? Se connecter"}
+        <p className={styles.toggleText}>
+          Déjà soldat ? <Link to="/login">Se connecter</Link>
         </p>
         {message && <p className={styles.message}>{message}</p>}
       </div>
@@ -80,4 +71,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Register;

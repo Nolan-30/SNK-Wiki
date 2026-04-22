@@ -32,7 +32,7 @@ const Header = () => {
             <Link to="/Saisons">Saisons</Link>
           </li>
           <li className="pfp">
-            <Link to="/profile">
+            <Link to="/login">
               {/* fix le double surlignage sur la pp */}
               <span>
                 <img src="images/pfp.png" alt="Profil" height="40" />

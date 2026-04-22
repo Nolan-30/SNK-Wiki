@@ -58,8 +58,17 @@
   background-color: #ff0000;
   transform: scale(1.02);
 }
-
+.register-txt {
+  color: #aaa;
+}
 .toggleText {
+  margin-top: 20px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.toggleText a {
   margin-top: 20px;
   color: #aaa;
   cursor: pointer;

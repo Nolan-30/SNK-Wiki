@@ -35,8 +35,7 @@ header img:hover {
 .nav {
   display: flex;
   align-items: center;
-  gap: 40px;
-  margin-left: -10%;
+  gap: 30px;
   padding: 10px;
 }
 
@@ -45,6 +44,22 @@ header img:hover {
   transition: color 0.5s;
 }
 
-.nav li a img {
-  margin-left: 30%;
+.pfp-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-username {
+  color: rgb(255, 0, 0);
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pfp span img {
+  margin-left: -5%;
+  transition: border-color 0.5s;
 }

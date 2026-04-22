@@ -1,10 +1,22 @@
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/Header.css";
 
 const Header = () => {
+  const [username, setUsername] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    // recuperation du nom
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+      setUsername(storedName);
+    } else {
+      setUsername("");
+    }
+  }, [location]);
   return (
     <header>
-      {/* 1. En React/Vite, on ne met pas "public/" dans le chemin. Le dossier public est la racine "/" */}
       <Link to="/">
         <img
           src="images/logo-snk.png"
@@ -38,6 +50,10 @@ const Header = () => {
                 <img src="images/pfp.png" alt="Profil" height="40" />
               </span>
             </Link>
+          </li>
+          <li>
+            {/* affiche le nom de la personne connecté dynamiquement */}
+            {username && <span className="header-username">{username}</span>}
           </li>
         </ol>
       </nav>

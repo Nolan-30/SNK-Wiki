@@ -32,26 +32,27 @@ const History = () => {
     const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
 
     if (currentStep < totalQuestions - 1) {
-      // passe a la qst suivante de la meme carte
       setCurrentStep(currentStep + 1);
+      setFeedback(null);
+      setShowNextBtn(false);
     } else {
-      if (unlockedCount === quizData.length - 1) {
-        enregistrerProgression();
+      const nouveauCompte = unlockedCount + 1;
+      setUnlockedCount(nouveauCompte);
+      localStorage.setItem("progression_histoire", nouveauCompte.toString());
+
+      if (nouveauCompte >= quizData.length) {
+        setVictoireTotale(true); // activation du msg de victoire
       }
 
-      const nouvelleValeur = unlockedCount + 1;
-      setUnlockedCount(nouvelleValeur);
-      localStorage.setItem("progression_histoire", nouvelleValeur);
-
-      setUnlockedCount((prev) => prev + 1);
+      setQuizLance(false);
       setCurrentStep(0);
+      setFeedback(null);
+      setShowNextBtn(false);
     }
-    setFeedback(null);
-    setShowNextBtn(false);
   };
 
-  // affichage d'un msg de victoire si tt les conditions dans le json sont remplies
-  const isVictoireTotale = unlockedCount >= quizData.length;
+  // creation d'un etat faux par defaut pour eviter qu'il s'affiche au debut
+  const [victoireTotale, setVictoireTotale] = useState(false);
 
   const enregistrerProgression = async () => {
     if (!startTime) return;
@@ -93,7 +94,7 @@ const History = () => {
         <div className={styles.separateurRouge}></div>
       </div>
 
-      {!quizLance ? (
+      {!quizLance && !victoireTotale ? (
         /* --- ECRAN DE DEMARRAGE --- */
         <div className={styles.startContainer}>
           <p className={styles.introText}>
@@ -118,7 +119,7 @@ const History = () => {
             className={`${styles.sectionTexte} ${unlockedCount < 1 ? styles.activeQuiz : ""}`}
           >
             <h2 className={styles.sousTitre}>ORIGINE</h2>
-            {unlockedCount >= 1 ? (
+            {unlockedCount >= 1 || victoireTotale ? (
               <p className={styles.historyParam}>
                 L'histoire se déroule dans un monde où l'humanité vit entourée
                 d'immenses murs pour se protéger de créatures gigantesques, les
@@ -240,7 +241,7 @@ const History = () => {
       )}
 
       {/* --- MSG DE WIN --- */}
-      {isVictoireTotale && canExplore && (
+      {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
           <h1>Page Histoire Débloqué !</h1>
           <p>Vous maîtrisez maintenant toute l'histoire de ce monde cruel.</p>

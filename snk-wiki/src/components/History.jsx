@@ -6,7 +6,6 @@ const History = () => {
   // --- États ---
   const [quizLance, setQuizLance] = useState(false);
 
-  // recupere la progression sauvegardée ou recommence le quiz
   const [unlockedCount, setUnlockedCount] = useState(() => {
     const sauvegarde = localStorage.getItem("progression_histoire");
     return sauvegarde ? parseInt(sauvegarde, 10) : 0;
@@ -15,8 +14,9 @@ const History = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
-  const [startTime, setStartTime] = useState(null); // stocke l'heure de départ
+  const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
+  const [victoireTotale, setVictoireTotale] = useState(false);
 
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
@@ -36,27 +36,28 @@ const History = () => {
       setFeedback(null);
       setShowNextBtn(false);
     } else {
+      // Fin du chapitre actuel
       const nouveauCompte = unlockedCount + 1;
-      setUnlockedCount(nouveauCompte);
-      localStorage.setItem("progression_histoire", nouveauCompte.toString());
 
       if (nouveauCompte >= quizData.length) {
-        setVictoireTotale(true); // activation du msg de victoire
+        setUnlockedCount(nouveauCompte);
+        localStorage.setItem("progression_histoire", nouveauCompte.toString());
+        setVictoireTotale(true);
+        setQuizLance(false); // On arrête le quiz seulement ici
+        enregistrerProgression();
+      } else {
+        // passe au chap suivant
+        setUnlockedCount(nouveauCompte);
+        localStorage.setItem("progression_histoire", nouveauCompte.toString());
+        setCurrentStep(0); // Reset l'étape pour le nouveau chapitre
+        setFeedback(null);
+        setShowNextBtn(false);
       }
-
-      setQuizLance(false);
-      setCurrentStep(0);
-      setFeedback(null);
-      setShowNextBtn(false);
     }
   };
 
-  // creation d'un etat faux par defaut pour eviter qu'il s'affiche au debut
-  const [victoireTotale, setVictoireTotale] = useState(false);
-
   const enregistrerProgression = async () => {
     if (!startTime) return;
-
     const fin = Date.now();
     const dureeEnSecondes = Math.floor((fin - startTime) / 1000);
     const username = localStorage.getItem("username");
@@ -67,11 +68,10 @@ const History = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: username,
-          pageName: "Page_Histoire", // nom de la page qu'on debloque
+          pageName: "Page_Histoire",
           timeTaken: dureeEnSecondes,
         }),
       });
-      console.log("Progression Histoire enregistrée !");
     } catch (err) {
       console.error("Erreur de sauvegarde :", err);
     }
@@ -79,7 +79,6 @@ const History = () => {
 
   return (
     <main className={styles.historyMain}>
-      {/* PARTIE ACCUEIL */}
       <div className={styles.titrePrincipalConteneur}>
         <h1 className={styles.historyTitle}>
           <span className={styles.degraderRouge}>
@@ -94,8 +93,7 @@ const History = () => {
         <div className={styles.separateurRouge}></div>
       </div>
 
-      {!quizLance && !victoireTotale ? (
-        /* --- ECRAN DE DEMARRAGE --- */
+      {!quizLance && (
         <div className={styles.startContainer}>
           <p className={styles.introText}>
             Plongez dans les secrets de l'humanité. Répondez correctement aux
@@ -103,167 +101,170 @@ const History = () => {
           </p>
           <button
             onClick={() => {
+              if (unlockedCount >= quizData.length) {
+                setUnlockedCount(0);
+                setVictoireTotale(false);
+                localStorage.removeItem("progression_histoire");
+              }
               setQuizLance(true);
-              setStartTime(Date.now()); //
+              setCurrentStep(0);
+              setFeedback(null);
+              setShowNextBtn(false);
+              setStartTime(Date.now());
             }}
             className={styles.startBtn}
           >
-            Démarrer l'Exploration ⚔️
+            {unlockedCount >= quizData.length
+              ? "Recommencer l'Aventure 🔄"
+              : unlockedCount > 0
+                ? `Reprendre au Chapitre ${unlockedCount + 1} ⚔️`
+                : "Démarrer l'Exploration ⚔️"}
           </button>
         </div>
-      ) : (
-        /* --- CONTENU DU QUIZ --- */
-        <section className={styles.boiteContenu}>
-          {/* ORIGINE */}
-          <section
-            className={`${styles.sectionTexte} ${unlockedCount < 1 ? styles.activeQuiz : ""}`}
-          >
-            <h2 className={styles.sousTitre}>ORIGINE</h2>
-            {unlockedCount >= 1 || victoireTotale ? (
-              <p className={styles.historyParam}>
-                L'histoire se déroule dans un monde où l'humanité vit entourée
-                d'immenses murs pour se protéger de créatures gigantesques, les
-                Titans. Le récit commence avec la chute du Mur Maria, brisé par
-                le Titan Colossal et le Titan Cuirassé.
-              </p>
-            ) : (
-              <QuizZone
-                data={quizData[unlockedCount]}
-                currentStep={currentStep}
-                handleAnswer={handleAnswer}
-                feedback={feedback}
-                showNextBtn={showNextBtn}
-                nextStep={nextStep}
-              />
-            )}
-          </section>
-
-          {/* MURS */}
-          <section
-            className={`${styles.sectionTexte} ${unlockedCount === 1 ? styles.activeQuiz : ""} ${unlockedCount < 1 ? styles.locked : ""}`}
-          >
-            <h2 className={styles.sousTitre}>LES MURS</h2>
-            {unlockedCount >= 2 ? (
-              <p className={styles.historyParam}>
-                Trois murs concentriques protègent les humains : Maria, Rose et
-                Sina. Personne ne sait comment ils ont été construits, un secret
-                gardé jalousement par le culte du Mur et la famille royale.
-              </p>
-            ) : unlockedCount === 1 ? (
-              <QuizZone
-                data={quizData[1]}
-                currentStep={currentStep}
-                handleAnswer={handleAnswer}
-                feedback={feedback}
-                showNextBtn={showNextBtn}
-                nextStep={nextStep}
-              />
-            ) : (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
-            )}
-          </section>
-
-          {/*  LIBERTÉ */}
-          <section
-            className={`${styles.sectionTexte} ${unlockedCount === 2 ? styles.activeQuiz : ""} ${unlockedCount < 2 ? styles.locked : ""}`}
-          >
-            <h2 className={styles.sousTitre}>LA LIBERTÉ</h2>
-            {unlockedCount >= 3 ? (
-              <p className={styles.historyParam}>
-                Le désir inné d'Eren de voir le monde extérieur, quel qu'en soit
-                le prix. C'est le moteur principal de son combat contre
-                l'oppression.
-              </p>
-            ) : unlockedCount === 2 ? (
-              <QuizZone
-                data={quizData[2]}
-                currentStep={currentStep}
-                handleAnswer={handleAnswer}
-                feedback={feedback}
-                showNextBtn={showNextBtn}
-                nextStep={nextStep}
-              />
-            ) : (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
-            )}
-          </section>
-
-          {/* LA GUERRE */}
-          <section
-            className={`${styles.sectionTexte} ${unlockedCount === 3 ? styles.activeQuiz : ""} ${unlockedCount < 3 ? styles.locked : ""}`}
-          >
-            <h2 className={styles.sousTitre}>LA GUERRE</h2>
-            {unlockedCount >= 4 ? (
-              <p className={styles.historyParam}>
-                L'œuvre explore la complexité des conflits où il n'y a ni
-                gentils ni méchants absolus, seulement des perspectives
-                différentes s'affrontant pour la survie.
-              </p>
-            ) : unlockedCount === 3 ? (
-              <QuizZone
-                data={quizData[3]}
-                currentStep={currentStep}
-                handleAnswer={handleAnswer}
-                feedback={feedback}
-                showNextBtn={showNextBtn}
-                nextStep={nextStep}
-              />
-            ) : (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
-            )}
-          </section>
-
-          {/* LE CYCLE DE LA HAINE */}
-          <section
-            className={`${styles.sectionTexte} ${unlockedCount === 4 ? styles.activeQuiz : ""} ${unlockedCount < 4 ? styles.locked : ""}`}
-          >
-            <h2 className={styles.sousTitre}>LE CYCLE DE LA HAINE</h2>
-            {unlockedCount >= 5 ? (
-              <p className={styles.historyParam}>
-                Le thème final montre comment la violence engendre la haine,
-                créant un cycle sans fin qui se transmet de génération en
-                génération jusqu'à ce que quelqu'un tente de le briser.
-              </p>
-            ) : unlockedCount === 4 ? (
-              <QuizZone
-                data={quizData[4]}
-                currentStep={currentStep}
-                handleAnswer={handleAnswer}
-                feedback={feedback}
-                showNextBtn={showNextBtn}
-                nextStep={nextStep}
-              />
-            ) : (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
-            )}
-          </section>
-        </section>
       )}
 
-      {/* --- MSG DE WIN --- */}
+      <section className={styles.boiteContenu}>
+        {/* ORIGINE */}
+        <section
+          className={`${styles.sectionTexte} ${unlockedCount < 1 ? styles.activeQuiz : ""}`}
+        >
+          <h2 className={styles.sousTitre}>ORIGINE</h2>
+          {(unlockedCount >= 1 || victoireTotale) &&
+          !(quizLance && unlockedCount === 0) ? (
+            <p className={styles.historyParam}>
+              L'histoire se déroule dans un monde...
+            </p>
+          ) : (
+            unlockedCount === 0 &&
+            quizLance && (
+              <QuizZone
+                data={quizData[0]}
+                currentStep={currentStep}
+                handleAnswer={handleAnswer}
+                feedback={feedback}
+                showNextBtn={showNextBtn}
+                nextStep={nextStep}
+              />
+            )
+          )}
+        </section>
+
+        {/* LES MURS */}
+        <section
+          className={`${styles.sectionTexte} ${unlockedCount === 1 ? styles.activeQuiz : ""} ${unlockedCount < 1 ? styles.locked : ""}`}
+        >
+          <h2 className={styles.sousTitre}>LES MURS</h2>
+          {(unlockedCount >= 2 || victoireTotale) &&
+          !(quizLance && unlockedCount === 1) ? (
+            <p className={styles.historyParam}>
+              Trois murs concentriques protègent les humains...
+            </p>
+          ) : unlockedCount === 1 && quizLance ? (
+            <QuizZone
+              data={quizData[1]}
+              currentStep={currentStep}
+              handleAnswer={handleAnswer}
+              feedback={feedback}
+              showNextBtn={showNextBtn}
+              nextStep={nextStep}
+            />
+          ) : (
+            unlockedCount < 1 && (
+              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+            )
+          )}
+        </section>
+
+        {/* LIBERTÉ */}
+        <section
+          className={`${styles.sectionTexte} ${unlockedCount === 2 ? styles.activeQuiz : ""} ${unlockedCount < 2 ? styles.locked : ""}`}
+        >
+          <h2 className={styles.sousTitre}>LA LIBERTÉ</h2>
+          {(unlockedCount >= 3 || victoireTotale) &&
+          !(quizLance && unlockedCount === 2) ? (
+            <p className={styles.historyParam}>
+              Le désir inné d'Eren de voir le monde extérieur...
+            </p>
+          ) : unlockedCount === 2 && quizLance ? (
+            <QuizZone
+              data={quizData[2]}
+              currentStep={currentStep}
+              handleAnswer={handleAnswer}
+              feedback={feedback}
+              showNextBtn={showNextBtn}
+              nextStep={nextStep}
+            />
+          ) : (
+            unlockedCount < 2 && (
+              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+            )
+          )}
+        </section>
+
+        {/* LA GUERRE */}
+        <section
+          className={`${styles.sectionTexte} ${unlockedCount === 3 ? styles.activeQuiz : ""} ${unlockedCount < 3 ? styles.locked : ""}`}
+        >
+          <h2 className={styles.sousTitre}>LA GUERRE</h2>
+          {(unlockedCount >= 4 || victoireTotale) &&
+          !(quizLance && unlockedCount === 3) ? (
+            <p className={styles.historyParam}>
+              L'œuvre explore la complexité des conflits...
+            </p>
+          ) : unlockedCount === 3 && quizLance ? (
+            <QuizZone
+              data={quizData[3]}
+              currentStep={currentStep}
+              handleAnswer={handleAnswer}
+              feedback={feedback}
+              showNextBtn={showNextBtn}
+              nextStep={nextStep}
+            />
+          ) : (
+            unlockedCount < 3 && (
+              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+            )
+          )}
+        </section>
+
+        {/* LE CYCLE DE LA HAINE */}
+        <section
+          className={`${styles.sectionTexte} ${unlockedCount === 4 ? styles.activeQuiz : ""} ${unlockedCount < 4 ? styles.locked : ""}`}
+        >
+          <h2 className={styles.sousTitre}>LE CYCLE DE LA HAINE</h2>
+          {(unlockedCount >= 5 || victoireTotale) &&
+          !(quizLance && unlockedCount === 4) ? (
+            <p className={styles.historyParam}>
+              Le thème final montre comment la violence engendre la haine...
+            </p>
+          ) : unlockedCount === 4 && quizLance ? (
+            <QuizZone
+              data={quizData[4]}
+              currentStep={currentStep}
+              handleAnswer={handleAnswer}
+              feedback={feedback}
+              showNextBtn={showNextBtn}
+              nextStep={nextStep}
+            />
+          ) : (
+            unlockedCount < 4 && (
+              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+            )
+          )}
+        </section>
+      </section>
+
+      {/* --- MSG DE VICTOIRE --- */}
       {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
-          <h1>Page Histoire Débloqué !</h1>
-          <p>Vous maîtrisez maintenant toute l'histoire de ce monde cruel.</p>
+          <h1>Page Histoire Débloquée !</h1>
           <div className={styles.victoireBoutons}>
             <button onClick={() => setCanExplore(false)}>
-              Visiter le site
+              Relire l'Histoire
             </button>
-            {/* on vide le localStorage avant de recharger la page */}
+            <button onClick={() => window.location.reload()}>Rejouer</button>
             <button onClick={() => (window.location.href = "/")}>
-              Retourner à l'Accueil
-            </button>
-            <button
-              onClick={() => {
-                localStorage.removeItem("progression_histoire");
-                window.location.reload();
-              }}
-            >
-              Rejouer
-            </button>
-
-            <button onClick={() => (window.location.href = "/Personnages")}>
-              Explorer les Personnages
+              Accueil
             </button>
           </div>
         </div>
@@ -281,27 +282,34 @@ const QuizZone = ({
   nextStep,
 }) => (
   <div className={styles.quizBox}>
-    <p className={styles.quizQuestion}>{data.questions[currentStep].qst}</p>
-    <div className={styles.optionsGrid}>
-      {data.questions[currentStep].choix.map((c) => (
-        <button
-          key={c}
-          onClick={() => handleAnswer(c, data.questions[currentStep].reponse)}
-          className={styles.quizBtn}
-        >
-          {c}
-        </button>
-      ))}
-    </div>
-    {feedback && (
-      <p className={feedback.isCorrect ? styles.success : styles.error}>
-        {feedback.msg}
-      </p>
-    )}
-    {showNextBtn && (
-      <button onClick={nextStep} className={styles.continueBtn}>
-        Continuer →
-      </button>
+    {data?.questions?.[currentStep] && (
+      <>
+        <p className={styles.quizQuestion}>{data.questions[currentStep].qst}</p>
+        <div className={styles.optionsGrid}>
+          {data.questions[currentStep].choix.map((c) => (
+            <button
+              key={c}
+              onClick={() =>
+                handleAnswer(c, data.questions[currentStep].reponse)
+              }
+              className={styles.quizBtn}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+        {feedback && (
+          <p className={feedback.isCorrect ? styles.success : styles.error}>
+            {feedback.msg}
+          </p>
+        )}
+
+        {showNextBtn && (
+          <button onClick={nextStep} className={styles.continueBtn}>
+            Question Suivante →
+          </button>
+        )}
+      </>
     )}
   </div>
 );

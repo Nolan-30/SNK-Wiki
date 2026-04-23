@@ -51,9 +51,13 @@ const Header = () => {
               </span>
             </Link>
           </li>
+          {/* Nom de l'utilisateur cliquable qui mène vers la page Profil */}
           <li>
-            {/* affiche le nom de la personne connecté dynamiquement */}
-            {username && <span className="header-username">{username}</span>}
+            {username && (
+              <Link to="/Profile" className="header-username-link">
+                <span className="header-username">{username}</span>
+              </Link>
+            )}
           </li>
         </ol>
       </nav>

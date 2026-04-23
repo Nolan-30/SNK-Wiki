@@ -93,7 +93,7 @@ const Titans = () => {
 
         setTimeout(() => {
           setQuizActive(false);
-          setUnlockedCount((prev) => prev + 1);
+
           setShowContinueBtn(true);
         }, 1500);
       }, 1000);
@@ -103,31 +103,33 @@ const Titans = () => {
   };
 
   const gererContinuer = () => {
+    // 1. On augmente le compteur proprement
     const nouveauCompte = unlockedCount + 1;
     setUnlockedCount(nouveauCompte);
 
+    // 2. On vérifie la victoire totale avec la nouvelle valeur
     if (nouveauCompte >= donneesQuizTitans.length) {
       setVictoireTotale(true);
     }
 
-    // save de la progression
+    // 3. On sauvegarde la progression EXACTE
     localStorage.setItem("progression_titans", nouveauCompte.toString());
 
+    // 4. On réinitialise l'interface
     setQuizActive(false);
     setEtapeQuiz("");
     setShowContinueBtn(false);
 
-    // on passe a la carte suivante
-    if (cartesRef.current[unlockedCount]) {
-      cartesRef.current[unlockedCount].scrollIntoView({
+    // 5. Scroll et relance automatique (ton code existant est bon)
+    if (cartesRef.current[nouveauCompte]) {
+      cartesRef.current[nouveauCompte].scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     }
 
-    // lancement auto du prochain quiz après le scroll
     setTimeout(() => {
-      gererChrono();
+      gererChrono(); // Relance le quiz pour le NOUVEAU titan
     }, 800);
   };
 
@@ -161,7 +163,9 @@ const Titans = () => {
         )}
 
         {donneesQuizTitans.map((titan, index) => {
-          const isUnlocked = index < unlockedCount;
+          const isUnlocked =
+            index < unlockedCount ||
+            (index === unlockedCount && showContinueBtn);
           const isCurrentTarget = index === unlockedCount;
           const showOverlay = isCurrentTarget && quizActive;
 
@@ -257,8 +261,7 @@ const Titans = () => {
                 </div>
               )}
 
-              {/* btn continuer après avoir réussi un quiz */}
-              {isUnlocked && index === unlockedCount - 1 && showContinueBtn && (
+              {showContinueBtn && index === unlockedCount && (
                 <button
                   className={styles["btn-continuer-titan"]}
                   onClick={gererContinuer}

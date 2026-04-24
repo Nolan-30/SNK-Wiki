@@ -132,7 +132,10 @@ const History = () => {
           {(unlockedCount >= 1 || victoireTotale) &&
           !(quizLance && unlockedCount === 0) ? (
             <p className={styles.historyParam}>
-              L'histoire se déroule dans un monde...
+              L'histoire se déroule dans un monde où l'humanité vit entourée
+              d'immenses murs pour se protéger de créatures gigantesques, les
+              Titans. Le récit commence avec la chute du Mur Maria, brisé par le
+              Titan Colossal et le Titan Cuirassé.
             </p>
           ) : (
             unlockedCount === 0 &&
@@ -157,7 +160,9 @@ const History = () => {
           {(unlockedCount >= 2 || victoireTotale) &&
           !(quizLance && unlockedCount === 1) ? (
             <p className={styles.historyParam}>
-              Trois murs concentriques protègent les humains...
+              Trois murs concentriques protègent les humains : Maria, Rose et
+              Sina. Personne ne sait comment ils ont été construits, un secret
+              gardé jalousement par le culte du Mur et la famille royale.
             </p>
           ) : unlockedCount === 1 && quizLance ? (
             <QuizZone
@@ -183,7 +188,9 @@ const History = () => {
           {(unlockedCount >= 3 || victoireTotale) &&
           !(quizLance && unlockedCount === 2) ? (
             <p className={styles.historyParam}>
-              Le désir inné d'Eren de voir le monde extérieur...
+              Le désir inné d'Eren de voir le monde extérieur, quel qu'en soit
+              le prix. C'est le moteur principal de son combat contre
+              l'oppression.
             </p>
           ) : unlockedCount === 2 && quizLance ? (
             <QuizZone
@@ -209,7 +216,9 @@ const History = () => {
           {(unlockedCount >= 4 || victoireTotale) &&
           !(quizLance && unlockedCount === 3) ? (
             <p className={styles.historyParam}>
-              L'œuvre explore la complexité des conflits...
+              L'œuvre explore la complexité des conflits où il n'y a ni gentils
+              ni méchants absolus, seulement des perspectives différentes
+              s'affrontant pour la survie.
             </p>
           ) : unlockedCount === 3 && quizLance ? (
             <QuizZone
@@ -235,7 +244,9 @@ const History = () => {
           {(unlockedCount >= 5 || victoireTotale) &&
           !(quizLance && unlockedCount === 4) ? (
             <p className={styles.historyParam}>
-              Le thème final montre comment la violence engendre la haine...
+              Le thème final montre comment la violence engendre la haine,
+              créant un cycle sans fin qui se transmet de génération en
+              génération jusqu'à ce que quelqu'un tente de le briser.
             </p>
           ) : unlockedCount === 4 && quizLance ? (
             <QuizZone

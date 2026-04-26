@@ -50,7 +50,7 @@ const Profile = () => {
       <div className={styles.statsGrid}>
         {/* Carte Histoire */}
         <div className={styles.statCard}>
-          <h3>📜 Progression Histoire</h3>
+          <h3>📜 Chapitres Débloqués</h3>
           <div className={styles.progressBar}>
             <div
               className={styles.progressFill}
@@ -61,6 +61,24 @@ const Profile = () => {
           </div>
           <p>
             {stats.histoire.unlocked} / {stats.histoire.total} Chapitres
+            débloqués
+          </p>
+        </div>
+
+        {/* Carte Personnages */}
+        <div className={styles.statCard}>
+          <h3>👥 Personnages Débloqués</h3>
+          <div className={styles.progressBar}>
+            <div
+              className={styles.progressFill}
+              style={{
+                width: `${calculerPourcentage(stats.personnages.unlocked, stats.personnages.total)}%`,
+                backgroundColor: "#f4a261",
+              }}
+            ></div>
+          </div>
+          <p>
+            {stats.personnages.unlocked} / {stats.personnages.total} Héros
             débloqués
           </p>
         </div>
@@ -84,7 +102,7 @@ const Profile = () => {
 
         {/* Carte Saisons */}
         <div className={styles.statCard}>
-          <h3>🎬 Saisons Visionnées</h3>
+          <h3>🎬 Saisons Débloquées</h3>
           <div className={styles.progressBar}>
             <div
               className={styles.progressFill}
@@ -96,24 +114,6 @@ const Profile = () => {
           </div>
           <p>
             {stats.saisons.unlocked} / {stats.saisons.total} Saisons explorées
-          </p>
-        </div>
-
-        {/* Carte Personnages */}
-        <div className={styles.statCard}>
-          <h3>👥 Personnages Débloqués</h3>
-          <div className={styles.progressBar}>
-            <div
-              className={styles.progressFill}
-              style={{
-                width: `${calculerPourcentage(stats.personnages.unlocked, stats.personnages.total)}%`,
-                backgroundColor: "#f4a261",
-              }}
-            ></div>
-          </div>
-          <p>
-            {stats.personnages.unlocked} / {stats.personnages.total} Héros
-            débloqués
           </p>
         </div>
       </div>

@@ -86,15 +86,26 @@ const Titans = () => {
   const verifierReponse = (choix, reponseCorrecte) => {
     if (choix === reponseCorrecte) {
       setFeedback({ texte: "✅ Bien joué !", couleur: "lightgreen" });
-      setTimerActive(false); // arrêt du chrono pendant l'animation
+      setTimerActive(false);
 
       setTimeout(() => {
         setEtapeQuiz("debloque");
 
-        setTimeout(() => {
-          setQuizActive(false);
+        const nouveauCompte = unlockedCount + 1;
 
-          setShowContinueBtn(true);
+        setTimeout(() => {
+          if (nouveauCompte >= donneesQuizTitans.length) {
+            setUnlockedCount(nouveauCompte);
+            localStorage.setItem(
+              "progression_titans",
+              nouveauCompte.toString(),
+            );
+            setVictoireTotale(true);
+            setQuizActive(false);
+          } else {
+            setQuizActive(false);
+            setShowContinueBtn(true);
+          }
         }, 1500);
       }, 1000);
     } else {
@@ -103,24 +114,19 @@ const Titans = () => {
   };
 
   const gererContinuer = () => {
-    // 1. On augmente le compteur proprement
     const nouveauCompte = unlockedCount + 1;
     setUnlockedCount(nouveauCompte);
 
-    // 2. On vérifie la victoire totale avec la nouvelle valeur
     if (nouveauCompte >= donneesQuizTitans.length) {
       setVictoireTotale(true);
     }
 
-    // 3. On sauvegarde la progression EXACTE
     localStorage.setItem("progression_titans", nouveauCompte.toString());
 
-    // 4. On réinitialise l'interface
     setQuizActive(false);
     setEtapeQuiz("");
     setShowContinueBtn(false);
 
-    // 5. Scroll et relance automatique (ton code existant est bon)
     if (cartesRef.current[nouveauCompte]) {
       cartesRef.current[nouveauCompte].scrollIntoView({
         behavior: "smooth",
@@ -129,7 +135,7 @@ const Titans = () => {
     }
 
     setTimeout(() => {
-      gererChrono(); // Relance le quiz pour le NOUVEAU titan
+      gererChrono();
     }, 800);
   };
 

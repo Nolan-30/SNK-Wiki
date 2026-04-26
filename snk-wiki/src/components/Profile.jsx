@@ -20,15 +20,17 @@ const Profile = () => {
       parseInt(localStorage.getItem("progression_titans"), 10) || 0;
     const saisonsUnlocked =
       parseInt(localStorage.getItem("progression_saisons"), 10) || 0;
-    const persosUnlocked = JSON.parse(
+    const listePersos = JSON.parse(
       localStorage.getItem("personnages_debloques") || "[]",
-    ).length;
+    );
+    const persosUnlocked = listePersos.length;
 
     setStats({
       username: user,
       histoire: { unlocked: histUnlocked, total: 5 },
       titans: { unlocked: titansUnlocked, total: 6 },
       saisons: { unlocked: saisonsUnlocked, total: 4 },
+      personnages: { unlocked: persosUnlocked, total: 4 },
     });
   }, []);
 
@@ -79,6 +81,7 @@ const Profile = () => {
             {stats.titans.unlocked} / {stats.titans.total} Titans découverts
           </p>
         </div>
+
         {/* Carte Saisons */}
         <div className={styles.statCard}>
           <h3>🎬 Saisons Visionnées</h3>
@@ -93,6 +96,24 @@ const Profile = () => {
           </div>
           <p>
             {stats.saisons.unlocked} / {stats.saisons.total} Saisons explorées
+          </p>
+        </div>
+
+        {/* Carte Personnages */}
+        <div className={styles.statCard}>
+          <h3>👥 Personnages Débloqués</h3>
+          <div className={styles.progressBar}>
+            <div
+              className={styles.progressFill}
+              style={{
+                width: `${calculerPourcentage(stats.personnages.unlocked, stats.personnages.total)}%`,
+                backgroundColor: "#f4a261",
+              }}
+            ></div>
+          </div>
+          <p>
+            {stats.personnages.unlocked} / {stats.personnages.total} Héros
+            débloqués
           </p>
         </div>
       </div>

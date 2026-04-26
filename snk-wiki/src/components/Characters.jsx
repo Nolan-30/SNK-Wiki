@@ -10,10 +10,14 @@ const Characters = () => {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [etape, setEtape] = useState("indice"); // "indice" | "question" | "debloque"
   const [feedback, setFeedback] = useState(null);
-  const [debloques, setDebloques] = useState([]);
   const [victoireFinale, setVictoireFinale] = useState(false);
   const [temps, setTemps] = useState(0);
   const [canExplore, setCanExplore] = useState(true);
+
+  const [debloques, setDebloques] = useState(() => {
+    const sauvegarde = localStorage.getItem("personnages_debloques");
+    return sauvegarde ? JSON.parse(sauvegarde) : [];
+  });
 
   const enregistrerProgressionPersos = async () => {
     const username = localStorage.getItem("username");
@@ -74,12 +78,20 @@ const Characters = () => {
         setEtape("debloque");
         setTimeout(() => {
           const nextP = indexPerso + 1;
-          setDebloques((d) => [...d, perso.id]);
+
+          const nouvelleListe = [...debloques, perso.id];
+          setDebloques(nouvelleListe);
+
+          localStorage.setItem(
+            "personnages_debloques",
+            JSON.stringify(nouvelleListe),
+          );
 
           if (nextP >= donneesCharacters.length) {
             setVictoireFinale(true);
             setJeuLance(false);
           } else {
+            // Passe au prnsg suivant
             setIndexPerso(nextP);
             setIndexQuestion(0);
             setEtape("indice");

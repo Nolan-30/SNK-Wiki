@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import CharacterCard from "./CharacterCard";
 import "../styles/Characters.css";
 
-import donneesQuiz from "../data/Characters.json";
-import charactersInfo from "../data/CharactersInfos.json";
+import donneesCharacters from "../data/Characters.json";
 
 const Characters = () => {
   const [jeuLance, setJeuLance] = useState(false);
@@ -57,7 +56,7 @@ const Characters = () => {
   };
 
   const repondre = (choix) => {
-    const perso = donneesQuiz[indexPerso];
+    const perso = donneesCharacters[indexPerso];
     const question = perso.questions[indexQuestion];
 
     if (choix === question.reponse) {
@@ -77,7 +76,7 @@ const Characters = () => {
           const nextP = indexPerso + 1;
           setDebloques((d) => [...d, perso.id]);
 
-          if (nextP >= donneesQuiz.length) {
+          if (nextP >= donneesCharacters.length) {
             setVictoireFinale(true);
             setJeuLance(false);
           } else {
@@ -94,7 +93,7 @@ const Characters = () => {
     }
   };
 
-  const persoActuel = donneesQuiz[indexPerso];
+  const persoActuel = donneesCharacters[indexPerso];
   const questionActuelle = persoActuel?.questions[indexQuestion];
 
   return (
@@ -160,14 +159,14 @@ const Characters = () => {
         )}
 
         <div className="personnages-container">
-          {charactersInfo.map((info) => (
+          {donneesCharacters.map((char) => (
             <CharacterCard
-              key={info.id}
-              nom={info.nom}
-              image={info.image}
-              description={info.description}
-              lien={info.lien}
-              debloque={debloques.includes(info.id)}
+              key={char.id}
+              nom={char.nom}
+              image={char.image}
+              description={char.description}
+              lien={char.lien}
+              debloque={debloques.includes(char.id)}
             />
           ))}
         </div>

@@ -7,6 +7,7 @@ const Profile = () => {
     histoire: { unlocked: 0, temps: 0 },
     titans: { unlocked: 0, temps: 0 },
     saisons: { unlocked: 0, total: 4 },
+    personnages: { unlocked: 0, total: 4 },
   });
 
   useEffect(() => {
@@ -19,6 +20,9 @@ const Profile = () => {
       parseInt(localStorage.getItem("progression_titans"), 10) || 0;
     const saisonsUnlocked =
       parseInt(localStorage.getItem("progression_saisons"), 10) || 0;
+    const persosUnlocked = JSON.parse(
+      localStorage.getItem("personnages_debloques") || "[]",
+    ).length;
 
     setStats({
       username: user,

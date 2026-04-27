@@ -85,6 +85,10 @@ const History = () => {
             L'Histoire D'un Monde Cruel
           </span>
         </h1>
+        <p>
+          Le récit d'une humanité murée, entre secrets d'État et lutte
+          désespérée pour la liberté.
+        </p>
         <img
           src="images/ymir.jpg"
           alt="Ymir Fritz"

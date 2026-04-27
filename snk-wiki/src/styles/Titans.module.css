@@ -18,6 +18,10 @@
 }
 
 .titre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 3.5rem;
@@ -28,7 +32,18 @@
   margin-bottom: 5%;
   margin-top: 10%;
 }
-
+.titans-container .subtitle {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #b3b3b3;
+  margin-top: -5%;
+  margin-bottom: 50px;
+  max-width: 100px;
+}
 .face-avant {
   display: flex;
   justify-content: center;

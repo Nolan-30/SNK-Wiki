@@ -147,6 +147,12 @@ const Titans = () => {
             Les Neufs Titans Primordiaux
           </span>
         </h1>
+        <p className="subtitle">
+          <p>
+            Découvrez les neuf puissances originelles issues d'Ymir qui ont
+            façonné l'histoire du monde.
+          </p>
+        </p>
 
         <span className={styles["founding-titan"]}>
           <img

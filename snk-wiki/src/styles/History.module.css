@@ -19,6 +19,17 @@
   margin-top: 80px;
 }
 
+/* subtitle */
+
+.titrePrincipalConteneur p {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #b3b3b3;
+  margin-top: -5%;
+  margin-bottom: 50px;
+}
+
 .degraderRouge {
   background: linear-gradient(to right, #ff0000, #730000);
   background-clip: text;

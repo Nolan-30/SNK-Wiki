@@ -113,7 +113,13 @@ const Seasons = () => {
 
   return (
     <main className={styles.seasonsPage}>
-      <h1 className={styles.pageTitle}>L'Épopée des Saisons</h1>
+      <h1 className={styles.pageTitle}>
+        L'Épopée des Saisons
+        <p>
+          Revivez l'intégralité de la saga.
+          {/* de la chute du Mur Maria jusqu'à l'ultime affrontement." */}
+        </p>
+      </h1>
 
       {!victoireTotale && (
         <div className={styles.startContainer}>
@@ -134,10 +140,17 @@ const Seasons = () => {
               index < unlockedCount ||
               (index === unlockedCount && showContinueBtn);
             const isCurrent = index === unlockedCount;
+            const isLocked = index > unlockedCount;
             const currentQuiz = quizData[index];
 
             return (
-              <div key={season.id} className={styles.cardContainer}>
+              <div
+                key={season.id}
+                className={`${styles.cardContainer} ${isLocked ? styles.locked : ""}`}
+              >
+                {isLocked && (
+                  <div className={styles.lockedOverlay}>🔒 Verrouillé</div>
+                )}
                 <div
                   className={`${styles.flipCardInner} ${
                     isUnlocked ? styles.isFlipped : ""
@@ -145,7 +158,10 @@ const Seasons = () => {
                 >
                   {/* FACE AVANT */}
                   <div className={`${styles.faceAvant} ${season.colorClass}`}>
-                    {quizLance && isCurrent && currentQuiz ? (
+                    {quizLance &&
+                    isCurrent &&
+                    currentQuiz &&
+                    currentQuiz.questions ? (
                       <div className={styles.quizContent}>
                         <p className={styles.stepIndicator}>
                           Question {currentStep + 1} /{" "}

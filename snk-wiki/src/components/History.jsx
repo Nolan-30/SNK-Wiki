@@ -17,6 +17,7 @@ const History = () => {
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
   const [victoireTotale, setVictoireTotale] = useState(false);
+  const [errors, setErrors] = useState(0); // suivre le nbr de mauvaises rep
 
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
@@ -24,10 +25,27 @@ const History = () => {
       setFeedback({ msg: "Bonne réponse ! 🎉", isCorrect: true });
       setShowNextBtn(true);
     } else {
-      setFeedback({ msg: "Mauvaise réponse ! ❌", isCorrect: false });
+      const newErrors = errors + 1;
+      setErrors(newErrors);
+
+      if (newErrors >= 2) {
+        // reinitialisation de la page
+        alert(
+          "Trop d'erreurs ! Vous devez recommencer l'exploration depuis le début. ⚔️",
+        );
+        setErrors(0);
+        setUnlockedCount(0);
+        setQuizLance(false);
+        localStorage.setItem("progression_histoire", "0");
+        window.location.reload();
+      } else {
+        setFeedback({
+          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/2)`,
+          isCorrect: false,
+        });
+      }
     }
   };
-
   const nextStep = () => {
     const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
 
@@ -86,8 +104,8 @@ const History = () => {
           </span>
         </h1>
         <p>
-          Le récit d'une humanité murée, entre secrets d'État et lutte
-          désespérée pour la liberté.
+          {/* Le récit d'une humanité murée. */}
+          Entre secrets d'État et lutte désespérée pour la liberté.
         </p>
         <img
           src="images/ymir.jpg"

@@ -116,12 +116,13 @@ const Characters = () => {
           <span className="degrader-blanc"> D'Exploration</span>
         </h1>
         <p>
-          <a className="link" href="#perso-scroll">
+          <a className="link">
             Découvrez l'histoire de ceux qui osent défier les Murs !
           </a>
         </p>
         <div className="img-bat">
-          <img src="public/Images/bataillon.jpg" height="500" alt="Bataillon" />
+          _
+          <img src="public/images/bataillon.jpg" height="500" alt="Bataillon" />
         </div>
       </div>
 

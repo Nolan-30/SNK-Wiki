@@ -144,19 +144,19 @@ const Titans = () => {
       <main className={styles["titans-container"]} data-aos="fade-up">
         <h1 className={styles.titre}>
           <span className={styles["degrader-jaune"]}>
-            Les Neufs Titans Primordiaux
+            {/* Les Neufs */}
+            Titans Primordiaux
           </span>
-        </h1>
-        <p className="subtitle">
-          <p>
-            Découvrez les neuf puissances originelles issues d'Ymir qui ont
-            façonné l'histoire du monde.
+          <p className="subtitle">
+            Découvrez les puissances originelles.
+            {/* issues d'Ymir qui ont
+            façonné l'histoire du monde. */}
           </p>
-        </p>
+        </h1>
 
         <span className={styles["founding-titan"]}>
           <img
-            src="public/images/titan-originel.jpg"
+            src="images/titan-originel.jpg"
             height="500"
             width="600"
             alt="titan originel"

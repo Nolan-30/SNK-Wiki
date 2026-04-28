@@ -21,8 +21,10 @@ const CharacterCard = ({ nom, image, description, lien, debloque }) => {
               </a>
             </span>
           </p>
-          <div className="description-perso">
-            <p>{description}</p>
+          <div className="description-container">
+            <div className="description-perso">
+              <p>{description}</p>
+            </div>
           </div>
         </div>
       </div>

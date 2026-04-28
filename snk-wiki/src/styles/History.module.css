@@ -22,9 +22,11 @@
 /* subtitle */
 
 .titrePrincipalConteneur p {
+  font-weight: 900;
   font-family: "Lato", sans-serif;
   font-style: italic;
   font-size: 20px;
+
   color: #b3b3b3;
   margin-top: -5%;
   margin-bottom: 50px;

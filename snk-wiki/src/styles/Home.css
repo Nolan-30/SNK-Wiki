@@ -187,6 +187,7 @@ a {
 }
 
 .card {
+  border-top: 3px solid gold;
   background-color: var(--card-bg);
   padding: 35px 30px;
   border-radius: 6px;
@@ -212,19 +213,6 @@ a {
   height: 4px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-}
-
-.card-red::before {
-  background-color: var(--snk-red);
-}
-.card-blue::before {
-  background-color: #3b82f6;
-}
-.card-yellow::before {
-  background-color: #fbbf24;
-}
-.card-green::before {
-  background-color: green;
 }
 
 .icon-box {

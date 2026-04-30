@@ -31,17 +31,20 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 5%;
-  margin-top: 10%;
+  margin-top: 5%;
+}
+
+.subtitle {
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #b3b3b3;
 }
 .titans-container .subtitle {
   display: flex;
   justify-content: center;
 
-  font-family: "Lato", sans-serif;
-  font-style: italic;
-  font-size: 20px;
-
-  color: #b3b3b3;
   margin-top: -5%;
   margin-bottom: 50px;
 }

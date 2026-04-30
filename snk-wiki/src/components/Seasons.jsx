@@ -34,7 +34,7 @@ const Seasons = () => {
     {
       id: 2,
       title: "Saison 2",
-      img: "images/saison2.jpg",
+      img: "images/saison2.png",
       colorClass: styles.borderYellow,
       description:
         "La lutte continue alors que de nouveaux Titans apparaissent à l'intérieur du Mur Rose. Des trahisons au sein du Bataillon d'exploration sont révélées, changeant à jamais la perception de l'ennemi.",
@@ -51,8 +51,8 @@ const Seasons = () => {
     },
     {
       id: 4,
-      title: "Final Season",
-      img: "public/images/saison4.jpg",
+      title: "Saison Finale",
+      img: "public/images/s4.png",
       colorClass: styles.borderBlack,
       description:
         "La guerre traverse l'océan pour atteindre le continent de Mahr. Eren lance une attaque dévastatrice, déclenchant le Grand Terrassement pour protéger l'île du Paradis, menant au dénouement final.",
@@ -112,7 +112,7 @@ const Seasons = () => {
   };
 
   return (
-    <main className={styles.seasonsPage}>
+    <main className={styles.seasonsPage} data-aos="fade-up">
       <h1 className={styles.pageTitle}>
         L'Épopée des Saisons
         <p>

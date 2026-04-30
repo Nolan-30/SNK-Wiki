@@ -67,7 +67,7 @@ const Characters = () => {
       const nextQ = indexQuestion + 1;
 
       if (nextQ < perso.questions.length) {
-        setFeedback({ texte: "✅ Bien joué !", ok: true });
+        setFeedback({ texte: "✅ Bonne réponse !", ok: true });
         setTimeout(() => {
           setFeedback(null);
           setIndexQuestion(nextQ);
@@ -110,7 +110,7 @@ const Characters = () => {
 
   return (
     <>
-      <div className="bataillon">
+      <div className="bataillon" data-aos="fade-up">
         <h1>
           <span className="vert">Bataillon</span>
           <span className="degrader-blanc"> D'Exploration</span>
@@ -166,7 +166,7 @@ const Characters = () => {
               </div>
             )}
             {etape === "debloque" && (
-              <h2 style={{ color: "lightgreen" }}>DÉBLOQUÉ !</h2>
+              <h2 style={{ color: "lightgreen" }}>Personnage débloqué !</h2>
             )}
           </div>
         )}

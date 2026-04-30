@@ -85,7 +85,7 @@ const Titans = () => {
 
   const verifierReponse = (choix, reponseCorrecte) => {
     if (choix === reponseCorrecte) {
-      setFeedback({ texte: "✅ Bien joué !", couleur: "lightgreen" });
+      setFeedback({ texte: "✅ Bonne réponse!", couleur: "lightgreen" });
       setTimerActive(false);
 
       setTimeout(() => {
@@ -240,7 +240,7 @@ const Titans = () => {
               {showOverlay && (
                 <div className={styles["jeu-dans-carte"]}>
                   {etapeQuiz === "debloque" ? (
-                    <h2 style={{ color: "lightgreen" }}>DÉBLOQUÉ !</h2>
+                    <h2 style={{ color: "lightgreen" }}>Titan débloqué !</h2>
                   ) : etapeQuiz === "indice" ? (
                     <div>
                       <h3>INDICE</h3>

@@ -6,7 +6,7 @@
 }
 
 .pageTitle {
-  margin-top: 15%;
+  margin-top: 7%;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
@@ -47,7 +47,7 @@
 
 .cardContainer {
   perspective: 1000px;
-  height: 350px;
+  height: 400px;
 }
 
 .flipCardInner {
@@ -131,7 +131,8 @@
 
 /* Face Arrière */
 .seasonThumbnail {
-  width: 40%;
+  width: 60%;
+  height: 100%;
 }
 .seasonThumbnail img {
   width: 100%;

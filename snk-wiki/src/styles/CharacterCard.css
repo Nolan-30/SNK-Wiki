@@ -43,9 +43,13 @@
   border-radius: 16px;
   margin: 0;
   border-top: 1px solid rgba(41, 41, 41, 0.489);
-  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  /* border-bottom: 10px solid rgba(41, 41, 41, 0.489); */
   margin-bottom: 5%;
   transition: transform 1s ease-out;
+}
+
+.face-arriere img {
+  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
 }
 
 .personnage-carte:hover img {
@@ -91,10 +95,11 @@
   margin-top: 15%;
 
   border-radius: 10px;
-  border-top: 1px solid rgba(41, 41, 41, 0.489);
+  border: 1px solid rgb(47, 48, 47);
+  /* border-top: 1px solid rgba(41, 41, 41, 0.489);
   border-left: 1px solid rgba(41, 41, 41, 0.489);
   border-right: 1px solid rgba(41, 41, 41, 0.489);
-  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  border-bottom: 10px solid rgba(41, 41, 41, 0.489); */
   color: white;
 
   display: flex;

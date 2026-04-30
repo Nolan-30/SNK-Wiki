@@ -45,7 +45,7 @@ const Home = () => {
           <article className="card card-red">
             <Link to="/histoire">
               <div className="icon-box">
-                <i className="fa-solid fa-book-open"></i>
+                <img src="images/history-home.png" height={125}></img>
               </div>
               <h3>Histoire</h3>
               <p>Les origines des murs et le combat pour la liberté.</p>
@@ -53,21 +53,20 @@ const Home = () => {
           </article>
 
           {/* Carte Personnages */}
-          <article className="card card-green">
+          <article className="card">
             <Link to="/personnages">
-              <div className="icon-box">
-                <i className="fa-solid fa-book-open"></i>
-              </div>
+              <img src="images/perso-home.png" height={125}></img>
+              <div className="icon-box"></div>
               <h3>Personnages</h3>
               <p>Découvrez les héros du Bataillon d'Exploration.</p>
             </Link>
           </article>
 
           {/* Carte Titans */}
-          <article className="card card-yellow">
+          <article className="card ">
             <Link to="/titans">
               <div className="icon-box">
-                <i className="fa-solid fa-skull"></i>
+                <img src="images/titans-home.png" height={125}></img>
               </div>
               <h3>Titans</h3>
               <p>Les 9 Titans primordiaux et leurs pouvoirs.</p>
@@ -75,10 +74,10 @@ const Home = () => {
           </article>
 
           {/* Carte Saisons */}
-          <article className="card card-blue">
+          <article className="card">
             <Link to="/saisons">
               <div className="icon-box">
-                <i className="fa-solid fa-film"></i>
+                <img src="images/saisons-home.png" height={125}></img>
               </div>
               <h3>Saisons</h3>
               <p>Récapitulatif de tous les arcs narratifs.</p>

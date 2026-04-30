@@ -67,7 +67,7 @@ const History = () => {
         // passe au chap suivant
         setUnlockedCount(nouveauCompte);
         localStorage.setItem("progression_histoire", nouveauCompte.toString());
-        setCurrentStep(0); // Reset l'étape pour le nouveau chapitre
+        setCurrentStep(0);
         setFeedback(null);
         setShowNextBtn(false);
       }
@@ -96,7 +96,7 @@ const History = () => {
   };
 
   return (
-    <main className={styles.historyMain}>
+    <main className={styles.historyMain} data-aos="fade-up">
       <div className={styles.titrePrincipalConteneur}>
         <h1 className={styles.historyTitle}>
           <span className={styles.degraderRouge}>

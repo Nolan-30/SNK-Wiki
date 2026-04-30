@@ -5,12 +5,14 @@
       {
         "qst": "Quels Titans brisent le Mur Maria, mettant fin à cent ans de paix ?",
         "choix": ["Le Bestial et le Marteau", "Le Colossal et le Cuirassé", "Le Féminin et l'Assaillant", "La Charrette et la Mâchoire"],
-        "reponse": "Le Colossal et le Cuirassé"
+        "reponse": "Le Colossal et le Cuirassé",
+        "indice": "L'un est une montagne de chair, l'autre un bouclier vivant... 🧱"
       },
       {
         "qst": "Comment l'humanité vit-elle au début du récit ?",
         "choix": ["Sous terre", "Sur des bateaux", "Entourée d'immenses murs", "Dans les arbres"],
-        "reponse": "Entourée d'immenses murs"
+        "reponse": "Entourée d'immenses murs",
+        "indice": "Comme du bétail dans un enclos de pierre... 🐄"
       }
     ]
   },
@@ -20,12 +22,14 @@
       {
         "qst": "Quel est le nom du mur le plus central, où vit la famille royale ?",
         "choix": ["Mur Rose", "Mur Maria", "Mur Sina", "Mur d'Utgard"],
-        "reponse": "Mur Sina"
+        "reponse": "Mur Sina",
+        "indice": "C'est le rempart de la noblesse, au cœur du royaume... 👑"
       },
       {
         "qst": "Qui garde jalousement le secret de la construction des murs ?",
         "choix": ["Le Bataillon d'exploration", "Le Culte du Mur et la famille royale", "Les marchands", "Le peuple de Trost"],
-        "reponse": "Le Culte du Mur et la famille royale"
+        "reponse": "Le Culte du Mur et la famille royale",
+        "indice": "Ceux qui prient les pierres cachent souvent ce qu'elles contiennent... 🙏"
       }
     ]
   },
@@ -35,12 +39,14 @@
       {
         "qst": "Quel est le désir inné d'Eren Jaeger ?",
         "choix": ["Devenir riche", "Voir le monde extérieur", "Devenir roi", "Détruire les murs"],
-        "reponse": "Voir le monde extérieur"
+        "reponse": "Voir le monde extérieur",
+        "indice": "Il rêve de flammes d'eau, de terres de glace et de champs de sable... 🌊"
       },
       {
         "qst": "À quel prix Eren est-il prêt à obtenir sa liberté ?",
         "choix": ["Quel qu'en soit le prix", "Sans aucune violence", "En restant caché", "En obéissant aux lois"],
-        "reponse": "Quel qu'en soit le prix"
+        "reponse": "Quel qu'en soit le prix",
+        "indice": "Si on ne se bat pas, on ne peut pas gagner... ⚔️"
       }
     ]
   },
@@ -50,12 +56,14 @@
       {
         "qst": "Quelle est la vision de la guerre présentée dans l'œuvre ?",
         "choix": ["Les gentils gagnent toujours", "Il n'y a ni gentils ni méchants absolus", "C'est un jeu d'enfant", "La victoire est facile"],
-        "reponse": "Il n'y a ni gentils ni méchants absolus"
+        "reponse": "Il n'y a ni gentils ni méchants absolus",
+        "indice": "De l'autre côté de la mer, les ennemis nous ressemblent... 🌍"
       },
       {
         "qst": "Comment sont décrits les conflits dans la section Guerre ?",
         "choix": ["Simples", "Inexistants", "Complexes", "Amusants"],
-        "reponse": "Complexes"
+        "reponse": "Complexes",
+        "indice": "Rien n'est jamais tout noir ou tout blanc sur le champ de bataille... ♟️"
       }
     ]
   },
@@ -65,12 +73,14 @@
       {
         "qst": "Que produit généralement la violence selon ce thème ?",
         "choix": ["La paix immédiate", "Le silence", "La violence à travers les générations", "La fin de l'histoire"],
-        "reponse": "La violence à travers les générations"
+        "reponse": "La violence à travers les générations",
+        "indice": "Une blessure infligée aujourd'hui sera le venin de demain... 🐍"
       },
       {
         "qst": "Quel sentiment engendre la violence perpétuelle dans ce récit ?",
         "choix": ["La joie", "La haine", "L'indifférence", "L'amitié"],
-        "reponse": "La haine"
+        "reponse": "La haine",
+        "indice": "C'est un poison qui consume le cœur des hommes... 🔥"
       }
     ]
   }

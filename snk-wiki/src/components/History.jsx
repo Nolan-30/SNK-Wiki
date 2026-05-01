@@ -96,7 +96,7 @@ const History = () => {
   };
 
   return (
-    <main className={styles.historyMain} data-aos="fade-up">
+    <main className={styles.historyMain} data-aos="fade-right">
       <div className={styles.titrePrincipalConteneur}>
         <h1 className={styles.historyTitle}>
           <span className={styles.degraderRouge}>

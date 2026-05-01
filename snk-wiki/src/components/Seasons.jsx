@@ -112,7 +112,7 @@ const Seasons = () => {
   };
 
   return (
-    <main className={styles.seasonsPage} data-aos="fade-up">
+    <main className={styles.seasonsPage} data-aos="fade-right">
       <h1 className={styles.pageTitle}>
         L'Épopée des Saisons
         <p>
@@ -120,6 +120,9 @@ const Seasons = () => {
           {/* de la chute du Mur Maria jusqu'à l'ultime affrontement." */}
         </p>
       </h1>
+      <div className={styles.mainPic}>
+        <img src="images/saison4.jpg" />
+      </div>
 
       {!victoireTotale && (
         <div className={styles.startContainer}>

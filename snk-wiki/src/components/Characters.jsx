@@ -110,7 +110,7 @@ const Characters = () => {
 
   return (
     <>
-      <div className="bataillon" data-aos="fade-up">
+      <div className="bataillon" data-aos="fade-right">
         <h1>
           <span className="vert">Bataillon</span>
           <span className="degrader-blanc"> D'Exploration</span>
@@ -121,7 +121,6 @@ const Characters = () => {
           </a>
         </p>
         <div className="img-bat">
-          _
           <img src="public/images/bataillon.jpg" height="500" alt="Bataillon" />
         </div>
       </div>

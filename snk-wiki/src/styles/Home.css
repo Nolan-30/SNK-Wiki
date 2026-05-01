@@ -187,6 +187,9 @@ a {
 }
 
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-top: 3px solid gold;
   background-color: var(--card-bg);
   padding: 35px 30px;
@@ -197,6 +200,16 @@ a {
     box-shadow 0.3s ease;
   height: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card p {
+  text-align: center;
 }
 
 .card:hover {
@@ -216,8 +229,12 @@ a {
 }
 
 .icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2.2rem;
-  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-bottom: 5%;
 }
 
 .card-red .icon-box {

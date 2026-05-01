@@ -39,7 +39,7 @@ const Profile = () => {
   };
 
   return (
-    <div className={styles.profileContainer}>
+    <div className={styles.profileContainer} data-aos="fade-up">
       <div className={styles.header}>
         <h1 className={styles.title}>Profil du Bataillon</h1>
         <p className={styles.username}>

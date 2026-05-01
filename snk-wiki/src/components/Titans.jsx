@@ -141,13 +141,13 @@ const Titans = () => {
 
   return (
     <div className={styles["bg-black"]}>
-      <main className={styles["titans-container"]} data-aos="fade-up">
+      <main className={styles["titans-container"]} data-aos="fade-right">
         <h1 className={styles.titre}>
           <span className={styles["degrader-jaune"]}>
             {/* Les Neufs */}
             Titans Primordiaux
           </span>
-          <p className="subtitle">
+          <p>
             Découvrez les puissances originelles.
             {/* issues d'Ymir qui ont
             façonné l'histoire du monde. */}

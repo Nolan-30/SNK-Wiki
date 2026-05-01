@@ -35,7 +35,7 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.profilContainer}>
+    <div className={styles.profilContainer} data-aos="fade-up">
       <div className={styles.authCard}>
         <h2>Rejoindre le Bataillon</h2>
         <form onSubmit={handleSubmit} className={styles.authForm}>

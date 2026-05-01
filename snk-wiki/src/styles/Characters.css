@@ -33,20 +33,23 @@
   text-transform: uppercase;
 }
 
-.link {
+/* .link {
   font-style: oblique;
   font-size: 20px;
   text-decoration: none;
   color: white;
-}
+} */
 
 .bataillon p a {
   font-size: 20px;
   color: #b3b3b3;
+  font-style: oblique;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .bataillon p {
-  margin-top: -2%;
+  margin-top: -1%;
 }
 
 .img-bat {

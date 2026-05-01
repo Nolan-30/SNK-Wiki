@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-// test  pour créer un user
+// test pour créer un user
 app.post("/api/user", async (req, res) => {
   try {
     const newUser = new User(req.body);

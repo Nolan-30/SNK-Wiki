@@ -55,8 +55,9 @@ const Home = () => {
           {/* Carte Personnages */}
           <article className="card">
             <Link to="/personnages">
-              <img src="images/perso-home.png" height={125}></img>
-              <div className="icon-box"></div>
+              <div className="icon-box">
+                <img src="images/perso-home.png" height={125}></img>
+              </div>
               <h3>Personnages</h3>
               <p>Découvrez les héros du Bataillon d'Exploration.</p>
             </Link>

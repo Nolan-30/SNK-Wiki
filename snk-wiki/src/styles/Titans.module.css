@@ -27,6 +27,7 @@
   font-weight: 900;
   font-size: 3.5rem;
   text-align: center;
+
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -34,20 +35,12 @@
   margin-top: 5%;
 }
 
-.subtitle {
-  font-weight: 900;
-  font-family: "Lato", sans-serif;
+.titre p {
   font-style: italic;
   font-size: 20px;
   color: #b3b3b3;
 }
-.titans-container .subtitle {
-  display: flex;
-  justify-content: center;
 
-  margin-top: -5%;
-  margin-bottom: 50px;
-}
 .face-avant {
   display: flex;
   justify-content: center;

@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="fin-page">
         <h3>SHINZOU WO SASAGEYO !</h3>
-        <p>2026 - Site crée par Nolan et Ethan</p>
+        <p>2026 - Développé par Nolan et Ethan</p>
       </div>
     </footer>
   );

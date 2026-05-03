@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CharacterCard from "./CharacterCard";
 import "../styles/Characters.css";
 
-import donneesCharacters from "../data/Characters.json";
+import charactersData from "../data/Characters.json";
 
 const Characters = () => {
   const [jeuLance, setJeuLance] = useState(false);
@@ -18,6 +18,8 @@ const Characters = () => {
     const sauvegarde = localStorage.getItem("personnages_debloques");
     return sauvegarde ? JSON.parse(sauvegarde) : [];
   });
+
+  const [errors, setErrors] = useState(0);
 
   const enregistrerProgressionPersos = async () => {
     const username = localStorage.getItem("username");
@@ -54,13 +56,14 @@ const Characters = () => {
 
   const demarrer = () => {
     setTemps(0);
+    setErrors(0);
     setJeuLance(true);
     setEtape("indice");
     setTimeout(() => setEtape("question"), 1500);
   };
 
   const repondre = (choix) => {
-    const perso = donneesCharacters[indexPerso];
+    const perso = charactersData[indexPerso];
     const question = perso.questions[indexQuestion];
 
     if (choix === question.reponse) {
@@ -75,23 +78,21 @@ const Characters = () => {
           setTimeout(() => setEtape("question"), 1500);
         }, 1000);
       } else {
+        // Logique de déblocage du personnage
         setEtape("debloque");
         setTimeout(() => {
           const nextP = indexPerso + 1;
-
           const nouvelleListe = [...debloques, perso.id];
           setDebloques(nouvelleListe);
-
           localStorage.setItem(
             "personnages_debloques",
             JSON.stringify(nouvelleListe),
           );
 
-          if (nextP >= donneesCharacters.length) {
+          if (nextP >= charactersData.length) {
             setVictoireFinale(true);
             setJeuLance(false);
           } else {
-            // Passe au prnsg suivant
             setIndexPerso(nextP);
             setIndexQuestion(0);
             setEtape("indice");
@@ -100,12 +101,30 @@ const Characters = () => {
         }, 1500);
       }
     } else {
-      setFeedback({ texte: "❌ Réessaie !", ok: false });
-      setTimeout(() => setFeedback(null), 1000);
+      // --- LOGIQUE DES ERREURS ---
+      const newErrors = errors + 1;
+      setErrors(newErrors);
+
+      if (newErrors >= 2) {
+        alert(
+          "Trop d'erreurs ! Vous devez recommencer l'exploration depuis le début. ⚔️",
+        );
+        setErrors(0);
+        setDebloques([]); // On vide la liste des debloques
+        setJeuLance(false);
+        localStorage.removeItem("personnages_debloques"); // supp la save
+        window.location.reload();
+      } else {
+        setFeedback({
+          texte: `❌ Mauvaise réponse ! (Attention : ${newErrors}/2)`,
+          ok: false,
+        });
+        setTimeout(() => setFeedback(null), 1500);
+      }
     }
   };
 
-  const persoActuel = donneesCharacters[indexPerso];
+  const persoActuel = charactersData[indexPerso];
   const questionActuelle = persoActuel?.questions[indexQuestion];
 
   return (
@@ -171,7 +190,7 @@ const Characters = () => {
         )}
 
         <div className="personnages-container">
-          {donneesCharacters.map((char) => (
+          {charactersData.map((char) => (
             <CharacterCard
               key={char.id}
               nom={char.nom}

@@ -2,6 +2,10 @@
   {
     "id": 1,
     "nom": "Saison 1",
+    "img": "public/images/saison1.png",
+    "colorClass": "borderBlue",
+    "description": "L'humanité vit depuis un siècle protégée par d'immenses murs, jusqu'à l'apparition soudaine du Titan Colossal qui brise le Mur Maria. Après avoir vu sa mère dévorée, Eren Jaeger jure d'exterminer tous les Titans.",
+    "highlight": "Le début de l'épopée d'Eren.",
     "questions": [
       {
         "qst": "Quel Titan apparaît soudainement pour briser le Mur Maria au tout début de la série ?",
@@ -20,6 +24,10 @@
   {
     "id": 2,
     "nom": "Saison 2",
+    "img": "images/saison2.png",
+    "colorClass": "borderYellow",
+    "description": "La lutte continue alors que de nouveaux Titans apparaissent à l'intérieur du Mur Rose. Des trahisons au sein du Bataillon d'exploration sont révélées, changeant à jamais la perception de l'ennemi.",
+    "highlight": "La révélation du Titan Cuirassé et du Colossal.",
     "questions": [
       {
         "qst": "Que découvrent les soldats à l'intérieur d'une brèche du mur à la fin de la saison 1 ?",
@@ -38,6 +46,10 @@
   {
     "id": 3,
     "nom": "Saison 3",
+    "img": "images/saison3.jpg",
+    "colorClass": "borderRed",
+    "description": "Le conflit devient politique avec une lutte contre le gouvernement corrompu, menant à la reconquête du Mur Maria et à la découverte des secrets cachés dans la cave de Grisha Jaeger.",
+    "highlight": "La vérité sur le monde extérieur.",
     "questions": [
       {
         "qst": "Quelle est la véritable identité de Christa Lenz, révélée dans cette saison ?",
@@ -55,7 +67,11 @@
   },
   {
     "id": 4,
-    "nom": "Saison 4",
+    "nom": "Saison Finale",
+    "img": "public/images/s4.png",
+    "colorClass": "borderBlack",
+    "description": "La guerre traverse l'océan pour atteindre le continent de Mahr. Eren lance une attaque dévastatrice, déclenchant le Grand Terrassement pour protéger l'île du Paradis, menant au dénouement final.",
+    "highlight": "L'ultime bataille pour la liberté.",
     "questions": [
       {
         "qst": "Dans quelle nation se trouve le camp de Revelio, où vivent les Eldiens de l'autre côté de la mer ?",

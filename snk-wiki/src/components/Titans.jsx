@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Titans.module.css";
-import donneesQuizTitans from "../data/titans.json";
+import titansData from "../data/Titans.json";
 
 const Titans = () => {
   // Recup le nbr de titans debloques
@@ -22,6 +22,7 @@ const Titans = () => {
   const cartesRef = useRef([]);
 
   const [victoireTotale, setVictoireTotale] = useState(false);
+  const [errors, setErrors] = useState(0);
 
   const enregistrerProgressionTitans = async () => {
     const username = localStorage.getItem("username");
@@ -71,7 +72,8 @@ const Titans = () => {
 
   // --- logique du jeu ---
   const gererChrono = () => {
-    if (unlockedCount >= donneesQuizTitans.length) return;
+    if (unlockedCount >= TitansData.length) return;
+    setErrors(0);
     setTimerActive(true);
     setQuizActive(true);
     setEtapeQuiz("indice");
@@ -87,14 +89,14 @@ const Titans = () => {
     if (choix === reponseCorrecte) {
       setFeedback({ texte: "✅ Bonne réponse!", couleur: "lightgreen" });
       setTimerActive(false);
+      setErrors(0);
 
       setTimeout(() => {
         setEtapeQuiz("debloque");
-
         const nouveauCompte = unlockedCount + 1;
 
         setTimeout(() => {
-          if (nouveauCompte >= donneesQuizTitans.length) {
+          if (nouveauCompte >= titansData.length) {
             setUnlockedCount(nouveauCompte);
             localStorage.setItem(
               "progression_titans",
@@ -109,7 +111,26 @@ const Titans = () => {
         }, 1500);
       }, 1000);
     } else {
-      setFeedback({ texte: "❌ Réessaie !", couleur: "red" });
+      // --- LOGIQUE DES ERREURS ---
+      const newErrors = errors + 1;
+      setErrors(newErrors);
+
+      if (newErrors >= 2) {
+        alert(
+          "Trop d'erreurs ! Vous avez échoué face aux Titans. Recommencez depuis le début ! ⚔️",
+        );
+
+        setErrors(0);
+        setUnlockedCount(0);
+        setQuizActive(false);
+        localStorage.setItem("progression_titans", "0");
+        window.location.reload();
+      } else {
+        setFeedback({
+          texte: `❌ Réessaie ! (Attention : ${newErrors}/2)`,
+          couleur: "red",
+        });
+      }
     }
   };
 
@@ -117,7 +138,7 @@ const Titans = () => {
     const nouveauCompte = unlockedCount + 1;
     setUnlockedCount(nouveauCompte);
 
-    if (nouveauCompte >= donneesQuizTitans.length) {
+    if (nouveauCompte >= titansData.length) {
       setVictoireTotale(true);
     }
 
@@ -174,7 +195,7 @@ const Titans = () => {
           </div>
         )}
 
-        {donneesQuizTitans.map((titan, index) => {
+        {titansData.map((titan, index) => {
           const isUnlocked =
             index < unlockedCount ||
             (index === unlockedCount && showContinueBtn);

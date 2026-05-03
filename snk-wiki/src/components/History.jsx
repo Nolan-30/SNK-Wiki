@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import quizData from "../data/History.json";
+import historyData from "../data/History.json";
 import styles from "../styles/History.module.css";
 
 const History = () => {
@@ -47,7 +47,7 @@ const History = () => {
     }
   };
   const nextStep = () => {
-    const totalQuestions = quizData[unlockedCount]?.questions?.length || 0;
+    const totalQuestions = historyData[unlockedCount]?.questions?.length || 0;
 
     if (currentStep < totalQuestions - 1) {
       setCurrentStep(currentStep + 1);
@@ -57,7 +57,7 @@ const History = () => {
       // Fin du chapitre actuel
       const nouveauCompte = unlockedCount + 1;
 
-      if (nouveauCompte >= quizData.length) {
+      if (nouveauCompte >= historyData.length) {
         setUnlockedCount(nouveauCompte);
         localStorage.setItem("progression_histoire", nouveauCompte.toString());
         setVictoireTotale(true);
@@ -123,7 +123,7 @@ const History = () => {
           </p>
           <button
             onClick={() => {
-              if (unlockedCount >= quizData.length) {
+              if (unlockedCount >= historyData.length) {
                 setUnlockedCount(0);
                 setVictoireTotale(false);
                 localStorage.removeItem("progression_histoire");
@@ -136,7 +136,7 @@ const History = () => {
             }}
             className={styles.startBtn}
           >
-            {unlockedCount >= quizData.length
+            {unlockedCount >= historyData.length
               ? "Recommencer l'Aventure 🔄"
               : unlockedCount > 0
                 ? `Reprendre au Chapitre ${unlockedCount + 1} ⚔️`
@@ -163,7 +163,7 @@ const History = () => {
             unlockedCount === 0 &&
             quizLance && (
               <QuizZone
-                data={quizData[0]}
+                data={historyData[0]}
                 currentStep={currentStep}
                 handleAnswer={handleAnswer}
                 feedback={feedback}
@@ -188,7 +188,7 @@ const History = () => {
             </p>
           ) : unlockedCount === 1 && quizLance ? (
             <QuizZone
-              data={quizData[1]}
+              data={historyData[1]}
               currentStep={currentStep}
               handleAnswer={handleAnswer}
               feedback={feedback}
@@ -216,7 +216,7 @@ const History = () => {
             </p>
           ) : unlockedCount === 2 && quizLance ? (
             <QuizZone
-              data={quizData[2]}
+              data={historyData[2]}
               currentStep={currentStep}
               handleAnswer={handleAnswer}
               feedback={feedback}
@@ -244,7 +244,7 @@ const History = () => {
             </p>
           ) : unlockedCount === 3 && quizLance ? (
             <QuizZone
-              data={quizData[3]}
+              data={historyData[3]}
               currentStep={currentStep}
               handleAnswer={handleAnswer}
               feedback={feedback}
@@ -272,7 +272,7 @@ const History = () => {
             </p>
           ) : unlockedCount === 4 && quizLance ? (
             <QuizZone
-              data={quizData[4]}
+              data={historyData[4]}
               currentStep={currentStep}
               handleAnswer={handleAnswer}
               feedback={feedback}

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../styles/Seasons.module.css";
-import quizData from "../data/Seasons.json";
+import seasonsData from "../data/Seasons.json";
 
 const Seasons = () => {
-  // --- États ---
+  // --- Etats ---
   const [quizLance, setQuizLance] = useState(false);
 
   // recupere la progression des saisons
@@ -19,46 +19,7 @@ const Seasons = () => {
   const [canExplore, setCanExplore] = useState(true);
   const [victoireTotale, setVictoireTotale] = useState(false);
   const [showContinueBtn, setShowContinueBtn] = useState(false);
-
-  // --- Donnees des Saisons ---
-  const seasonsData = [
-    {
-      id: 1,
-      title: "Saison 1",
-      img: "public/images/saison1.png",
-      colorClass: styles.borderBlue,
-      description:
-        "L'humanité vit depuis un siècle protégée par d'immenses murs, jusqu'à l'apparition soudaine du Titan Colossal qui brise le Mur Maria. Après avoir vu sa mère dévorée, Eren Jaeger jure d'exterminer tous les Titans.",
-      highlight: "Le début de l'épopée d'Eren.",
-    },
-    {
-      id: 2,
-      title: "Saison 2",
-      img: "images/saison2.png",
-      colorClass: styles.borderYellow,
-      description:
-        "La lutte continue alors que de nouveaux Titans apparaissent à l'intérieur du Mur Rose. Des trahisons au sein du Bataillon d'exploration sont révélées, changeant à jamais la perception de l'ennemi.",
-      highlight: "La révélation du Titan Cuirassé et du Colossal.",
-    },
-    {
-      id: 3,
-      title: "Saison 3",
-      img: "images/saison3.jpg",
-      colorClass: styles.borderRed,
-      description:
-        "Le conflit devient politique avec une lutte contre le gouvernement corrompu, menant à la reconquête du Mur Maria et à la découverte des secrets cachés dans la cave de Grisha Jaeger.",
-      highlight: "La vérité sur le monde extérieur.",
-    },
-    {
-      id: 4,
-      title: "Saison Finale",
-      img: "public/images/s4.png",
-      colorClass: styles.borderBlack,
-      description:
-        "La guerre traverse l'océan pour atteindre le continent de Mahr. Eren lance une attaque dévastatrice, déclenchant le Grand Terrassement pour protéger l'île du Paradis, menant au dénouement final.",
-      highlight: "L'ultime bataille pour la liberté.",
-    },
-  ];
+  const [errors, setErrors] = useState(0);
 
   // --- Logique du Quiz ---
 
@@ -80,10 +41,29 @@ const Seasons = () => {
   const handleAnswer = (choice, correctAnswer) => {
     if (choice === correctAnswer) {
       setFeedback({ msg: "Bonne réponse ! 🎉", isCorrect: true });
+      setErrors(0);
       setShowNextBtn(true);
     } else {
-      setFeedback({ msg: "Mauvaise réponse ! ❌", isCorrect: false });
-      setShowNextBtn(false); // cache le btn si la réponse est fausse
+      const newErrors = errors + 1;
+      setErrors(newErrors);
+
+      if (newErrors >= 2) {
+        alert(
+          "Trop d'erreurs ! Vous devez reprendre l'épopée depuis le début. ⚔️",
+        );
+
+        setErrors(0);
+        setUnlockedCount(0);
+        setQuizLance(false);
+        localStorage.setItem("progression_saisons", "0");
+        window.location.reload();
+      } else {
+        setFeedback({
+          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/2)`,
+          isCorrect: false,
+        });
+        setShowNextBtn(false);
+      }
     }
   };
 
@@ -102,6 +82,7 @@ const Seasons = () => {
 
   const gererChrono = () => {
     if (!quizLance) {
+      setErrors(0);
       setQuizLance(true);
       setStartTime(Date.now());
       setCurrentStep(0);
@@ -144,7 +125,7 @@ const Seasons = () => {
               (index === unlockedCount && showContinueBtn);
             const isCurrent = index === unlockedCount;
             const isLocked = index > unlockedCount;
-            const currentQuiz = quizData[index];
+            const currentQuiz = seasonsData[index];
 
             return (
               <div

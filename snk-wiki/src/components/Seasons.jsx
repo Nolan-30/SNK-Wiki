@@ -70,13 +70,20 @@ const Seasons = () => {
 
   const nextStep = () => {
     const currentQuiz = seasonsData[unlockedCount];
+
     if (currentStep < currentQuiz.questions.length - 1) {
+      // passe à la qst suivante
       setCurrentStep(currentStep + 1);
       setFeedback(null);
       setShowNextBtn(false);
       setEtape("indice");
       setTimeout(() => setEtape("question"), 1500);
+    } else if (unlockedCount === seasonsData.length - 1) {
+      // win si c'est la derniere saison
+      setQuizLance(false);
+      setVictoireTotale(true);
     } else {
+      // fin du quiz de la saison actuelle
       setQuizLance(false);
       setShowContinueBtn(true);
       setShowNextBtn(false);
@@ -123,7 +130,7 @@ const Seasons = () => {
         </div>
       )}
 
-      {!victoireTotale && (
+      {(!victoireTotale || !canExplore) && (
         <div className={styles.seasonsGrid}>
           {seasonsData.map((season, index) => {
             const isUnlocked =

@@ -20,6 +20,7 @@ const Seasons = () => {
   const [victoireTotale, setVictoireTotale] = useState(false);
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [errors, setErrors] = useState(0);
+  const [etape, setEtape] = useState("indice"); // "indice" "qst"
 
   // --- Logique du Quiz ---
 
@@ -68,11 +69,13 @@ const Seasons = () => {
   };
 
   const nextStep = () => {
-    const currentQuiz = quizData[unlockedCount];
+    const currentQuiz = seasonsData[unlockedCount];
     if (currentStep < currentQuiz.questions.length - 1) {
       setCurrentStep(currentStep + 1);
       setFeedback(null);
       setShowNextBtn(false);
+      setEtape("indice");
+      setTimeout(() => setEtape("question"), 1500);
     } else {
       setQuizLance(false);
       setShowContinueBtn(true);
@@ -89,6 +92,9 @@ const Seasons = () => {
       setFeedback(null);
       setShowNextBtn(false);
       setShowContinueBtn(false);
+
+      setEtape("indice");
+      setTimeout(() => setEtape("question"), 1500);
     }
   };
 
@@ -151,26 +157,40 @@ const Seasons = () => {
                           Question {currentStep + 1} /{" "}
                           {currentQuiz.questions.length}
                         </p>
-                        <p className={styles.questionText}>
-                          {currentQuiz.questions[currentStep].qst}
-                        </p>
 
-                        <div className={styles.optionsGrid}>
-                          {currentQuiz.questions[currentStep].choix.map((c) => (
-                            <button
-                              key={c}
-                              onClick={() =>
-                                handleAnswer(
-                                  c,
-                                  currentQuiz.questions[currentStep].reponse,
-                                )
-                              }
-                              className={styles.quizBtn}
-                            >
-                              {c}
-                            </button>
-                          ))}
-                        </div>
+                        {/* AFFICHAGE CONDITIONNEL DE L'INDICE OU DE LA QUESTION */}
+                        {etape === "indice" ? (
+                          <div className={styles.indiceBox}>
+                            <h3>💡 INDICE</h3>
+                            <p>{currentQuiz.questions[currentStep].indice}</p>
+                          </div>
+                        ) : (
+                          <>
+                            <p className={styles.questionText}>
+                              {currentQuiz.questions[currentStep].qst}
+                            </p>
+
+                            <div className={styles.optionsGrid}>
+                              {currentQuiz.questions[currentStep].choix.map(
+                                (c) => (
+                                  <button
+                                    key={c}
+                                    onClick={() =>
+                                      handleAnswer(
+                                        c,
+                                        currentQuiz.questions[currentStep]
+                                          .reponse,
+                                      )
+                                    }
+                                    className={styles.quizBtn}
+                                  >
+                                    {c}
+                                  </button>
+                                ),
+                              )}
+                            </div>
+                          </>
+                        )}
 
                         {feedback && (
                           <p

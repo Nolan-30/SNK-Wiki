@@ -4,7 +4,6 @@ import seasonsData from "../data/Seasons.json";
 
 const Seasons = () => {
   // --- Etats ---
-  const [quizLance, setQuizLance] = useState(false);
 
   // recupere la progression des saisons
   const [unlockedCount, setUnlockedCount] = useState(() => {
@@ -12,6 +11,7 @@ const Seasons = () => {
     return sauvegarde ? parseInt(sauvegarde, 10) : 0;
   });
 
+  const [quizLance, setQuizLance] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
@@ -165,7 +165,6 @@ const Seasons = () => {
                           {currentQuiz.questions.length}
                         </p>
 
-                        {/* AFFICHAGE CONDITIONNEL DE L'INDICE OU DE LA QUESTION */}
                         {etape === "indice" ? (
                           <div className={styles.indiceBox}>
                             <h3>💡 INDICE</h3>
@@ -233,9 +232,12 @@ const Seasons = () => {
                       <img src={season.img} alt={season.title} />
                     </div>
                     <div className={styles.seasonContent}>
+                      <h2 className={styles.seasonNumber}>{season.nom}</h2>
                       <h2>{season.title}</h2>
                       <p>{season.description}</p>
-                      <small>{season.highlight}</small>
+                      <p className={styles.seasonHighlight}>
+                        {season.highlight}
+                      </p>
 
                       {showContinueBtn && isCurrent && (
                         <button

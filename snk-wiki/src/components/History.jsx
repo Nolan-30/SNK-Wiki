@@ -4,19 +4,19 @@ import styles from "../styles/History.module.css";
 
 const History = () => {
   // --- États ---
-  const [quizLance, setQuizLance] = useState(false);
 
   const [unlockedCount, setUnlockedCount] = useState(() => {
     const sauvegarde = localStorage.getItem("progression_histoire");
     return sauvegarde ? parseInt(sauvegarde, 10) : 0;
   });
-
+  const [quizLance, setQuizLance] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
   const [victoireTotale, setVictoireTotale] = useState(false);
+  const [etape, setEtape] = useState("indice"); // "indice" "qst"
   const [errors, setErrors] = useState(0); // suivre le nbr de mauvaises rep
 
   // --- Logique du Quiz ---
@@ -53,6 +53,9 @@ const History = () => {
       setCurrentStep(currentStep + 1);
       setFeedback(null);
       setShowNextBtn(false);
+
+      setEtape("indice");
+      setTimeout(() => setEtape("question"), 1500);
     } else {
       // Fin du chapitre actuel
       const nouveauCompte = unlockedCount + 1;
@@ -70,6 +73,8 @@ const History = () => {
         setCurrentStep(0);
         setFeedback(null);
         setShowNextBtn(false);
+        setEtape("indice");
+        setTimeout(() => setEtape("question"), 1500);
       }
     }
   };
@@ -133,6 +138,8 @@ const History = () => {
               setFeedback(null);
               setShowNextBtn(false);
               setStartTime(Date.now());
+              setEtape("indice");
+              setTimeout(() => setEtape("question"), 1500);
             }}
             className={styles.startBtn}
           >
@@ -169,6 +176,7 @@ const History = () => {
                 feedback={feedback}
                 showNextBtn={showNextBtn}
                 nextStep={nextStep}
+                etape={etape}
               />
             )
           )}
@@ -194,6 +202,7 @@ const History = () => {
               feedback={feedback}
               showNextBtn={showNextBtn}
               nextStep={nextStep}
+              etape={etape}
             />
           ) : (
             unlockedCount < 1 && (
@@ -222,6 +231,7 @@ const History = () => {
               feedback={feedback}
               showNextBtn={showNextBtn}
               nextStep={nextStep}
+              etape={etape}
             />
           ) : (
             unlockedCount < 2 && (
@@ -250,6 +260,7 @@ const History = () => {
               feedback={feedback}
               showNextBtn={showNextBtn}
               nextStep={nextStep}
+              etape={etape}
             />
           ) : (
             unlockedCount < 3 && (
@@ -278,6 +289,7 @@ const History = () => {
               feedback={feedback}
               showNextBtn={showNextBtn}
               nextStep={nextStep}
+              etape={etape}
             />
           ) : (
             unlockedCount < 4 && (
@@ -313,30 +325,42 @@ const QuizZone = ({
   feedback,
   showNextBtn,
   nextStep,
+  etape,
 }) => (
   <div className={styles.quizBox}>
     {data?.questions?.[currentStep] && (
       <>
-        <p className={styles.quizQuestion}>{data.questions[currentStep].qst}</p>
-        <div className={styles.optionsGrid}>
-          {data.questions[currentStep].choix.map((c) => (
-            <button
-              key={c}
-              onClick={() =>
-                handleAnswer(c, data.questions[currentStep].reponse)
-              }
-              className={styles.quizBtn}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+        {/* Affichage conditionnel selon l'étape */}
+        {etape === "indice" ? (
+          <div className={styles.indiceBox}>
+            <p>💡 INDICE : {data.questions[currentStep].indice}</p>
+          </div>
+        ) : (
+          <>
+            <p className={styles.quizQuestion}>
+              {data.questions[currentStep].qst}
+            </p>
+            <div className={styles.optionsGrid}>
+              {data.questions[currentStep].choix.map((c) => (
+                <button
+                  key={c}
+                  onClick={() =>
+                    handleAnswer(c, data.questions[currentStep].reponse)
+                  }
+                  className={styles.quizBtn}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+
         {feedback && (
           <p className={feedback.isCorrect ? styles.success : styles.error}>
             {feedback.msg}
           </p>
         )}
-
         {showNextBtn && (
           <button onClick={nextStep} className={styles.continueBtn}>
             Question Suivante →

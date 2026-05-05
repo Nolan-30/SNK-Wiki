@@ -168,6 +168,21 @@
   width: 60%;
 }
 
+.seasonContent p:first-child {
+  color: #9ca3af;
+}
+
+.seasonNumber {
+  margin-bottom: 5%;
+}
+
+.seasonHighlight {
+  margin-top: 5%;
+  font-family: "Cinzel", serif;
+  color: #8c8c8c;
+  color: #9ca3af;
+}
+
 .startContainer {
   display: flex;
   justify-content: center;
@@ -197,10 +212,11 @@
 }
 
 /* --- FLOU SUR LES CARTES LOCKED --- */
+
 .locked {
-  filter: blur(8px); /* L'effet de flou */
-  opacity: 0.6; /* Rend la carte un peu transparente */
-  pointer-events: none; /* Empêche de cliquer ou d'interagir avec la carte */
+  filter: blur(8px);
+  opacity: 0.6;
+  pointer-events: none; /* empeche tt interact° av la carte */
   transition: all 0.5s ease;
 }
 

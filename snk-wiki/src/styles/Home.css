@@ -237,19 +237,6 @@ a {
   margin-bottom: 5%;
 }
 
-.card-red .icon-box {
-  color: var(--snk-red);
-}
-.card-blue .icon-box {
-  color: #3b82f6;
-}
-.card-yellow .icon-box {
-  color: #fbbf24;
-}
-.card-green .icon-box {
-  color: green;
-}
-
 .card h3 {
   font-family: "Cinzel", serif;
   font-size: 1.3rem;

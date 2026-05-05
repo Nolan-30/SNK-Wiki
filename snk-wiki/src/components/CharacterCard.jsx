@@ -1,6 +1,6 @@
 import "../styles/CharacterCard.css";
 
-const CharacterCard = ({ nom, image, description, lien, debloque }) => {
+const CharacterCard = ({ image, description, lien, debloque }) => {
   return (
     <div className="personnage-carte">
       <div className={`flip-cards ${debloque ? "est-retournee" : ""}`}>
@@ -13,14 +13,14 @@ const CharacterCard = ({ nom, image, description, lien, debloque }) => {
           />
         </div>
         <div className="face-arriere">
-          <img src={image} height="auto" width="250" alt={nom} />
-          <p className="nom-perso">
+          <img src={image} height="auto" width="250" />
+          {/* <p className="nom-perso">
             <span className="degrader-blanc">
               <a href={lien} target="_blank" rel="noreferrer">
                 {nom}
               </a>
             </span>
-          </p>
+          </p> */}
           <div className="description-container">
             <div className="description-perso">
               <p>{description}</p>

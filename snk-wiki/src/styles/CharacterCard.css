@@ -40,11 +40,11 @@
 
 .personnage-carte img {
   border: 3px solid transparent;
-  border-radius: 16px;
+  border-radius: 10px;
   margin: 0;
-  border-top: 1px solid rgba(41, 41, 41, 0.489);
-  /* border-bottom: 10px solid rgba(41, 41, 41, 0.489); */
-  margin-bottom: 5%;
+  border-left: 1px solid rgba(41, 41, 41, 0.489);
+  border-right: 1px solid rgba(41, 41, 41, 0.489);
+
   transition: transform 1s ease-out;
 }
 
@@ -57,10 +57,10 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.nom-perso {
+/* .nom-perso {
   font-size: 20px;
   font-family: "Playfair Display", serif;
-  font-weight: 500;
+  font-weight: 900;
   font-style: italic;
   text-align: center;
   margin: 10px 0 5px 0;
@@ -69,7 +69,7 @@
 .nom-perso a {
   text-decoration: none;
   transition: 1s;
-}
+} */
 
 .degrader-blanc {
   background: linear-gradient(to right, #ffffff, #5a5a5a);
@@ -88,31 +88,21 @@
   justify-content: center; */
   /* margin-top: -20px;
   margin-left: 5%; */
+
+  border-radius: 10px;
+  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  border-left: 1px solid rgba(41, 41, 41, 0.489);
+  border-right: 1px solid rgba(41, 41, 41, 0.489);
 }
 
 .description-perso p {
   transition: 1s;
-  margin-top: 15%;
-
-  border-radius: 10px;
-  border: 1px solid rgb(47, 48, 47);
-  /* border-top: 1px solid rgba(41, 41, 41, 0.489);
-  border-left: 1px solid rgba(41, 41, 41, 0.489);
-  border-right: 1px solid rgba(41, 41, 41, 0.489);
-  border-bottom: 10px solid rgba(41, 41, 41, 0.489); */
-  color: white;
+  padding: 10px;
 
   display: flex;
-  text-align: center;
   align-items: center;
+  min-width: 250px;
+  max-width: 250px;
 
-  min-width: 200px;
-  max-width: 200px;
-  min-height: 100px;
-  max-height: 100px;
-}
-
-.description-perso p:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 10px rgb(134, 134, 134);
+  color: #c2c0c0;
 }

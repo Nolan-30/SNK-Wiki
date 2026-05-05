@@ -3,7 +3,7 @@
     "id": "eren",
     "nom": "Eren Jaëger",
     "image": "images/eren.png",
-    "description": "Eren est le héros principal de l'histoire. Il a une rage immense et combat pour la liberté à tout prix.",
+    "description": "Eren est le héros principal. Il a une rage immense et combat pour la liberté à tout prix.",
     "lien": "https://attaque-des-titans.fandom.com/fr/wiki/Eren_J%C3%A4ger",
     "questions": [
       {
@@ -60,7 +60,7 @@
     "id": "levi",
     "nom": "Levi Ackerman",
     "image": "public/images/levi.jpg",
-    "description": "Levi est le caporal-chef du Bataillon d'Exploration, reconnu comme le soldat le plus fort de l'humanité.",
+    "description": "Levi est le Chef du Bataillon d'Exploration, reconnu comme le soldat le plus fort de l'humanité.",
     "lien": "https://attaque-des-titans.fandom.com/fr/wiki/Liva%C3%AF_Ackerman",
     "questions": [
       {

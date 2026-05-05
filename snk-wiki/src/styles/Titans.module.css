@@ -204,29 +204,6 @@
   margin-bottom: 20px;
 }
 
-.holder-green {
-  color: #00410a;
-}
-.holder-beige {
-  color: rgb(230, 213, 132);
-}
-.holder-red {
-  color: red;
-}
-.holder-brown {
-  color: rgb(60, 42, 0);
-}
-.holder-cyan {
-  color: rgb(122, 197, 255);
-}
-.holder-white {
-  color: #ffffff;
-}
-
-.titan-holder strong {
-  color: #edf2f4;
-}
-
 .titan-desc {
   color: #bdc3c7;
   font-size: 1rem;
@@ -265,6 +242,29 @@
 }
 .stats-white {
   color: #ffffff;
+}
+
+.holder-green {
+  color: #00410a;
+}
+.holder-beige {
+  color: rgb(230, 213, 132);
+}
+.holder-red {
+  color: red;
+}
+.holder-brown {
+  color: rgb(60, 42, 0);
+}
+.holder-cyan {
+  color: rgb(122, 197, 255);
+}
+.holder-white {
+  color: #ffffff;
+}
+
+.titan-holder strong {
+  color: #edf2f4;
 }
 
 .personnage-carte {
@@ -340,17 +340,7 @@
   height: 100%;
 
   /* background-color: #000; */
-  background: linear-gradient(
-    180deg,
-    #000000 0%,
-    #1a0000 100%
-  ); /* Exemple : dégradé noir -> rouge très sombre */
-
-  /* Ajuste la couleur de fin du dégradé selon tes préférences.
-     Quelques idées :
-     Vert très sombre : #001a00
-     Bleu très sombre : #00001a
-     Gris très sombre : #1a1a1a */
+  background: linear-gradient(180deg, #000000 0%, #1a0000 100%);
 
   padding: 15px;
   border-radius: 10px;
@@ -362,6 +352,15 @@
 .jeu-dans-carte h3 {
   color: #ff4444;
   margin-bottom: 10px;
+}
+
+.indice {
+  display: flex;
+  justify-content: center;
+}
+
+.quizContainer {
+  margin-top: 10%;
 }
 
 .options-boutons-titans {
@@ -418,9 +417,9 @@
   background: linear-gradient(135deg, #000000 0%, #333 100%);
   padding: 3rem;
   border-radius: 15px;
-  border: 2px solid #ffcc00; /* Un rappel du dégradé jaune des titans */
+  border: 2px solid #ffcc00;
   text-align: center;
-  box-shadow: 0 0 50px rgba(255, 204, 0, 0.3); /* Effet lumineux ✨ */
+  box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
   z-index: 1000;
   width: 90%;
   max-width: 600px;

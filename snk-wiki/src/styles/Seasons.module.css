@@ -173,14 +173,29 @@
 }
 
 .seasonNumber {
+  font-size: 40px;
   margin-bottom: 5%;
+  font-weight: 900;
+}
+
+.seasonDescription {
+  font-size: 20px;
+  color: #c2c0c0;
+  font-weight: 700;
+}
+
+.separator {
+  margin-top: 5%;
+  border: 1px solid rgb(86, 86, 86);
 }
 
 .seasonHighlight {
   margin-top: 5%;
+  color: #5e5f5f;
+  text-align: center;
   font-family: "Cinzel", serif;
-  color: #8c8c8c;
-  color: #9ca3af;
+  font-style: italic;
+  font-weight: 900;
 }
 
 .startContainer {

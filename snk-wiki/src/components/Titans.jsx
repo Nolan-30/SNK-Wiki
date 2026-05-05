@@ -72,7 +72,7 @@ const Titans = () => {
 
   // --- logique du jeu ---
   const gererChrono = () => {
-    if (unlockedCount >= TitansData.length) return;
+    if (unlockedCount >= titansData.length) return;
     setErrors(0);
     setTimerActive(true);
     setQuizActive(true);
@@ -268,7 +268,7 @@ const Titans = () => {
                       <p>{titan.indice}</p>
                     </div>
                   ) : (
-                    <div>
+                    <div className={styles.quizContainer}>
                       <h2 className={styles.questionQuiz}>{titan.q}</h2>
                       <div className={styles["options-boutons-titans"]}>
                         {titan.choix.map((choixTexte, i) => (

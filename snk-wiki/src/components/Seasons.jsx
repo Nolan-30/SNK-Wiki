@@ -79,6 +79,10 @@ const Seasons = () => {
       setEtape("indice");
       setTimeout(() => setEtape("question"), 1500);
     } else if (unlockedCount === seasonsData.length - 1) {
+      // incrementation pour que la dernière carte soit considérée comme debloquee
+      const nouveauCompte = unlockedCount + 1;
+      setUnlockedCount(nouveauCompte);
+      localStorage.setItem("progression_saisons", nouveauCompte.toString());
       // win si c'est la derniere saison
       setQuizLance(false);
       setVictoireTotale(true);
@@ -137,7 +141,7 @@ const Seasons = () => {
               index < unlockedCount ||
               (index === unlockedCount && showContinueBtn);
             const isCurrent = index === unlockedCount;
-            const isLocked = index > unlockedCount;
+            const isLocked = index > unlockedCount && !victoireTotale;
             const currentQuiz = seasonsData[index];
 
             return (
@@ -234,7 +238,10 @@ const Seasons = () => {
                     <div className={styles.seasonContent}>
                       <h2 className={styles.seasonNumber}>{season.nom}</h2>
                       <h2>{season.title}</h2>
-                      <p>{season.description}</p>
+                      <p className={styles.seasonDescription}>
+                        {season.description}
+                      </p>
+                      <div className={styles.separator}></div>
                       <p className={styles.seasonHighlight}>
                         {season.highlight}
                       </p>

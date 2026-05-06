@@ -250,17 +250,6 @@ const Seasons = () => {
                         <button
                           onClick={validerSaison}
                           className={styles.btnValiderSaison}
-                          style={{
-                            marginTop: "15px",
-                            padding: "10px",
-                            cursor: "pointer",
-                            backgroundColor: "#e63946",
-                            color: "white",
-                            border: "none",
-                            borderRadius: "5px",
-                            fontWeight: "bold",
-                            width: "100%",
-                          }}
                         >
                           Débloquer la suite →
                         </button>

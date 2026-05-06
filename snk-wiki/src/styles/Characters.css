@@ -4,6 +4,11 @@
   margin-top: 20%;
 }
 
+.perso-section h2 {
+  font-size: 20px;
+  font-weight: 900;
+}
+
 .vert {
   /* mettre un dégradé a un txt */
   background: linear-gradient(to right, #008b0042, #00ae0c);
@@ -110,8 +115,8 @@
 }
 
 #jeu-dans-carte {
-  background-color: #000;
-  border: 1px solid rgba(85, 85, 85, 0.489);
+  background-color: rgb(1, 50, 1);
+  border: 1px solid rgba(5, 193, 11, 0.489);
   border-radius: 10px;
   padding: 20px;
   margin: 0 auto 40px;
@@ -121,30 +126,32 @@
 }
 
 #jeu-dans-carte h3 {
+  /* a mettre en vert */
   color: #ffcc00;
   margin-bottom: 10px;
 }
 
 #jeu-dans-carte h2 {
-  font-size: 1.2rem;
+  text-align: center;
+  font-size: 20px;
   margin-bottom: 15px;
 }
 
 .btn-reponse-quiz {
-  background-color: #e0e0e0;
-  color: #000;
+  background: white;
+  color: black;
   border: none;
   padding: 8px;
   margin: 5px 0;
   width: 100%;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 300;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.5s;
 }
 
 .btn-reponse-quiz:hover {
-  background-color: #ffffff;
+  background-color: #51b668;
 }
 
 #message-victoire-final {

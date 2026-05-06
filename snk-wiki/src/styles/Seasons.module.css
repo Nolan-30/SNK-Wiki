@@ -93,9 +93,16 @@
   height: 100%;
   backface-visibility: hidden;
   border-radius: 15px;
-  background-color: #111827;
+  /* background: linear-gradient(to right, rgb(22, 35, 80), #022b56); */
+  background-color: rgb(50, 37, 0);
+  border: 1px solid rgb(126, 78, 2);
   overflow: hidden;
-  border-left: 8px solid transparent;
+}
+
+.faceAvant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .faceArriere {
@@ -119,6 +126,7 @@
 
 /* Contenu Quiz */
 .quizContent {
+  margin-top: -5%;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -127,30 +135,62 @@
   height: 100%;
 }
 
+.indiceBox h3,
+p {
+  font-size: 20px;
+  text-align: center;
+}
+
 .optionsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
   margin: 20px 0;
 }
+.optionsGrid button {
+  transition: 0.5s;
+}
+.optionsGrid button:hover {
+  background-color: rgb(131, 109, 48);
+}
 
 .quizBtn {
-  background: #1f2937;
-  color: white;
-  border: 1px solid #374151;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(50, 37, 0);
+
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
+.questionText {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  max-width: 550px;
+}
+
 .continueBtn {
-  background: #3b82f6;
+  background-color: rgb(131, 109, 48);
   color: white;
   border: none;
   padding: 10px 30px;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.btnValiderSaison {
+  margin-top: 15px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
 }
 
 /* Face Arrière */
@@ -180,12 +220,15 @@
 
 .seasonDescription {
   font-size: 20px;
+  font-weight: 400;
   color: #c2c0c0;
-  font-weight: 700;
+  width: 450px;
+
+  max-width: 400px;
 }
 
 .separator {
-  margin-top: 5%;
+  margin-top: 10%;
   border: 1px solid rgb(86, 86, 86);
 }
 

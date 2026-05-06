@@ -263,7 +263,7 @@ const Titans = () => {
                   {etapeQuiz === "debloque" ? (
                     <h2 style={{ color: "lightgreen" }}>Titan débloqué !</h2>
                   ) : etapeQuiz === "indice" ? (
-                    <div>
+                    <div className={styles.indice}>
                       <h3>INDICE</h3>
                       <p>{titan.indice}</p>
                     </div>

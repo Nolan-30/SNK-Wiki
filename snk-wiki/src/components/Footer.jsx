@@ -2,8 +2,8 @@ import "../styles/Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="fin-page">
+    <footer>
+      <div className="main-footer">
         <h3>SHINZOU WO SASAGEYO !</h3>
         <p>2026 - Développé par Nolan et Ethan</p>
       </div>

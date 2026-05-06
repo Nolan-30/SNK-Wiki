@@ -338,14 +338,13 @@
   top: 0;
   width: 100%;
   height: 100%;
-
-  /* background-color: #000; */
-  background: linear-gradient(180deg, #000000 0%, #1a0000 100%);
-
+  background: #3f0000;
+  color: white;
   padding: 15px;
   border-radius: 10px;
   box-sizing: border-box;
-  color: white;
+  border: 1px solid red;
+
   text-align: center;
 }
 
@@ -355,12 +354,21 @@
 }
 
 .indice {
-  display: flex;
-  justify-content: center;
+  margin-top: 10%;
 }
 
 .quizContainer {
   margin-top: 10%;
+}
+
+/* centrer la main qst */
+.quizContainer h2 {
+  /* min-width: 200px;
+  max-width: 400px; */
+  text-align: center;
+
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .options-boutons-titans {
@@ -371,14 +379,19 @@
 }
 
 .btn-reponse-quiz {
-  background-color: #e0e0e0;
-  color: #000000;
+  background: white;
+  color: black;
   border: none;
-  padding: 10px;
+  padding: 8px;
   width: 100%;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 300;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn-reponse-quiz:hover {
+  background-color: #db3838;
 }
 
 .feedback-mini-titans {
@@ -390,15 +403,17 @@
 /* btn continuer */
 .btn-continuer-titan {
   display: block;
+
   margin: 20px auto;
   margin-top: 10%;
   margin-left: 0px;
+
   padding: 10px 20px;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 900;
   cursor: pointer;
-  background-color: #e7f47b;
-
+  background-color: #ff0000;
+  color: white;
   border: none;
   border-radius: 5px;
 }

@@ -98,11 +98,6 @@
 .description-perso p {
   transition: 1s;
   padding: 10px;
-
-  display: flex;
-  align-items: center;
-  min-width: 250px;
-  max-width: 250px;
-
+  width: 250px;
   color: #c2c0c0;
 }

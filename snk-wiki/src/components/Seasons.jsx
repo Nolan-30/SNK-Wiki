@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Seasons.module.css";
 import seasonsData from "../data/Seasons.json";
 
@@ -21,6 +21,20 @@ const Seasons = () => {
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [errors, setErrors] = useState(0);
   const [etape, setEtape] = useState("indice"); // "indice" "qst"
+  const [temps, setTemps] = useState(0);
+  const [activeTimer, setActiveTimer] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (activeTimer) {
+      interval = setInterval(() => {
+        setTemps((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [activeTimer]);
 
   // --- Logique du Quiz ---
 
@@ -37,6 +51,15 @@ const Seasons = () => {
     if (nouveauCompte >= seasonsData.length) {
       setVictoireTotale(true);
     }
+  };
+
+  const lancerExploration = () => {
+    setQuizLance(true);
+    setActiveTimer(true);
+    setTemps(0);
+    setEtape("indice");
+    // On passe à la question automatiquement après l'indice (comme sur les autres pages)
+    setTimeout(() => setEtape("qst"), 1500);
   };
 
   const handleAnswer = (choice, correctAnswer) => {
@@ -122,16 +145,22 @@ const Seasons = () => {
         <img src="images/saison4.jpg" />
       </div>
 
-      {!victoireTotale && (
+      {/* Bouton Démarrer */}
+      {!quizLance && !victoireTotale && unlockedCount < seasonsData.length && (
         <div className={styles.startContainer}>
-          {!quizLance && !showContinueBtn && (
-            <button onClick={gererChrono} className={styles.startBtn}>
-              {unlockedCount > 0
-                ? "Reprendre l'Exploration ⚔️"
-                : "Démarrer l'Exploration ⚔️"}
-            </button>
-          )}
+          <button
+            onClick={lancerExploration}
+            className={styles.btnValiderSaison}
+            style={{ width: "auto", padding: "15px 40px" }}
+          >
+            Démarrer l'Exploration ⚔️
+          </button>
         </div>
+      )}
+
+      {/* Affichage du chrono */}
+      {quizLance && !victoireTotale && (
+        <p className={styles.timeTxt}>Temps écoulé : {temps}s</p>
       )}
 
       {(!victoireTotale || !canExplore) && (

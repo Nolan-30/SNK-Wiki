@@ -20,12 +20,21 @@ const History = () => {
   const [errors, setErrors] = useState(0); // suivre le nbr de mauvaises rep
   const [temps, setTemps] = useState(0);
   const [activeTimer, setActiveTimer] = useState(false);
+  const [defaiteTemps, setDefaiteTemps] = useState(false);
 
   useEffect(() => {
     let interval;
     if (activeTimer) {
       interval = setInterval(() => {
-        setTemps((prev) => prev + 1);
+        setTemps((prev) => {
+          // lose si on atteint 50s
+          if (prev >= 3) {
+            setActiveTimer(false);
+            setDefaiteTemps(true);
+            setQuizLance(false);
+          }
+          return prev + 1;
+        });
       }, 1000);
     } else {
       clearInterval(interval);
@@ -34,10 +43,11 @@ const History = () => {
   }, [activeTimer]);
 
   const lancerExploration = () => {
-    setQuizLance(true); // Affiche le quiz
-    setActiveTimer(true); // Lance le chrono
-    setTemps(0); // Remet à zéro
-    setEtape("indice"); // Affiche l'indice
+    // Affiche le quiz, le chrono, l'indice et le timer a 0
+    setQuizLance(true);
+    setActiveTimer(true);
+    setTemps(0);
+    setEtape("indice");
     setTimeout(() => setEtape("qst"), 1500); // Passe à la question après 1.5s
   };
   // --- Logique du Quiz ---
@@ -313,6 +323,30 @@ const History = () => {
             <button onClick={() => (window.location.href = "/")}>
               Accueil
             </button>
+          </div>
+        </div>
+      )}
+      {/* Msg de lose */}
+      {defaiteTemps && (
+        <div
+          className={styles.messageVictoireFinal}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
+        >
+          <h1 style={{ color: "white" }}>TEMPS ÉCOULÉ !</h1>
+          <p>Vous devez répondre plus rapidement.</p>
+          <div className={styles.victoireBoutons}>
+            <button
+              onClick={() => window.location.reload()}
+              style={{ backgroundColor: "white", color: "darkred" }}
+            >
+              Réessayer 🔄
+            </button>
+            <button onClick={() => (window.location.href = "/")}>
+              Retour Accueil
+            </button>
+          </div>
+          <div className={styles.losePic}>
+            <img src="images/defaite-histoire.png" />
           </div>
         </div>
       )}

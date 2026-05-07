@@ -333,6 +333,11 @@
   transform: scale(1.1);
 }
 
+.losePic img {
+  border-radius: 50px;
+  margin-top: 5%;
+}
+
 /* --- Responsive --- */
 @media (max-width: 1024px) {
   .historyTitle {

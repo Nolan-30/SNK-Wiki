@@ -191,6 +191,11 @@
   gap: 10px;
 }
 
+.startTxt {
+  padding: 10px 50px;
+  font-size: 1rem;
+}
+
 .quizBtn {
   background: #161f2d;
   color: white;
@@ -260,6 +265,13 @@
 .startBtn:hover {
   background: #9a1616;
   transform: scale(1.05);
+}
+
+.timeTxt {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 5%;
+  color: red;
 }
 
 /* --- Message de Victoire Final --- */

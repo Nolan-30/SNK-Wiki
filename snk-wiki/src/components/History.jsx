@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import historyData from "../data/History.json";
 import styles from "../styles/History.module.css";
 
@@ -18,7 +18,28 @@ const History = () => {
   const [victoireTotale, setVictoireTotale] = useState(false);
   const [etape, setEtape] = useState("indice"); // "indice" "qst"
   const [errors, setErrors] = useState(0); // suivre le nbr de mauvaises rep
+  const [temps, setTemps] = useState(0);
+  const [activeTimer, setActiveTimer] = useState(false);
 
+  useEffect(() => {
+    let interval;
+    if (activeTimer) {
+      interval = setInterval(() => {
+        setTemps((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [activeTimer]);
+
+  const lancerExploration = () => {
+    setQuizLance(true); // Affiche le quiz
+    setActiveTimer(true); // Lance le chrono
+    setTemps(0); // Remet à zéro
+    setEtape("indice"); // Affiche l'indice
+    setTimeout(() => setEtape("qst"), 1500); // Passe à la question après 1.5s
+  };
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
     if (choice === correctAnswer) {
@@ -119,39 +140,21 @@ const History = () => {
         />
         <div className={styles.separateurRouge}></div>
       </div>
-
-      {!quizLance && (
+      {/* Affichage du Chrono et du Bouton */}
+      {!quizLance && !victoireTotale && (
         <div className={styles.startContainer}>
           <p className={styles.introText}>
-            Plongez dans les secrets de l'humanité. Répondez correctement aux
-            questions pour débloquer les archives.
+            Plongez dans les secrets de l'humanité.
           </p>
-          <button
-            onClick={() => {
-              if (unlockedCount >= historyData.length) {
-                setUnlockedCount(0);
-                setVictoireTotale(false);
-                localStorage.removeItem("progression_histoire");
-              }
-              setQuizLance(true);
-              setCurrentStep(0);
-              setFeedback(null);
-              setShowNextBtn(false);
-              setStartTime(Date.now());
-              setEtape("indice");
-              setTimeout(() => setEtape("question"), 1500);
-            }}
-            className={styles.startBtn}
-          >
-            {unlockedCount >= historyData.length
-              ? "Recommencer l'Aventure 🔄"
-              : unlockedCount > 0
-                ? `Reprendre au Chapitre ${unlockedCount + 1} ⚔️`
-                : "Démarrer l'Exploration ⚔️"}
+          <button onClick={lancerExploration} className={styles.quizBtn}>
+            <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
           </button>
         </div>
       )}
-
+      {/* Affichage du chrono */}
+      {quizLance && !victoireTotale && (
+        <p className={styles.timeTxt}>Temps écoulé : {temps}s</p>
+      )}
       <section className={styles.boiteContenu}>
         {/* ORIGINE */}
         <section
@@ -206,7 +209,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 1 && (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitre verrouillée</p>
             )
           )}
         </section>
@@ -298,7 +301,6 @@ const History = () => {
           )}
         </section>
       </section>
-
       {/* --- MSG DE VICTOIRE --- */}
       {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>

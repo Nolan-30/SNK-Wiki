@@ -204,8 +204,11 @@ p {
   object-fit: cover;
 }
 .seasonContent {
-  padding: 30px;
-  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
 }
 
 .seasonContent p:first-child {
@@ -239,6 +242,8 @@ p {
   font-family: "Cinzel", serif;
   font-style: italic;
   font-weight: 900;
+
+  margin-bottom: auto;
 }
 
 .startContainer {

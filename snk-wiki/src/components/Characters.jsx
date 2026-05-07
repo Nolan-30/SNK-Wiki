@@ -13,13 +13,13 @@ const Characters = () => {
   const [victoireFinale, setVictoireFinale] = useState(false);
   const [temps, setTemps] = useState(0);
   const [canExplore, setCanExplore] = useState(true);
+  const [defaiteTemps, setDefaiteTemps] = useState(false);
+  const [errors, setErrors] = useState(0);
 
   const [debloques, setDebloques] = useState(() => {
     const sauvegarde = localStorage.getItem("personnages_debloques");
     return sauvegarde ? JSON.parse(sauvegarde) : [];
   });
-
-  const [errors, setErrors] = useState(0);
 
   const enregistrerProgressionPersos = async () => {
     const username = localStorage.getItem("username");
@@ -42,10 +42,22 @@ const Characters = () => {
 
   // Chrono
   useEffect(() => {
-    if (!jeuLance || victoireFinale) return;
-    const id = setInterval(() => setTemps((t) => t + 1), 1000);
-    return () => clearInterval(id);
-  }, [jeuLance, victoireFinale]);
+    let interval;
+    if (jeuLance && !victoireFinale && !defaiteTemps) {
+      interval = setInterval(() => {
+        setTemps((prev) => {
+          if (prev >= 1) {
+            setDefaiteTemps(true);
+            setJeuLance(false);
+            return 5;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [jeuLance, victoireFinale, defaiteTemps]);
+
   useEffect(() => {
     if (victoireFinale === true) {
       enregistrerProgressionPersos();
@@ -147,9 +159,16 @@ const Characters = () => {
       <div className="perso-section">
         <div className="chrono">
           {!victoireFinale && (
-            <button id="btn-action" onClick={demarrer} disabled={jeuLance}>
-              {jeuLance ? "En cours..." : "Démarrer"}
+            <button
+              onClick={demarrer}
+              className="btnContainer"
+              disabled={jeuLance}
+            >
+              <p className="btn-action">Démarrer l'Exploration ⚔️</p>
             </button>
+            // <button id="btn-action" onClick={demarrer} disabled={jeuLance}>
+            //   {jeuLance ? "En cours..." : "Démarrer l'Exploration ⚔️"}
+            // </button>
           )}
           <div id="affichage">{affichageChrono}</div>
         </div>
@@ -221,6 +240,47 @@ const Characters = () => {
           >
             Explorer les Titans
           </button>
+        </div>
+      )}
+      {/* Message de lose */}
+      {defaiteTemps && (
+        <div className="messageDefaite">
+          <h1 style={{ color: "white", fontSize: "3rem" }}>TEMPS ÉCOULÉ !</h1>
+          <p style={{ color: "white", fontSize: "1.5rem" }}>
+            Vous devez répondre plus rapidement.
+          </p>
+          <div className="defaiteBoutons">
+            <button
+              onClick={() => window.location.reload()}
+              // style={{
+              //   backgroundColor: "white",
+              //   color: "darkred",
+              //   padding: "10px 20px",
+              //   cursor: "pointer",
+              //   border: "none",
+              //   borderRadius: "5px",
+              //   fontWeight: "bold",
+              // }}
+            >
+              Réessayer 🔄
+            </button>
+            <button
+              onClick={() => (window.location.href = "/")}
+              // style={{
+              //   padding: "10px 20px",
+              //   cursor: "pointer",
+              //   border: "none",
+              //   borderRadius: "5px",
+              //   fontWeight: "bold",
+              //   marginLeft: "10px",
+              // }}
+            >
+              Retour Accueil
+            </button>
+          </div>
+          <div className="losePic">
+            <img src="images/defaite-perso.png" />
+          </div>
         </div>
       )}
     </>

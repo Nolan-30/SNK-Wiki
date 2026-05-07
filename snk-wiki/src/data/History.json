@@ -69,6 +69,7 @@
   },
   {
     "categorie": "LE CYCLE DE LA HAINE",
+    
     "questions": [
       {
         "qst": "Que produit généralement la violence selon ce thème ?",
@@ -83,5 +84,6 @@
         "indice": "C'est un poison qui consume le cœur des hommes... 🔥"
       }
     ]
+    
   }
 ]

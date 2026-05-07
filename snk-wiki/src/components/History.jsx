@@ -28,7 +28,7 @@ const History = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           // lose si on atteint 50s
-          if (prev >= 3) {
+          if (prev >= 1000) {
             setActiveTimer(false);
             setDefaiteTemps(true);
             setQuizLance(false);
@@ -326,15 +326,15 @@ const History = () => {
           </div>
         </div>
       )}
-      {/* Msg de lose */}
+      {/* Message de defaite */}
       {defaiteTemps && (
         <div
-          className={styles.messageVictoireFinal}
+          className={styles.messageDefaite}
           style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
           <h1 style={{ color: "white" }}>TEMPS ÉCOULÉ !</h1>
           <p>Vous devez répondre plus rapidement.</p>
-          <div className={styles.victoireBoutons}>
+          <div className={styles.defaiteBoutons}>
             <button
               onClick={() => window.location.reload()}
               style={{ backgroundColor: "white", color: "darkred" }}

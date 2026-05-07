@@ -154,6 +154,21 @@
   background-color: #51b668;
 }
 
+.messageVictoireFinale {
+  background-color: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 #message-victoire-final {
   position: fixed;
   top: 50%;
@@ -179,6 +194,98 @@
   font-size: 1.5rem;
 }
 
+/* --- Message de defaite --- */
+.messageDefaite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.messageDefaite h1 {
+  font-size: 3.5rem;
+  color: #b91c1c;
+  margin-bottom: 20px;
+  font-family: "Cinzel", serif;
+}
+
+.messageDefaite p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+/* msg Defaite */
+.msgDefaite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.msgDefaite h1 {
+  font-size: 3.5rem;
+  color: #b91c1c;
+  margin-bottom: 20px;
+  font-family: "Cinzel", serif;
+}
+
+.msgDefaite p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.defaiteBoutons button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.defaiteBoutons button:first-child {
+  background: white;
+  color: black;
+}
+
+.defaiteBoutons button:last-child {
+  background: #005a01;
+  color: white;
+}
+
+.defaiteBoutons button:hover {
+  transform: scale(1.1);
+}
+
+/* IMAGE DE DEFAITE */
+
+.losePic img {
+  border: 50px;
+  margin-top: 20px;
+  border-radius: 50px;
+  height: 600px;
+}
+
 .chrono {
   display: flex;
   flex-direction: column;
@@ -187,19 +294,31 @@
 }
 
 #btn-action {
-  width: 10%;
-  height: 50px;
-  font-size: 20px;
   border: 0;
   border-radius: 10px;
   background: linear-gradient(to right, #00380c, #00b415);
   color: white;
   cursor: pointer;
+  padding: 10px 50px;
+  font-size: 1rem;
 }
 
 #btn-action:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.btnContainer {
+  background: #074a00;
+  color: white;
+  border: 1px solid #4f963c;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quizBtn:hover {
+  background: #b91c1c;
 }
 
 #affichage {

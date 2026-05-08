@@ -51,7 +51,7 @@ const Titans = () => {
     if (timerActive && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTempsEcoule((prev) => {
-          if (prev >= 5) {
+          if (prev >= 1) {
             setDefaiteTemps(true);
             setTimerActive(false);
             setQuizActive(false);
@@ -125,7 +125,7 @@ const Titans = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 2) {
+      if (newErrors >= 5) {
         alert(
           "Trop d'erreurs ! Vous avez échoué face aux Titans. Recommencez depuis le début ! ⚔️",
         );
@@ -137,7 +137,7 @@ const Titans = () => {
         window.location.reload();
       } else {
         setFeedback({
-          texte: `❌ Réessaie ! (Attention : ${newErrors}/2)`,
+          texte: `❌ Réessaie ! (Attention : ${newErrors}/6)`,
           couleur: "red",
         });
       }

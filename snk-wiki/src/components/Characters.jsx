@@ -46,7 +46,7 @@ const Characters = () => {
     if (jeuLance && !victoireFinale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 1) {
+          if (prev >= 10000) {
             setDefaiteTemps(true);
             setJeuLance(false);
             return 5;
@@ -117,7 +117,7 @@ const Characters = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 2) {
+      if (newErrors >= 5) {
         alert(
           "Trop d'erreurs ! Vous devez recommencer l'exploration depuis le début. ⚔️",
         );
@@ -128,7 +128,7 @@ const Characters = () => {
         window.location.reload();
       } else {
         setFeedback({
-          texte: `❌ Mauvaise réponse ! (Attention : ${newErrors}/2)`,
+          texte: `❌ Mauvaise réponse ! (Attention : ${newErrors}/5)`,
           ok: false,
         });
         setTimeout(() => setFeedback(null), 1500);
@@ -170,7 +170,7 @@ const Characters = () => {
             //   {jeuLance ? "En cours..." : "Démarrer l'Exploration ⚔️"}
             // </button>
           )}
-          <div id="affichage">{affichageChrono}</div>
+          <div id="affichage">{affichageChrono}s</div>
         </div>
 
         {jeuLance && persoActuel && (

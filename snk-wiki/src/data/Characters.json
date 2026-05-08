@@ -53,7 +53,14 @@
         "indice": "Il l'a lu dans un livre interdit de son grand-père. 🌊",
         "choix": ["Voir l'Océan", "Devenir Major", "Tuer le Titan Colossal", "Vivre à l'intérieur du mur Sina"],
         "reponse": "Voir l'Océan"
+      },
+      {
+        "qst": "De quel Titan Armin hérite-t-il plus tard dans l'histoire ?",
+        "indice": "Il est particulièrement grand et dévastateur. 💥",
+        "choix": ["Le Titan Cuirassé", "Le Titan Bestial", "Le Titan Colossal", "Le Titan Assaillant"],
+        "reponse": "Le Titan Colossal"
       }
+    
     ]
   },
   {
@@ -68,6 +75,12 @@
         "indice": "Regardez l'état de la pièce... ✨",
         "choix": ["Le polissage des bottes", "Le nettoyage extrême", "Le brossage des chevaux", "Le port de la cravate"],
         "reponse": "Le nettoyage extrême"
+      },
+      {
+        "qst": "Comment s'appelait l'oncle de Livaï qui l'a élevé dans les bas-fonds ?",
+        "indice": "C'est aussi un redoutable tueur d'hommes. 🔪",
+        "choix": ["Zeke", "Kenny", "Erwin", "Rod Reiss"],
+        "reponse": "Kenny"
       }
     ]
   }

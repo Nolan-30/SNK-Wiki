@@ -472,6 +472,35 @@
   transform: scale(1.05);
 }
 
+.messageDefaite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.messageDefaite h1 {
+  font-size: 3.5rem;
+  color: #b91c1c;
+  margin-bottom: 20px;
+  font-family: "Cinzel", serif;
+}
+
+.messageDefaite p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
 @media (max-width: 768px) {
   .titan-card,
   .titan-card.reverse {

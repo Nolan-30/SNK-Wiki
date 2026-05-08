@@ -28,7 +28,7 @@ const History = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           // lose si on atteint 50s
-          if (prev >= 1) {
+          if (prev >= 10000) {
             setActiveTimer(false);
             setDefaiteTemps(true);
             setQuizLance(false);
@@ -48,8 +48,9 @@ const History = () => {
     setActiveTimer(true);
     setTemps(0);
     setEtape("indice");
-    setTimeout(() => setEtape("qst"), 1500); // Passe à la question après 1.5s
+    setTimeout(() => setEtape("qst"), 1500); // Passe à la qst après 1.5s
   };
+
   // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
     if (choice === correctAnswer) {
@@ -59,19 +60,13 @@ const History = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 2) {
-        // reinitialisation de la page
-        alert(
-          "Trop d'erreurs ! Vous devez recommencer l'exploration depuis le début. ⚔️",
-        );
-        setErrors(0);
-        setUnlockedCount(0);
+      if (newErrors >= 5) {
+        setActiveTimer(false);
+        setDefaiteTemps(true); // affichage du msg defaite
         setQuizLance(false);
-        localStorage.setItem("progression_histoire", "0");
-        window.location.reload();
       } else {
         setFeedback({
-          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/2)`,
+          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/5)`,
           isCorrect: false,
         });
       }
@@ -326,14 +321,20 @@ const History = () => {
           </div>
         </div>
       )}
-      {/* Message de defaite */}
+      {/* Message de defaite  */}
       {defaiteTemps && (
         <div
           className={styles.messageDefaite}
           style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
-          <h1 style={{ color: "white" }}>TEMPS ÉCOULÉ !</h1>
-          <p>Vous devez répondre plus rapidement.</p>
+          <h1 style={{ color: "white" }}>
+            {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          </h1>
+          <p>
+            {errors >= 2
+              ? "Vous avez échoué dans votre exploration."
+              : "Vous devez répondre plus rapidement."}
+          </p>
           <div className={styles.defaiteBoutons}>
             <button
               onClick={() => window.location.reload()}
@@ -346,7 +347,7 @@ const History = () => {
             </button>
           </div>
           <div className={styles.losePic}>
-            <img src="images/defaite-histoire.png" />
+            <img src="images/defaite-histoire.png" alt="Défaite" />
           </div>
         </div>
       )}

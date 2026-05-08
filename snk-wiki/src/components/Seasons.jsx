@@ -30,7 +30,7 @@ const Seasons = () => {
     if (activeTimer && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 1) {
+          if (prev >= 1000) {
             setDefaiteTemps(true);
             setActiveTimer(false);
             setQuizLance(false);
@@ -92,7 +92,7 @@ const Seasons = () => {
         window.location.reload();
       } else {
         setFeedback({
-          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/2)`,
+          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/4)`,
           isCorrect: false,
         });
         setShowNextBtn(false);

@@ -31,7 +31,6 @@ const Seasons = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           if (prev >= 1) {
-            // Si on va atteindre 5
             setDefaiteTemps(true);
             setActiveTimer(false);
             setQuizLance(false);

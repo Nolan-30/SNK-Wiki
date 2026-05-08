@@ -8,6 +8,7 @@ const Titans = () => {
     const sauvegarde = localStorage.getItem("progression_titans");
     return sauvegarde ? parseInt(sauvegarde, 10) : 0;
   });
+
   const [tempsEcoule, setTempsEcoule] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
 
@@ -17,7 +18,7 @@ const Titans = () => {
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-
+  const [defaiteTemps, setDefaiteTemps] = useState(false);
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
 
@@ -46,15 +47,22 @@ const Titans = () => {
 
   // --- logique du chrono ---
   useEffect(() => {
-    if (timerActive) {
-      timerRef.current = setInterval(() => {
-        setTempsEcoule((prev) => prev + 1000);
+    let interval;
+    if (timerActive && !victoireTotale && !defaiteTemps) {
+      interval = setInterval(() => {
+        setTempsEcoule((prev) => {
+          if (prev >= 5) {
+            setDefaiteTemps(true);
+            setTimerActive(false);
+            setQuizActive(false);
+            return 5;
+          }
+          return prev + 1;
+        });
       }, 1000);
-    } else {
-      clearInterval(timerRef.current);
     }
-    return () => clearInterval(timerRef.current);
-  }, [timerActive]);
+    return () => clearInterval(interval);
+  }, [timerActive, victoireTotale, defaiteTemps]);
 
   // declenchement de la save quand tous les titans sont débloqués
   useEffect(() => {
@@ -75,8 +83,10 @@ const Titans = () => {
     if (unlockedCount >= titansData.length) return;
     setErrors(0);
     setTimerActive(true);
+    setTempsEcoule(0);
     setQuizActive(true);
     setEtapeQuiz("indice");
+    setDefaiteTemps(false);
     setFeedback({ texte: "", couleur: "" });
 
     // 1.5s après l'indice, la question apparaît
@@ -168,11 +178,7 @@ const Titans = () => {
             {/* Les Neufs */}
             Titans Primordiaux
           </span>
-          <p>
-            Découvrez les puissances originelles.
-            {/* issues d'Ymir qui ont
-            façonné l'histoire du monde. */}
-          </p>
+          <p>Découvrez les puissances originelles.</p>
         </h1>
 
         <span className={styles["founding-titan"]}>
@@ -189,9 +195,11 @@ const Titans = () => {
         {!victoireTotale && (
           <div className={styles.chrono}>
             <button id={styles["btn-action"]} onClick={gererChrono}>
-              {unlockedCount === 0 ? "Démarrer" : "Suivant"}
+              {unlockedCount === 0 ? "Démarrer l'Exploration" : "Suivant"}
             </button>
-            <div id={styles.affichage}>{formatTime(tempsEcoule)}</div>
+            <div id={styles.affichage}>
+              <p>Temps écoulé : {tempsEcoule}s</p>
+            </div>
           </div>
         )}
 
@@ -336,6 +344,43 @@ const Titans = () => {
             <button onClick={() => (window.location.href = "/Saisons")}>
               Explorer les Saisons
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Msg de lose */}
+      {defaiteTemps && (
+        <div
+          className={styles["message-victoire-final"]}
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.95)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1 style={{ color: "white", fontSize: "3rem" }}>TEMPS ÉCOULÉ !</h1>
+          <p style={{ color: "white", fontSize: "1.5rem" }}>
+            Vous devez répondre plus rapidement.
+          </p>
+          <div className={styles.victoireBoutons}>
+            <button
+              onClick={() => window.location.reload()}
+              style={{ backgroundColor: "white", color: "darkred" }}
+            >
+              Réessayer 🔄
+            </button>
+            <button onClick={() => (window.location.href = "/")}>
+              Retour Accueil
+            </button>
+          </div>
+          <div className={styles.losePic} style={{ marginTop: "20px" }}>
+            <img
+              src="images/defaite-histoire.png"
+              alt="Défaite"
+              style={{ maxWidth: "300px" }}
+            />
           </div>
         </div>
       )}

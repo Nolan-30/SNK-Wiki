@@ -23,18 +23,28 @@ const Seasons = () => {
   const [etape, setEtape] = useState("indice"); // "indice" "qst"
   const [temps, setTemps] = useState(0);
   const [activeTimer, setActiveTimer] = useState(false);
+  const [defaiteTemps, setDefaiteTemps] = useState(false);
 
   useEffect(() => {
     let interval;
-    if (activeTimer) {
+    if (activeTimer && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
-        setTemps((prev) => prev + 1);
+        setTemps((prev) => {
+          if (prev >= 1) {
+            // Si on va atteindre 5
+            setDefaiteTemps(true);
+            setActiveTimer(false);
+            setQuizLance(false);
+            return 5;
+          }
+          return prev + 1;
+        });
       }, 1000);
     } else {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [activeTimer]);
+  }, [activeTimer, victoireTotale, defaiteTemps]);
 
   // --- Logique du Quiz ---
 
@@ -312,6 +322,54 @@ const Seasons = () => {
             <button onClick={() => (window.location.href = "/")}>
               Retourner à l'Accueil
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Message de defaite*/}
+      {defaiteTemps && (
+        <div
+          className={styles.messageDefaite}
+          // style={{
+          //   backgroundColor: "rgba(0, 0, 0, 0.95)",
+          //   display: "flex",
+          //   flexDirection: "column",
+          //   justifyContent: "center",
+          //   alignItems: "center",
+          //   position: "fixed",
+          //   top: 0,
+          //   left: 0,
+          //   width: "100%",
+          //   height: "100%",
+          //   zIndex: 9999,
+          // }}
+        >
+          <h1 style={{ color: "white", fontSize: "3rem" }}>TEMPS ÉCOULÉ !</h1>
+          <p style={{ color: "white", fontSize: "1.5rem" }}>
+            Vous devez répondre plus rapidement.
+          </p>
+          <div className={styles.defaiteBoutons}>
+            <button
+              onClick={() => window.location.reload()}
+              // style={{
+              //   backgroundColor: "white",
+              //   color: "darkred",
+              //   padding: "10px 20px",
+              //   fontWeight: "bold",
+              // }}
+            >
+              Réessayer 🔄
+            </button>
+            <button onClick={() => (window.location.href = "/")}>
+              Retour Accueil
+            </button>
+          </div>
+          <div className={styles.losePic} style={{ marginTop: "20px" }}>
+            <img
+              src="images/defaite-histoire.png"
+              alt="Défaite"
+              style={{ maxWidth: "300px" }}
+            />
           </div>
         </div>
       )}

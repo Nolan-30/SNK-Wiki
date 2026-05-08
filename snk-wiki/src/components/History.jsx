@@ -28,7 +28,7 @@ const History = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           // lose si on atteint 50s
-          if (prev >= 1000) {
+          if (prev >= 1) {
             setActiveTimer(false);
             setDefaiteTemps(true);
             setQuizLance(false);

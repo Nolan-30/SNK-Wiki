@@ -71,31 +71,24 @@ const Seasons = () => {
     setTimeout(() => setEtape("qst"), 1500);
   };
 
+  // --- Logique du Quiz ---
   const handleAnswer = (choice, correctAnswer) => {
     if (choice === correctAnswer) {
       setFeedback({ msg: "Bonne réponse ! 🎉", isCorrect: true });
-      setErrors(0);
       setShowNextBtn(true);
     } else {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 2) {
-        alert(
-          "Trop d'erreurs ! Vous devez reprendre l'épopée depuis le début. ⚔️",
-        );
-
-        setErrors(0);
-        setUnlockedCount(0);
+      if (newErrors >= 5) {
+        setActiveTimer(false);
+        setDefaiteTemps(true); // affichage du msg defaite
         setQuizLance(false);
-        localStorage.setItem("progression_saisons", "0");
-        window.location.reload();
       } else {
         setFeedback({
-          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/4)`,
+          msg: `Mauvaise réponse ! ❌ (Attention : ${newErrors}/5)`,
           isCorrect: false,
         });
-        setShowNextBtn(false);
       }
     }
   };
@@ -301,7 +294,7 @@ const Seasons = () => {
         </div>
       )}
 
-      {/* msg de victoire */}
+      {/* MESSAGE DE VICTOIRE */}
       {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
           <h1>FÉLICITATIONS ! 🏆</h1>
@@ -325,37 +318,24 @@ const Seasons = () => {
         </div>
       )}
 
-      {/* Message de defaite*/}
+      {/* MESSAGE DE DEFAITE  */}
       {defaiteTemps && (
         <div
           className={styles.messageDefaite}
-          // style={{
-          //   backgroundColor: "rgba(0, 0, 0, 0.95)",
-          //   display: "flex",
-          //   flexDirection: "column",
-          //   justifyContent: "center",
-          //   alignItems: "center",
-          //   position: "fixed",
-          //   top: 0,
-          //   left: 0,
-          //   width: "100%",
-          //   height: "100%",
-          //   zIndex: 9999,
-          // }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
-          <h1 style={{ color: "white", fontSize: "3rem" }}>TEMPS ÉCOULÉ !</h1>
-          <p style={{ color: "white", fontSize: "1.5rem" }}>
-            Vous devez répondre plus rapidement.
+          <h1 style={{ color: "white" }}>
+            {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          </h1>
+          <p>
+            {errors >= 2
+              ? "Vous avez échoué dans votre exploration."
+              : "Vous devez répondre plus rapidement."}
           </p>
           <div className={styles.defaiteBoutons}>
             <button
               onClick={() => window.location.reload()}
-              // style={{
-              //   backgroundColor: "white",
-              //   color: "darkred",
-              //   padding: "10px 20px",
-              //   fontWeight: "bold",
-              // }}
+              style={{ backgroundColor: "white", color: "darkred" }}
             >
               Réessayer 🔄
             </button>
@@ -363,12 +343,8 @@ const Seasons = () => {
               Retour Accueil
             </button>
           </div>
-          <div className={styles.losePic} style={{ marginTop: "20px" }}>
-            <img
-              src="images/defaite-histoire.png"
-              alt="Défaite"
-              style={{ maxWidth: "300px" }}
-            />
+          <div className={styles.losePic}>
+            <img src="images/defaite-histoire.png" alt="Défaite" />
           </div>
         </div>
       )}

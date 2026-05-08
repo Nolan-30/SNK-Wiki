@@ -24,6 +24,7 @@ const Titans = () => {
 
   const [victoireTotale, setVictoireTotale] = useState(false);
   const [errors, setErrors] = useState(0);
+  const [defaiteReponse, setDefaiteReponse] = useState(false);
 
   const enregistrerProgressionTitans = async () => {
     const username = localStorage.getItem("username");
@@ -51,7 +52,7 @@ const Titans = () => {
     if (timerActive && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTempsEcoule((prev) => {
-          if (prev >= 1) {
+          if (prev >= 10000) {
             setDefaiteTemps(true);
             setTimerActive(false);
             setQuizActive(false);
@@ -126,18 +127,12 @@ const Titans = () => {
       setErrors(newErrors);
 
       if (newErrors >= 5) {
-        alert(
-          "Trop d'erreurs ! Vous avez échoué face aux Titans. Recommencez depuis le début ! ⚔️",
-        );
-
-        setErrors(0);
-        setUnlockedCount(0);
+        setTimerActive(false);
+        setDefaiteTemps(true);
         setQuizActive(false);
-        localStorage.setItem("progression_titans", "0");
-        window.location.reload();
       } else {
         setFeedback({
-          texte: `❌ Réessaie ! (Attention : ${newErrors}/6)`,
+          texte: `❌ Réessaie ! (Attention : ${newErrors}/5)`,
           couleur: "red",
         });
       }
@@ -319,7 +314,7 @@ const Titans = () => {
         </p>
       </main>
 
-      {/* --- msg de victoire --- */}
+      {/* --- message de victoire --- */}
       {victoireTotale && canExplore && (
         <div
           className={styles["message-victoire-final"]}
@@ -348,7 +343,22 @@ const Titans = () => {
         </div>
       )}
 
-      {/* Msg de lose */}
+      {/* MESSAGE DEFAITE REPONSE */}
+      {defaiteTemps && (
+        <div className={styles.messageDefaite}>
+          <h1 style={{ color: "white", fontSize: "3rem" }}>
+            {/* Affiche le message selon la cause */}
+            {errors >= 5 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          </h1>
+          <p style={{ color: "white", fontSize: "1.5rem" }}>
+            {errors >= 5
+              ? "Vous avez échoué dans votre épopée face aux Titans."
+              : "Vous devez répondre plus rapidement."}
+          </p>
+        </div>
+      )}
+
+      {/* Message de Defaite TEMPS */}
       {defaiteTemps && (
         <div
           className={styles["message-victoire-final"]}

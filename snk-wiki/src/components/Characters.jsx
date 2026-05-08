@@ -118,14 +118,11 @@ const Characters = () => {
       setErrors(newErrors);
 
       if (newErrors >= 5) {
-        alert(
-          "Trop d'erreurs ! Vous devez recommencer l'exploration depuis le début. ⚔️",
-        );
-        setErrors(0);
-        setDebloques([]); // On vide la liste des debloques
+        setDefaiteTemps(true);
         setJeuLance(false);
-        localStorage.removeItem("personnages_debloques"); // supp la save
-        window.location.reload();
+
+        localStorage.removeItem("personnages_debloques");
+        setDebloques([]);
       } else {
         setFeedback({
           texte: `❌ Mauvaise réponse ! (Attention : ${newErrors}/5)`,

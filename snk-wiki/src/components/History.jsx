@@ -306,7 +306,7 @@ const History = () => {
           )}
         </section>
       </section>
-      {/* --- MSG DE VICTOIRE --- */}
+      {/* --- MESSAGE DE VICTOIRE --- */}
       {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
           <h1>Page Histoire Débloquée !</h1>

@@ -87,6 +87,7 @@
   border: 1px solid var(--rouge-snk);
   margin: 20px auto;
   max-width: 600px;
+  margin-bottom: 5%;
 }
 
 .introText {
@@ -366,6 +367,8 @@
   color: white;
   border: 1px solid #b91c1c;
   padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 2%;
   cursor: pointer;
   transition: 0.3s;
 }

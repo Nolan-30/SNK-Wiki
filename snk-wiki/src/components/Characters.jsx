@@ -64,8 +64,6 @@ const Characters = () => {
     }
   }, [victoireFinale]);
 
-  const affichageChrono = `${String(Math.floor(temps / 60)).padStart(2, "0")}:${String(temps % 60).padStart(2, "0")}`;
-
   const demarrer = () => {
     setTemps(0);
     setErrors(0);
@@ -130,6 +128,14 @@ const Characters = () => {
     }
   };
 
+  const formaterTemps = (secondesTotal) => {
+    const minutes = Math.floor(secondesTotal / 60);
+    const secondes = secondesTotal % 60;
+    return `${minutes.toString().padStart(2, "0")}:${secondes
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   const persoActuel = charactersData[indexPerso];
   const questionActuelle = persoActuel?.questions[indexQuestion];
 
@@ -153,27 +159,25 @@ const Characters = () => {
       <div className="perso-section">
         <div className="chrono">
           {!victoireFinale && (
-            // <button
-            //   onClick={demarrer}
-            //   className="btnContainer"
-            //   disabled={jeuLance}
-            // >
-            //   <p className="btn-action">Démarrer l'Exploration ⚔️</p>
-            // </button>
             <div className="startContainer">
-              <p className="introText">
-                Leurs noms sont gravés dans le sang et l'espoir.
-              </p>
               <button onClick={demarrer} className="quizBtn">
-                <p className="startTxt">Démarrer l'Exploration ⚔️</p>
+                <p className="startTxt">Démarrer l'Exploration </p>
               </button>
+              <p className="introText">
+                Découvrez les visages qui ont bravé le destin.
+              </p>
             </div>
 
             // <button id="btn-action" onClick={demarrer} disabled={jeuLance}>
             //   {jeuLance ? "En cours..." : "Démarrer l'Exploration ⚔️"}
             // </button>
           )}
-          <div id="affichage">{affichageChrono}s</div>
+          {/* Le chrono s'affiche uniquement si le jeu est lancé */}
+          {jeuLance && (
+            <div className="chrono">
+              <p>{formaterTemps(temps)}</p>
+            </div>
+          )}
         </div>
 
         {jeuLance && persoActuel && (

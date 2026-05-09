@@ -134,6 +134,15 @@ const Seasons = () => {
     }
   };
 
+  // transformer les secondes en 00:00
+  const formaterTemps = (secondesTotal) => {
+    const minutes = Math.floor(secondesTotal / 60);
+    const secondes = secondesTotal % 60;
+    return `${minutes.toString().padStart(2, "0")}:${secondes
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   return (
     <main className={styles.seasonsPage} data-aos="fade-right">
       <h1 className={styles.pageTitle}>
@@ -161,7 +170,7 @@ const Seasons = () => {
 
       {/* Affichage du chrono */}
       {quizLance && !victoireTotale && (
-        <p className={styles.timeTxt}>Temps écoulé : {temps}s</p>
+        <p className={styles.chrono}>{formaterTemps(temps)}</p>
       )}
 
       {(!victoireTotale || !canExplore) && (

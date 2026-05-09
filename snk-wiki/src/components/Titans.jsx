@@ -97,6 +97,9 @@ const Titans = () => {
   };
 
   const lancerExploration = () => {
+    setQuizActive(true);
+    setEtapeQuiz("indice");
+    setTempsEcoule(1);
     gererChrono();
   };
   const verifierReponse = (choix, reponseCorrecte) => {
@@ -168,6 +171,15 @@ const Titans = () => {
     }, 800);
   };
 
+  // transformer les secondes en 00:00
+  const formaterTemps = (secondesTotal) => {
+    const minutes = Math.floor(secondesTotal / 60);
+    const secondes = secondesTotal % 60;
+    return `${minutes.toString().padStart(2, "0")}:${secondes
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   return (
     <div className={styles["bg-black"]}>
       <main className={styles["titans-container"]} data-aos="fade-right">
@@ -190,7 +202,7 @@ const Titans = () => {
 
         <div className={styles["border-grey"]}></div>
 
-        {!victoireTotale && (
+        {!quizActive && !victoireTotale && !defaiteTemps && (
           <div className={styles.startContainer}>
             <p className={styles.introText}>
               Faites face aux prédateurs originels de ce monde.
@@ -198,6 +210,13 @@ const Titans = () => {
             <button onClick={lancerExploration} className={styles.quizBtn}>
               <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
             </button>
+          </div>
+        )}
+
+        {quizActive && (
+          <div className={styles.affichageTempsLive}>
+            {/* On appelle la fonction ici */}
+            <p>{formaterTemps(tempsEcoule)}</p>
           </div>
         )}
 

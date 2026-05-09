@@ -126,6 +126,15 @@ const History = () => {
     }
   };
 
+  // transformer les secondes en 00:00
+  const formaterTemps = (secondesTotal) => {
+    const minutes = Math.floor(secondesTotal / 60);
+    const secondes = secondesTotal % 60;
+    return `${minutes.toString().padStart(2, "0")}:${secondes
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   return (
     <main className={styles.historyMain} data-aos="fade-right">
       <div className={styles.titrePrincipalConteneur}>
@@ -149,7 +158,7 @@ const History = () => {
       {!quizLance && !victoireTotale && (
         <div className={styles.startContainer}>
           <button onClick={lancerExploration} className={styles.quizBtn}>
-            <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
+            <p className={styles.startTxt}>Démarrer l'Exploration </p>
           </button>
           <p className={styles.introText}>
             Plongez dans les secrets de l'humanité.
@@ -158,7 +167,7 @@ const History = () => {
       )}
       {/* Affichage du chrono */}
       {quizLance && !victoireTotale && (
-        <p className={styles.timeTxt}>Temps écoulé : {temps}s</p>
+        <p className={styles.chrono}>{formaterTemps(temps)}</p>
       )}
       <section className={styles.boiteContenu}>
         {/* ORIGINE */}
@@ -272,7 +281,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 3 && (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitreverrouillée</p>
             )
           )}
         </section>
@@ -301,7 +310,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 4 && (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitreverrouillée</p>
             )
           )}
         </section>

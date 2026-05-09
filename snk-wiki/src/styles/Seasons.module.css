@@ -318,7 +318,7 @@ p {
 .startContainer {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 5%;
 }
 .startBtn {
   padding: 15px 40px;

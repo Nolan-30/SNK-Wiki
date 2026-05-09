@@ -385,6 +385,7 @@ const QuizZone = ({
                     handleAnswer(c, data.questions[currentStep].reponse)
                   }
                   className={styles.quizBtn}
+                  disabled={showNextBtn}
                 >
                   {c}
                 </button>

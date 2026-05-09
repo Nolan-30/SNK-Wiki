@@ -209,6 +209,13 @@
   background: #b91c1c;
 }
 
+/* empeche de cliquer sur les autres reponses */
+
+.quizBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .success {
   color: #10b981;
   margin-top: 10px;

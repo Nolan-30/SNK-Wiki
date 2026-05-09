@@ -46,7 +46,7 @@ const Characters = () => {
     if (jeuLance && !victoireFinale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 1) {
+          if (prev >= 10000) {
             setDefaiteTemps(true);
             setJeuLance(false);
             return 5;
@@ -184,6 +184,7 @@ const Characters = () => {
                       key={c}
                       className="btn-reponse-quiz"
                       onClick={() => repondre(c)}
+                      disabled={feedback && feedback.ok}
                     >
                       {c}
                     </button>

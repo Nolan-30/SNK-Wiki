@@ -223,6 +223,7 @@ const Seasons = () => {
                                           .reponse,
                                       )
                                     }
+                                    disabled={showNextBtn}
                                     className={styles.quizBtn}
                                   >
                                     {c}

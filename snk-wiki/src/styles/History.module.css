@@ -203,6 +203,7 @@
   padding: 10px;
   cursor: pointer;
   transition: 0.3s;
+  margin-bottom: 2%;
 }
 
 .quizBtn:hover {

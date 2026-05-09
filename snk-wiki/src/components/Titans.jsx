@@ -96,6 +96,9 @@ const Titans = () => {
     }, 1500);
   };
 
+  const lancerExploration = () => {
+    gererChrono();
+  };
   const verifierReponse = (choix, reponseCorrecte) => {
     if (choix === reponseCorrecte) {
       setFeedback({ texte: "✅ Bonne réponse!", couleur: "lightgreen" });
@@ -188,13 +191,13 @@ const Titans = () => {
         <div className={styles["border-grey"]}></div>
 
         {!victoireTotale && (
-          <div className={styles.chrono}>
-            <button id={styles["btn-action"]} onClick={gererChrono}>
-              {unlockedCount === 0 ? "Démarrer l'Exploration" : "Suivant"}
+          <div className={styles.startContainer}>
+            <p className={styles.introText}>
+              Faites face aux prédateurs originels de ce monde.
+            </p>
+            <button onClick={lancerExploration} className={styles.quizBtn}>
+              <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
             </button>
-            <div id={styles.affichage}>
-              <p>Temps écoulé : {tempsEcoule}s</p>
-            </div>
           </div>
         )}
 

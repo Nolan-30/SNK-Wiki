@@ -148,12 +148,12 @@ const History = () => {
       {/* Affichage du Chrono et du Bouton */}
       {!quizLance && !victoireTotale && (
         <div className={styles.startContainer}>
-          <p className={styles.introText}>
-            Plongez dans les secrets de l'humanité.
-          </p>
           <button onClick={lancerExploration} className={styles.quizBtn}>
             <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
           </button>
+          <p className={styles.introText}>
+            Plongez dans les secrets de l'humanité.
+          </p>
         </div>
       )}
       {/* Affichage du chrono */}

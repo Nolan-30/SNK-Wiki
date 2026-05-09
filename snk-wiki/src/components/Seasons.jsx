@@ -150,12 +150,11 @@ const Seasons = () => {
       {/* Bouton Démarrer */}
       {!quizLance && !victoireTotale && unlockedCount < seasonsData.length && (
         <div className={styles.startContainer}>
-          <button
-            onClick={lancerExploration}
-            className={styles.btnValiderSaison}
-            style={{ width: "auto", padding: "15px 40px" }}
-          >
-            Démarrer l'Exploration ⚔️
+          <p className={styles.introText}>
+            Parcourez les chapitres d'un combat sans fin.
+          </p>
+          <button onClick={lancerExploration} className={styles.quizBtn}>
+            <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
           </button>
         </div>
       )}

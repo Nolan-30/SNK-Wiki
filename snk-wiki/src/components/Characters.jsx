@@ -153,13 +153,22 @@ const Characters = () => {
       <div className="perso-section">
         <div className="chrono">
           {!victoireFinale && (
-            <button
-              onClick={demarrer}
-              className="btnContainer"
-              disabled={jeuLance}
-            >
-              <p className="btn-action">Démarrer l'Exploration ⚔️</p>
-            </button>
+            // <button
+            //   onClick={demarrer}
+            //   className="btnContainer"
+            //   disabled={jeuLance}
+            // >
+            //   <p className="btn-action">Démarrer l'Exploration ⚔️</p>
+            // </button>
+            <div className="startContainer">
+              <p className="introText">
+                Leurs noms sont gravés dans le sang et l'espoir.
+              </p>
+              <button onClick={demarrer} className="quizBtn">
+                <p className="startTxt">Démarrer l'Exploration ⚔️</p>
+              </button>
+            </div>
+
             // <button id="btn-action" onClick={demarrer} disabled={jeuLance}>
             //   {jeuLance ? "En cours..." : "Démarrer l'Exploration ⚔️"}
             // </button>

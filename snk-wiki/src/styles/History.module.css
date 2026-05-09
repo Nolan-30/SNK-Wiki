@@ -354,7 +354,7 @@
 }
 
 .victoireBoutons button:last-child {
-  background: #b91c1c;
+  background: #ff0000;
   color: white;
 }
 
@@ -417,5 +417,15 @@
 
   .historyTitle {
     font-size: 1.8rem;
+  }
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

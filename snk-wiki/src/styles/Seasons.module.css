@@ -395,6 +395,10 @@ p {
   animation: fadeIn 0.8s ease-out;
 }
 
+.defaiteTexte {
+  margin-bottom: 2%;
+}
+
 .defaiteBoutons {
   display: flex;
   gap: 20px;

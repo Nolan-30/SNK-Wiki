@@ -46,7 +46,7 @@ const Characters = () => {
     if (jeuLance && !victoireFinale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 10000) {
+          if (prev >= 1) {
             setDefaiteTemps(true);
             setJeuLance(false);
             return 5;
@@ -120,9 +120,6 @@ const Characters = () => {
       if (newErrors >= 5) {
         setDefaiteTemps(true);
         setJeuLance(false);
-
-        localStorage.removeItem("personnages_debloques");
-        setDebloques([]);
       } else {
         setFeedback({
           texte: `❌ Mauvaise réponse ! (Attention : ${newErrors}/5)`,
@@ -239,44 +236,29 @@ const Characters = () => {
           </button>
         </div>
       )}
-      {/* Message de lose */}
+      {/* MESSAGE DE DEFAITE*/}
       {defaiteTemps && (
         <div className="messageDefaite">
-          <h1 style={{ color: "white", fontSize: "3rem" }}>TEMPS ÉCOULÉ !</h1>
+          <h1 style={{ color: "white", fontSize: "3rem" }}>
+            {errors >= 5 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          </h1>
+
           <p style={{ color: "white", fontSize: "1.5rem" }}>
-            Vous devez répondre plus rapidement.
+            {errors >= 5
+              ? "Vous avez échoué l'exploration."
+              : "Vous devez répondre plus rapidement."}
           </p>
+
           <div className="defaiteBoutons">
-            <button
-              onClick={() => window.location.reload()}
-              // style={{
-              //   backgroundColor: "white",
-              //   color: "darkred",
-              //   padding: "10px 20px",
-              //   cursor: "pointer",
-              //   border: "none",
-              //   borderRadius: "5px",
-              //   fontWeight: "bold",
-              // }}
-            >
+            <button onClick={() => window.location.reload()}>
               Réessayer 🔄
             </button>
-            <button
-              onClick={() => (window.location.href = "/")}
-              // style={{
-              //   padding: "10px 20px",
-              //   cursor: "pointer",
-              //   border: "none",
-              //   borderRadius: "5px",
-              //   fontWeight: "bold",
-              //   marginLeft: "10px",
-              // }}
-            >
+            <button onClick={() => (window.location.href = "/")}>
               Retour Accueil
             </button>
           </div>
           <div className="losePic">
-            <img src="images/defaite-perso.png" />
+            <img src="images/defaite-histoire.png" alt="Défaite" />
           </div>
         </div>
       )}

@@ -324,10 +324,10 @@ const Seasons = () => {
           className={styles.messageDefaite}
           style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
-          <h1 style={{ color: "white" }}>
+          <h1 style={{ color: "red" }}>
             {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
           </h1>
-          <p>
+          <p className={styles.defaiteTexte}>
             {errors >= 2
               ? "Vous avez échoué dans votre exploration."
               : "Vous devez répondre plus rapidement."}

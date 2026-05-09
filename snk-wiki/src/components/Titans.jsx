@@ -358,23 +358,22 @@ const Titans = () => {
         </div>
       )}
 
-      {/* Message de Defaite TEMPS */}
+      {/* Message de défaite (Temps ou Erreurs) */}
+      {/* Message de défaite (Temps ou Erreurs) */}
       {defaiteTemps && (
         <div
-          className={styles["message-victoire-final"]}
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.95)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+          className={styles.messageDefaite}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
-          <h1 style={{ color: "white", fontSize: "3rem" }}>TEMPS ÉCOULÉ !</h1>
-          <p style={{ color: "white", fontSize: "1.5rem" }}>
-            Vous devez répondre plus rapidement.
+          <h1 style={{ color: "red" }}>
+            {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          </h1>
+          <p className={styles.defaiteTexte}>
+            {errors >= 2
+              ? "Vous avez échoué dans votre exploration."
+              : "Vous devez répondre plus rapidement."}
           </p>
-          <div className={styles.victoireBoutons}>
+          <div className={styles.defaiteBoutons}>
             <button
               onClick={() => window.location.reload()}
               style={{ backgroundColor: "white", color: "darkred" }}
@@ -385,12 +384,8 @@ const Titans = () => {
               Retour Accueil
             </button>
           </div>
-          <div className={styles.losePic} style={{ marginTop: "20px" }}>
-            <img
-              src="images/defaite-histoire.png"
-              alt="Défaite"
-              style={{ maxWidth: "300px" }}
-            />
+          <div className={styles.losePic}>
+            <img src="images/defaite-histoire.png" alt="Défaite" />
           </div>
         </div>
       )}

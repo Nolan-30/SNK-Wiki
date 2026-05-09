@@ -336,7 +336,7 @@ const History = () => {
           className={styles.messageDefaite}
           style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
-          <h1 style={{ color: "white" }}>
+          <h1 style={{ color: "red", marginTop: "-10%" }}>
             {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
           </h1>
           <p>

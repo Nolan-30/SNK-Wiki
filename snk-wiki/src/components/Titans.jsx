@@ -204,18 +204,17 @@ const Titans = () => {
 
         {!quizActive && !victoireTotale && !defaiteTemps && (
           <div className={styles.startContainer}>
-            <p className={styles.introText}>
-              Faites face aux prédateurs originels de ce monde.
-            </p>
             <button onClick={lancerExploration} className={styles.quizBtn}>
               <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
             </button>
+            <p className={styles.introText}>
+              Faites face aux prédateurs originels de ce monde.
+            </p>
           </div>
         )}
 
         {quizActive && (
           <div className={styles.affichageTempsLive}>
-            {/* On appelle la fonction ici */}
             <p>{formaterTemps(tempsEcoule)}</p>
           </div>
         )}
@@ -381,7 +380,7 @@ const Titans = () => {
       )}
 
       {/* Message de défaite (Temps ou Erreurs) */}
-      {/* Message de défaite (Temps ou Erreurs) */}
+
       {defaiteTemps && (
         <div
           className={styles.messageDefaite}
@@ -407,7 +406,7 @@ const Titans = () => {
             </button>
           </div>
           <div className={styles.losePic}>
-            <img src="images/defaite-histoire.png" alt="Défaite" />
+            <img src="images/defaite-titans.png" alt="Défaite" />
           </div>
         </div>
       )}

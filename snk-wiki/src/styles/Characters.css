@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Playfair+Display:ital,wght@1,700&display=swap");
 
-.perso-section {
-  margin-top: 20%;
-}
-
 .perso-section h2 {
   font-size: 20px;
   font-weight: 900;
@@ -19,16 +15,11 @@
 .bataillon {
   margin-top: 7%;
   font-family: "Poppins", sans-serif;
-
   font-weight: 900;
-
-  text-align: center;
-
   font-size: 2rem;
+  text-align: center;
   background-color: black;
-
   justify-content: center;
-
   border-radius: 10px;
 }
 
@@ -88,6 +79,7 @@
   margin: 20px auto;
   max-width: 600px;
   margin-bottom: 5%;
+  border: 1px solid green;
 }
 
 .introText {
@@ -335,7 +327,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5%;
 }
 
 #btn-action {
@@ -365,7 +356,7 @@
 .quizBtn {
   background: rgba(11, 17, 27, 0.8);
   color: white;
-  border: 1px solid #b91c1c;
+  border: 1px solid green;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 2%;
@@ -374,7 +365,7 @@
 }
 
 .quizBtn:hover {
-  background: #b91c1c;
+  background: green;
 }
 #affichage {
   margin-top: 2%;

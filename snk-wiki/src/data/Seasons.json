@@ -27,7 +27,7 @@
     "img": "images/test.png",
     "colorClass": "borderYellow",
     "description": "La lutte continue alors que de nouveaux Titans apparaissent à l'intérieur du Mur Rose. Des trahisons au sein du Bataillon d'exploration sont révélées, changeant à jamais la perception de l'ennemi.",
-    "highlight": "Identité du Titan Cuirassé et du Colossal.",
+    "highlight": "Les doubles identités révélées.",
     "questions": [
       {
         "qst": "Que découvrent les soldats à l'intérieur d'une brèche du mur à la fin de la saison 1 ?",
@@ -68,7 +68,7 @@
   {
     "id": 4,
     "nom": "Saison Finale",
-    "img": "public/images/s4.png",
+    "img": "public/images/blanc.png",
     "colorClass": "borderBlack",
     "description": "La guerre traverse l'océan pour atteindre le continent de Mahr. Eren lance une attaque dévastatrice, déclenchant le Grand Terrassement pour protéger l'île du Paradis, menant au dénouement final.",
     "highlight": "L'ultime bataille pour la liberté.",

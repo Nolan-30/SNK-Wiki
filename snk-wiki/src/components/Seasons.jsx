@@ -146,11 +146,8 @@ const Seasons = () => {
   return (
     <main className={styles.seasonsPage} data-aos="fade-right">
       <h1 className={styles.pageTitle}>
-        L'Épopée des Saisons
-        <p>
-          Revivez l'intégralité de la saga.
-          {/* de la chute du Mur Maria jusqu'à l'ultime affrontement." */}
-        </p>
+        <h1 className={styles.degraderMarron}>L'Épopée des Saisons</h1>
+        <p>Revivez l'intégralité de la saga.</p>
       </h1>
       <div className={styles.mainPic}>
         <img src="images/saison4.jpg" />
@@ -159,12 +156,12 @@ const Seasons = () => {
       {/* Bouton Démarrer */}
       {!quizLance && !victoireTotale && unlockedCount < seasonsData.length && (
         <div className={styles.startContainer}>
+          <button onClick={lancerExploration} className={styles.startBtn}>
+            <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
+          </button>
           <p className={styles.introText}>
             Parcourez les chapitres d'un combat sans fin.
           </p>
-          <button onClick={lancerExploration} className={styles.quizBtn}>
-            <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
-          </button>
         </div>
       )}
 

@@ -173,11 +173,7 @@ const Characters = () => {
             // </button>
           )}
           {/* Le chrono s'affiche uniquement si le jeu est lancé */}
-          {jeuLance && (
-            <div className="chrono">
-              <p>{formaterTemps(temps)}</p>
-            </div>
-          )}
+          {jeuLance && <p>{formaterTemps(temps)}</p>}
         </div>
 
         {jeuLance && persoActuel && (

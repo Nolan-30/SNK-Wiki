@@ -30,7 +30,7 @@ const Seasons = () => {
     if (activeTimer && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 10) {
+          if (prev >= 1000) {
             setDefaiteTemps(true);
             setActiveTimer(false);
             setQuizLance(false);
@@ -318,7 +318,7 @@ const Seasons = () => {
               Rejouer
             </button>
             <button onClick={() => (window.location.href = "/")}>
-              Retourner à l'Accueil
+              Retour Accueil
             </button>
           </div>
           <div className={styles.victoireImage}>

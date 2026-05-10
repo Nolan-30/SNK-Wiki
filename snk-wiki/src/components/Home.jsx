@@ -18,9 +18,6 @@ const Home = () => {
 
       <main className="container" id="intro" data-aos="fade-up">
         <section className="intro-section">
-          <h4 className="intro-label">
-            <span className="degrader-rouge">Introduction</span>
-          </h4>
           <h1 className="main-title">
             Bienvenue dans l'univers de l'attaque des titans
           </h1>
@@ -31,13 +28,11 @@ const Home = () => {
         </section>
 
         <div className="logo-bataillon">
-          <Link to="/personnages">
-            <img
-              src="public/Images/bataillon-logo.jpg"
-              height="450"
-              alt="bataillon logo"
-            />
-          </Link>
+          <img
+            src="public/Images/bataillon-logo.jpg"
+            height="450"
+            alt="bataillon logo"
+          />
         </div>
 
         <section className="cards-grid" data-aos="fade-up">

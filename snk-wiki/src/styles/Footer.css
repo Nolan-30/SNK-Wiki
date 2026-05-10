@@ -1,28 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Cinzel:wght@700&display=swap");
 
 footer {
-  border-top: 1px solid rgba(85, 85, 85, 0.489);
-  padding: 10px;
-  margin-top: 15%;
-  background-color: black;
-  height: 200px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(to right, transparent, #524f4f, transparent) 1;
+
+  padding: 40px 20px;
+  margin-top: 10%;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-footer {
+  text-align: center;
 }
 
 .main-footer h3 {
-  display: flex;
-  justify-content: center;
-  margin-top: 3%;
-  margin-bottom: 15px;
-  font-size: 30px;
-  color: white;
+  margin-bottom: 20px;
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
   font-weight: 900;
+  color: #ffffff;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.main-footer h3:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 25px rgba(230, 57, 70, 0.7);
 }
 
 .main-footer p {
-  display: flex;
-  justify-content: center;
   font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.main-footer p span {
+  color: #fff;
+  font-weight: 700;
 }

@@ -28,7 +28,7 @@ const History = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           // lose si on atteint 50s
-          if (prev >= 10) {
+          if (prev >= 1000) {
             setActiveTimer(false);
             setDefaiteTemps(true);
             setQuizLance(false);
@@ -333,7 +333,7 @@ const History = () => {
               Rejouer
             </button>
             <button onClick={() => (window.location.href = "/")}>
-              Retourner à l'Accueil
+              Retour Accueil
             </button>
           </div>
           <div className={styles.victoireImage}>

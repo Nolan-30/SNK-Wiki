@@ -52,7 +52,7 @@ const Titans = () => {
     if (timerActive && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTempsEcoule((prev) => {
-          if (prev >= 10) {
+          if (prev >= 1000) {
             setDefaiteTemps(true);
             setTimerActive(false);
             setQuizActive(false);
@@ -356,7 +356,7 @@ const Titans = () => {
               Rejouer
             </button>
             <button onClick={() => (window.location.href = "/")}>
-              Retourner à l'Accueil
+              Retour Accueil
             </button>
           </div>
           <div className={styles.victoireImage}>

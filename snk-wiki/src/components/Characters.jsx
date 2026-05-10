@@ -46,7 +46,7 @@ const Characters = () => {
     if (jeuLance && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 10) {
+          if (prev >= 1000) {
             setDefaiteTemps(true);
             setJeuLance(false);
             return 5;
@@ -242,7 +242,7 @@ const Characters = () => {
               Rejouer
             </button>
             <button onClick={() => (window.location.href = "/")}>
-              Retourner à l'Accueil
+              Retour Accueil
             </button>
           </div>
           <div className="victoireImage">

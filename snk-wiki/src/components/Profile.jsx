@@ -50,7 +50,8 @@ const Profile = () => {
       <div className={styles.statsGrid}>
         {/* Carte Histoire */}
         <div className={styles.statCard}>
-          <h3>📜 Chapitres Débloqués</h3>
+          <h3> Chapitres </h3>
+          <img src="images/histoire-progression.png" height={200} />
           <div className={styles.progressBar}>
             <div
               className={styles.progressFill}
@@ -60,14 +61,15 @@ const Profile = () => {
             ></div>
           </div>
           <p>
-            {stats.histoire.unlocked} / {stats.histoire.total} Chapitres
-            débloqués
+            {stats.histoire.unlocked} / {stats.histoire.total}
           </p>
+          <p>Chapitres Débloqués</p>
         </div>
 
         {/* Carte Personnages */}
         <div className={styles.statCard}>
-          <h3>👥 Personnages Débloqués</h3>
+          <h3> Personnages </h3>
+          <img src="images/perso-progression.png" height={200} />
           <div className={styles.progressBar}>
             <div
               className={styles.progressFill}
@@ -78,14 +80,15 @@ const Profile = () => {
             ></div>
           </div>
           <p>
-            {stats.personnages.unlocked} / {stats.personnages.total} Héros
-            débloqués
+            {stats.personnages.unlocked} / {stats.personnages.total}
           </p>
+          <p>Héros débloqués</p>
         </div>
 
         {/* Carte Titans */}
         <div className={styles.statCard}>
-          <h3>⚔️ Titans Débloqués</h3>
+          <h3> Titans </h3>
+          <img src="images/titan-progression.png" height={200} />
           <div className={styles.progressBar}>
             <div
               className={styles.progressFill}
@@ -96,13 +99,15 @@ const Profile = () => {
             ></div>
           </div>
           <p>
-            {stats.titans.unlocked} / {stats.titans.total} Titans découverts
+            {stats.titans.unlocked} / {stats.titans.total}
           </p>
+          <p>Titans débloqués</p>
         </div>
 
         {/* Carte Saisons */}
         <div className={styles.statCard}>
-          <h3>🎬 Saisons Débloquées</h3>
+          <h3> Saisons </h3>
+          <img src="images/saison-progression.png" height={200} />
           <div className={styles.progressBar}>
             <div
               className={styles.progressFill}
@@ -113,8 +118,9 @@ const Profile = () => {
             ></div>
           </div>
           <p>
-            {stats.saisons.unlocked} / {stats.saisons.total} Saisons explorées
+            {stats.saisons.unlocked} / {stats.saisons.total}
           </p>
+          <p className={styles.texteDebloque}>Saisons débloquées</p>
         </div>
       </div>
     </div>

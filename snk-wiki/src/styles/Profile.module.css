@@ -34,7 +34,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -42,8 +42,24 @@
   background: #1a1a1a;
   border: 1px solid #333;
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 50px;
   transition: transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.statCard h3 {
+  text-align: center;
+}
+
+.statCard img {
+  margin-bottom: 10%;
+  display: block;
+  border-radius: 25px;
+  width: 300px;
 }
 
 .statCard:hover {

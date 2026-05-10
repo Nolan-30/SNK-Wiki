@@ -10,10 +10,10 @@ const Characters = () => {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [etape, setEtape] = useState("indice"); // "indice" | "question" | "debloque"
   const [feedback, setFeedback] = useState(null);
-  const [victoireTotale, setvictoireTotale] = useState(true);
+  const [victoireTotale, setvictoireTotale] = useState(false);
   const [temps, setTemps] = useState(0);
   const [canExplore, setCanExplore] = useState(true);
-  const [defaiteTemps, setDefaiteTemps] = useState(false);
+  const [defaiteTemps, setDefaiteTemps] = useState(true);
   const [errors, setErrors] = useState(0);
 
   const [debloques, setDebloques] = useState(() => {

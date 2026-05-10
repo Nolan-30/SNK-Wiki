@@ -17,7 +17,7 @@ const Seasons = () => {
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-  const [victoireTotale, setVictoireTotale] = useState(true);
+  const [victoireTotale, setVictoireTotale] = useState(false);
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [errors, setErrors] = useState(0);
   const [etape, setEtape] = useState("indice"); // "indice" "qst"

@@ -18,11 +18,11 @@ const Titans = () => {
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-  const [defaiteTemps, setDefaiteTemps] = useState(false);
+  const [defaiteTemps, setDefaiteTemps] = useState(true);
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
 
-  const [victoireTotale, setVictoireTotale] = useState(true);
+  const [victoireTotale, setVictoireTotale] = useState(false);
   const [errors, setErrors] = useState(0);
   const [defaiteReponse, setDefaiteReponse] = useState(false);
 
@@ -380,7 +380,7 @@ const Titans = () => {
         </div>
       )}
 
-      {/* Message de défaite (Temps ou Erreurs) */}
+      {/* Message de défaite Temps */}
 
       {defaiteTemps && (
         <div
@@ -406,7 +406,7 @@ const Titans = () => {
               Retour Accueil
             </button>
           </div>
-          <div className={styles.losePic}>
+          <div className={styles.defaiteImage}>
             <img src="images/defaite-titans.png" alt="Défaite" />
           </div>
         </div>

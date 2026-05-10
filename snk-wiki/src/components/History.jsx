@@ -15,11 +15,11 @@ const History = () => {
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-  const [victoireTotale, setVictoireTotale] = useState(true);
+  const [victoireTotale, setVictoireTotale] = useState(false);
   const [etape, setEtape] = useState("indice"); // "indice" "qst"
   const [errors, setErrors] = useState(0); // suivre le nbr de mauvaises rep
   const [temps, setTemps] = useState(0);
-  const [activeTimer, setActiveTimer] = useState(false);
+  const [activeTimer, setActiveTimer] = useState(true);
   const [defaiteTemps, setDefaiteTemps] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const History = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           // lose si on atteint 50s
-          if (prev >= 10000) {
+          if (prev >= 1) {
             setActiveTimer(false);
             setDefaiteTemps(true);
             setQuizLance(false);
@@ -341,24 +341,29 @@ const History = () => {
           </div>
         </div>
       )}
-      {/* Message de defaite  */}
+      {/* MESSAGE DEFAITE TEMPS */}
       {defaiteTemps && (
-        <div
-          className={styles.messageDefaite}
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
-        >
-          <h1 style={{ color: "white" }}>
-            {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+        <div className={styles.messageDefaite}>
+          {/* Titre dynamique */}
+          <h1 style={{ color: "red", fontSize: "3rem", marginTop: "-5%" }}>
+            {errors >= 5 ? "MÉMOIRE PERDUE 📖" : "TEMPS ÉCOULÉ ⏳"}
           </h1>
-          <p>
-            {errors >= 2
-              ? "Vous avez échoué dans votre exploration."
-              : "Vous devez répondre plus rapidement."}
+
+          {/* Message dynamique */}
+          <p
+            style={{ color: "white", fontSize: "1.2rem", marginBottom: "20px" }}
+          >
+            {errors >= 5
+              ? "Les secrets du passé vous ont échappé. L'humanité reste dans l'ignorance."
+              : "Vous avez été trop lent à déchiffrer l'histoire. Le temps a repris ses droits."}
           </p>
+
           <div className={styles.defaiteBoutons}>
             <button
-              onClick={() => window.location.reload()}
-              style={{ backgroundColor: "white", color: "darkred" }}
+              onClick={() => {
+                // Si tu veux réinitialiser la progression au clic, sinon laisse juste reload
+                window.location.reload();
+              }}
             >
               Réessayer 🔄
             </button>
@@ -366,7 +371,8 @@ const History = () => {
               Retour Accueil
             </button>
           </div>
-          <div className={styles.losePic}>
+
+          <div className={styles.defaiteImage}>
             <img src="images/defaite-histoire.png" alt="Défaite" />
           </div>
         </div>

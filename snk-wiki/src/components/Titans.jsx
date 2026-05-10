@@ -22,7 +22,7 @@ const Titans = () => {
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
 
-  const [victoireTotale, setVictoireTotale] = useState(false);
+  const [victoireTotale, setVictoireTotale] = useState(true);
   const [errors, setErrors] = useState(0);
   const [defaiteReponse, setDefaiteReponse] = useState(false);
 
@@ -335,15 +335,13 @@ const Titans = () => {
         </p>
       </main>
 
-      {/* --- message de victoire --- */}
+      {/* MESSAGE DE VICTOIRE */}
       {victoireTotale && canExplore && (
-        <div
-          className={styles["message-victoire-final"]}
-          style={{ display: "block" }}
-        >
-          <h1 style={{ fontSize: "3rem" }}>FÉLICITATIONS !</h1>
-          <p style={{ color: "white", fontSize: "1.5rem" }}>
-            Bravo, vous avez débloqué tous les titans disponibles !
+        <div className={styles.messageVictoireFinal}>
+          <h1>MAÎTRE DES COLOSSES 👹</h1>
+          <p>
+            Vous avez percé le mystère des neuf primordiaux. L'humanité est
+            enfin hors de danger
           </p>
           <div className={styles.victoireBoutons}>
             <button onClick={() => setCanExplore(false)}>
@@ -351,15 +349,18 @@ const Titans = () => {
             </button>
             <button
               onClick={() => {
-                localStorage.removeItem("progression_titans");
+                localStorage.removeItem("progression_saisons");
                 window.location.reload();
               }}
             >
               Rejouer
             </button>
-            <button onClick={() => (window.location.href = "/Saisons")}>
-              Explorer les Saisons
+            <button onClick={() => (window.location.href = "/")}>
+              Retourner à l'Accueil
             </button>
+          </div>
+          <div className={styles.victoireImage}>
+            <img src="images/victoire-titans.png" alt="Victoire" />
           </div>
         </div>
       )}

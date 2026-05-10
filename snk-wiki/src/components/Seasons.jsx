@@ -17,7 +17,7 @@ const Seasons = () => {
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-  const [victoireTotale, setVictoireTotale] = useState(false);
+  const [victoireTotale, setVictoireTotale] = useState(true);
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [errors, setErrors] = useState(0);
   const [etape, setEtape] = useState("indice"); // "indice" "qst"
@@ -303,8 +303,8 @@ const Seasons = () => {
       {/* MESSAGE DE VICTOIRE */}
       {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
-          <h1>FÉLICITATIONS ! 🏆</h1>
-          <p>Vous avez exploré toutes les saisons avec succès.</p>
+          <h1>GARDIEN DE LA MÉMOIRE ⏳</h1>
+          <p>Levez le voile sur les récits oubliés de l'humanité.</p>
           <div className={styles.victoireBoutons}>
             <button onClick={() => setCanExplore(false)}>
               Visiter le site
@@ -320,6 +320,9 @@ const Seasons = () => {
             <button onClick={() => (window.location.href = "/")}>
               Retourner à l'Accueil
             </button>
+          </div>
+          <div className={styles.victoireImage}>
+            <img src="images/victoire-saison.png" alt="Victoire" />
           </div>
         </div>
       )}

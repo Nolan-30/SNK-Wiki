@@ -156,11 +156,12 @@
   display: flex;
   flex-direction: row;
   background-color: transparent;
-  border-radius: 12px;
+  border-radius: 50px;
   overflow: hidden;
   margin-bottom: 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   min-height: 320px;
+  width: 1000px;
 }
 
 .titan-card.reverse {
@@ -349,7 +350,7 @@
 .face-arriere {
   width: 100%;
   backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 50px;
 }
 
 .face-arriere {
@@ -484,53 +485,73 @@
   color: black;
 }
 
-/* MSG DE WIN*/
-.message-victoire-final {
-  position: fixed; /* passe au dessus de tout */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* centrage */
-  background: linear-gradient(135deg, #000000 0%, #333 100%);
-  padding: 3rem;
-  border-radius: 15px;
-  border: 2px solid #ffcc00;
+/* --- MESSAGE DE VICTOIRE FINAL --- */
+
+.messageVictoireFinal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
-  box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
-  z-index: 1000;
-  width: 90%;
-  max-width: 600px;
+  animation: fadeIn 0.8s ease-out;
+  backdrop-filter: blur(10px);
 }
 
-/* titre felitations*/
-.message-victoire-final h1 {
-  color: #ffcc00;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.messageVictoireFinal h1 {
+  font-size: 4rem;
+  color: #ffcc00; /* Jaune doré pour le trophée */
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+  margin-bottom: 20px;
 }
 
-/* les btns */
+.messageVictoireFinal p {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 40px;
+}
+.victoireImage img {
+  border-radius: 50px;
+  margin-top: 5%;
+  height: 400px;
+}
+
+/* VICTOIRE BOUTONS */
 .victoireBoutons {
   display: flex;
   gap: 20px;
-  justify-content: center;
-  margin-top: 2rem;
 }
 
 .victoireBoutons button {
-  padding: 12px 25px;
+  padding: 15px 30px;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
+  border: none;
+  border-radius: 8px;
   transition:
     transform 0.2s,
     background 0.3s;
-  border: none;
+}
+
+.victoireBoutons button:first-child {
+  background-color: #444;
+  color: white;
+}
+
+.victoireBoutons button:last-child {
+  background-color: #ffcc00;
+  color: black;
 }
 
 .victoireBoutons button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* MESSAGE DEFAITE */

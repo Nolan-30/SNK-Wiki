@@ -10,7 +10,7 @@ const Characters = () => {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [etape, setEtape] = useState("indice"); // "indice" | "question" | "debloque"
   const [feedback, setFeedback] = useState(null);
-  const [victoireFinale, setVictoireFinale] = useState(false);
+  const [victoireTotale, setvictoireTotale] = useState(true);
   const [temps, setTemps] = useState(0);
   const [canExplore, setCanExplore] = useState(true);
   const [defaiteTemps, setDefaiteTemps] = useState(false);
@@ -43,7 +43,7 @@ const Characters = () => {
   // Chrono
   useEffect(() => {
     let interval;
-    if (jeuLance && !victoireFinale && !defaiteTemps) {
+    if (jeuLance && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
           if (prev >= 10000) {
@@ -56,13 +56,13 @@ const Characters = () => {
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [jeuLance, victoireFinale, defaiteTemps]);
+  }, [jeuLance, victoireTotale, defaiteTemps]);
 
   useEffect(() => {
-    if (victoireFinale === true) {
+    if (victoireTotale === true) {
       enregistrerProgressionPersos();
     }
-  }, [victoireFinale]);
+  }, [victoireTotale]);
 
   const demarrer = () => {
     setTemps(0);
@@ -100,7 +100,7 @@ const Characters = () => {
           );
 
           if (nextP >= charactersData.length) {
-            setVictoireFinale(true);
+            setvictoireTotale(true);
             setJeuLance(false);
           } else {
             setIndexPerso(nextP);
@@ -158,7 +158,7 @@ const Characters = () => {
 
       <div className="perso-section">
         <div className="chrono">
-          {!victoireFinale && (
+          {!victoireTotale && (
             <div className="startContainer">
               <button onClick={demarrer} className="quizBtn">
                 <p className="startTxt">Démarrer l'Exploration </p>
@@ -167,10 +167,6 @@ const Characters = () => {
                 Découvrez les visages qui ont bravé le destin.
               </p>
             </div>
-
-            // <button id="btn-action" onClick={demarrer} disabled={jeuLance}>
-            //   {jeuLance ? "En cours..." : "Démarrer l'Exploration ⚔️"}
-            // </button>
           )}
           {/* Le chrono s'affiche uniquement si le jeu est lancé */}
           {jeuLance && <p>{formaterTemps(temps)}</p>}
@@ -225,25 +221,33 @@ const Characters = () => {
           ))}
         </div>
       </div>
-
-      {victoireFinale && canExplore && (
-        <div id="message-victoire-final" style={{ display: "block" }}>
-          <h1>FÉLICITATIONS !</h1>
-          <p>Bravo, vous avez débloqué tous les personnages !</p>
-          <button onClick={() => setCanExplore(false)}>Visiter le site</button>
-          <button
-            className="btn-reponse-quiz"
-            onClick={() => window.location.reload()}
-          >
-            Rejouer
-          </button>
-
-          <button
-            className="btn-reponse-quiz"
-            onClick={() => (window.location.href = "/Titans")}
-          >
-            Explorer les Titans
-          </button>
+      {/* MESSAGE DE VICTOIRE */}
+      {victoireTotale && canExplore && (
+        <div className="messageVictoireFinal">
+          <h1>ARCHIVISTE DU BATAILLON 🎖️</h1>
+          <p>
+            Le destin de chaque héros et chaque traître n'a plus de secret pour
+            vous.
+          </p>
+          <div className="victoireBoutons">
+            <button onClick={() => setCanExplore(false)}>
+              Visiter le site
+            </button>
+            <button
+              onClick={() => {
+                localStorage.removeItem("progression_saisons");
+                window.location.reload();
+              }}
+            >
+              Rejouer
+            </button>
+            <button onClick={() => (window.location.href = "/")}>
+              Retourner à l'Accueil
+            </button>
+          </div>
+          <div className="victoireImage">
+            <img src="images/victoire-perso.png" alt="Victoire" />
+          </div>
         </div>
       )}
       {/* MESSAGE DE DEFAITE*/}

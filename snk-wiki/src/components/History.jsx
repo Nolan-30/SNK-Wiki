@@ -15,7 +15,7 @@ const History = () => {
   const [showNextBtn, setShowNextBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-  const [victoireTotale, setVictoireTotale] = useState(false);
+  const [victoireTotale, setVictoireTotale] = useState(true);
   const [etape, setEtape] = useState("indice"); // "indice" "qst"
   const [errors, setErrors] = useState(0); // suivre le nbr de mauvaises rep
   const [temps, setTemps] = useState(0);
@@ -315,18 +315,29 @@ const History = () => {
           )}
         </section>
       </section>
-      {/* --- MESSAGE DE VICTOIRE --- */}
+      {/* MESSAGE DE VICTOIRE */}
       {victoireTotale && canExplore && (
         <div className={styles.messageVictoireFinal}>
-          <h1>Page Histoire Débloquée !</h1>
+          <h1>MÉMOIRE ABSOLUE 📖</h1>
+          <p>Vous avez exploré toutes les saisons avec succès.</p>
           <div className={styles.victoireBoutons}>
             <button onClick={() => setCanExplore(false)}>
-              Relire l'Histoire
+              Visiter le site
             </button>
-            <button onClick={() => window.location.reload()}>Rejouer</button>
+            <button
+              onClick={() => {
+                localStorage.removeItem("progression_saisons");
+                window.location.reload();
+              }}
+            >
+              Rejouer
+            </button>
             <button onClick={() => (window.location.href = "/")}>
-              Accueil
+              Retourner à l'Accueil
             </button>
+          </div>
+          <div className={styles.victoireImage}>
+            <img src="images/victoire-histoire.png" alt="Victoire" />
           </div>
         </div>
       )}
@@ -336,7 +347,7 @@ const History = () => {
           className={styles.messageDefaite}
           style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
-          <h1 style={{ color: "red", marginTop: "-10%" }}>
+          <h1 style={{ color: "white" }}>
             {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
           </h1>
           <p>

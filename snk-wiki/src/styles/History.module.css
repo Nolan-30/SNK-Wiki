@@ -385,9 +385,15 @@
   margin-bottom: 40px;
 }
 .defaiteImage img {
-  border-radius: 50px;
   margin-top: 5%;
+  border-radius: 50px;
   height: 400px;
+  transition: 0.5s;
+}
+
+.defaiteImage img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
 .defaiteBoutons {
@@ -407,7 +413,7 @@
 
 .defaiteBoutons button:first-child {
   background: white;
-  color: black;
+  color: rgb(122, 1, 1);
 }
 
 .defaiteBoutons button:last-child {

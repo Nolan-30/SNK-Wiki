@@ -13,7 +13,7 @@ const Characters = () => {
   const [victoireTotale, setvictoireTotale] = useState(false);
   const [temps, setTemps] = useState(0);
   const [canExplore, setCanExplore] = useState(true);
-  const [defaiteTemps, setDefaiteTemps] = useState(true);
+  const [defaiteTemps, setDefaiteTemps] = useState(false);
   const [errors, setErrors] = useState(0);
 
   const [debloques, setDebloques] = useState(() => {
@@ -46,7 +46,7 @@ const Characters = () => {
     if (jeuLance && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 10000) {
+          if (prev >= 10) {
             setDefaiteTemps(true);
             setJeuLance(false);
             return 5;
@@ -250,29 +250,36 @@ const Characters = () => {
           </div>
         </div>
       )}
-      {/* MESSAGE DE DEFAITE*/}
+      {/* MESSAGE DEFAITE TEMPS/ERREURS */}
       {defaiteTemps && (
         <div className="messageDefaite">
-          <h1 style={{ color: "white", fontSize: "3rem" }}>
-            {errors >= 5 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          <h1 style={{ color: "red", fontSize: "3rem", marginTop: "5%" }}>
+            {errors >= 5 ? "SOLDAT TOMBÉ ⚔️" : "TEMPS ÉCOULÉ ⏳"}
           </h1>
 
-          <p style={{ color: "white", fontSize: "1.5rem" }}>
+          <p
+            style={{ color: "white", fontSize: "1.2rem", marginBottom: "20px" }}
+          >
             {errors >= 5
-              ? "Vous avez échoué l'exploration."
-              : "Vous devez répondre plus rapidement."}
+              ? "Le temps de la décision est révolu. Vos alliés ont dû battre en retraite sans vous attendre."
+              : "Vous avez perdu la trace de vos alliés. Le bataillon est décimé."}
           </p>
 
           <div className="defaiteBoutons">
-            <button onClick={() => window.location.reload()}>
+            <button
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
               Réessayer 🔄
             </button>
             <button onClick={() => (window.location.href = "/")}>
               Retour Accueil
             </button>
           </div>
-          <div className="losePic">
-            <img src="images/defaite-histoire.png" alt="Défaite" />
+
+          <div className="defaiteImage">
+            <img src="images/defaite-perso.png" alt="Défaite" />
           </div>
         </div>
       )}

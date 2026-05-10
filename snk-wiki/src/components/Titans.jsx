@@ -18,7 +18,7 @@ const Titans = () => {
   const [showContinueBtn, setShowContinueBtn] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [canExplore, setCanExplore] = useState(true);
-  const [defaiteTemps, setDefaiteTemps] = useState(true);
+  const [defaiteTemps, setDefaiteTemps] = useState(false);
   const timerRef = useRef(null);
   const cartesRef = useRef([]);
 
@@ -52,7 +52,7 @@ const Titans = () => {
     if (timerActive && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTempsEcoule((prev) => {
-          if (prev >= 10000) {
+          if (prev >= 10) {
             setDefaiteTemps(true);
             setTimerActive(false);
             setQuizActive(false);
@@ -365,40 +365,26 @@ const Titans = () => {
         </div>
       )}
 
-      {/* MESSAGE DEFAITE REPONSE */}
+      {/* MESSAGE DEFAITE TEMPS/ERREURS */}
       {defaiteTemps && (
         <div className={styles.messageDefaite}>
-          <h1 style={{ color: "white", fontSize: "3rem" }}>
-            {/* Affiche le message selon la cause */}
-            {errors >= 5 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+          <h1 style={{ color: "red", fontSize: "3rem", marginTop: "-5%" }}>
+            {errors >= 5 ? "DÉVORÉ PAR LE DESTIN 🩸" : "TEMPS ÉCOULÉ ⏳"}
           </h1>
-          <p style={{ color: "white", fontSize: "1.5rem" }}>
+
+          <p
+            style={{ color: "white", fontSize: "1.2rem", marginBottom: "20px" }}
+          >
             {errors >= 5
-              ? "Vous avez échoué dans votre épopée face aux Titans."
-              : "Vous devez répondre plus rapidement."}
+              ? "La puissance des primordiaux vous a submergé. Les murs sont tombés."
+              : "L'opportunité de frapper est passée. Les Titans ont brisé les lignes de défense avant votre analyse."}
           </p>
-        </div>
-      )}
 
-      {/* Message de défaite Temps */}
-
-      {defaiteTemps && (
-        <div
-          className={styles.messageDefaite}
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
-        >
-          <h1 style={{ color: "red" }}>
-            {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
-          </h1>
-          <p className={styles.defaiteTexte}>
-            {errors >= 2
-              ? "Vous avez échoué dans votre exploration."
-              : "Vous devez répondre plus rapidement."}
-          </p>
           <div className={styles.defaiteBoutons}>
             <button
-              onClick={() => window.location.reload()}
-              style={{ backgroundColor: "white", color: "darkred" }}
+              onClick={() => {
+                window.location.reload();
+              }}
             >
               Réessayer 🔄
             </button>
@@ -406,8 +392,9 @@ const Titans = () => {
               Retour Accueil
             </button>
           </div>
+
           <div className={styles.defaiteImage}>
-            <img src="images/defaite-titans.png" alt="Défaite" />
+            <img src="images/defaite-titans.png" alt="Defaite Titans" />
           </div>
         </div>
       )}

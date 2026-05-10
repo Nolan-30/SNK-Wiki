@@ -30,7 +30,7 @@ const Seasons = () => {
     if (activeTimer && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 1000) {
+          if (prev >= 10) {
             setDefaiteTemps(true);
             setActiveTimer(false);
             setQuizLance(false);
@@ -334,12 +334,12 @@ const Seasons = () => {
           style={{ backgroundColor: "rgba(0, 0, 0, 0.95)" }}
         >
           <h1 style={{ color: "red" }}>
-            {errors >= 2 ? "TROP D'ERREURS !" : "TEMPS ÉCOULÉ !"}
+            {errors >= 2 ? "CYCLE BRISÉ 🎬" : "TEMPS ÉCOULÉ ⏳"}
           </h1>
           <p className={styles.defaiteTexte}>
             {errors >= 2
-              ? "Vous avez échoué dans votre exploration."
-              : "Vous devez répondre plus rapidement."}
+              ? "Le fil des événements s'est rompu. Votre chronologie est incomplète."
+              : "Vous n'avez pas réussi à lier les époques avant que le passé ne s'efface."}
           </p>
           <div className={styles.defaiteBoutons}>
             <button
@@ -352,8 +352,8 @@ const Seasons = () => {
               Retour Accueil
             </button>
           </div>
-          <div className={styles.losePic}>
-            <img src="images/defaite-histoire.png" alt="Défaite" />
+          <div className={styles.defaiteImage}>
+            <img src="images/defaite-saison.png" alt="Défaite" />
           </div>
         </div>
       )}

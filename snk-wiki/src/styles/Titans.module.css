@@ -77,7 +77,8 @@
     linear-gradient(to right, #868686, #767676, #ff0000, #a40000, #5b0000)
       border-box;
   transition: transform 1s ease-out;
-  border-radius: 10px;
+  border-radius: 50px;
+  border: 2px solid yellow;
 }
 
 .founding-titan img:hover {
@@ -99,7 +100,7 @@
   padding: 50px 20px;
   background: rgba(11, 17, 27, 0.8);
   border-radius: 15px;
-  border: 1px solid var(--rouge-snk);
+  border: 2px solid #06003e;
   margin: 20px auto;
   max-width: 600px;
   margin-bottom: 10%;
@@ -113,7 +114,6 @@
 }
 
 .startBtn {
-  background: var(--rouge-snk);
   color: white;
   border: none;
   padding: 15px 35px;
@@ -127,7 +127,6 @@
 }
 
 .startBtn:hover {
-  background: #9a1616;
   transform: scale(1.05);
 }
 
@@ -136,20 +135,108 @@
   font-size: 1rem;
 }
 
-.quizBtn {
-  background: #161f2d;
+.startBtn {
+  background: #250000;
   color: white;
-  border: 1px solid #b91c1c;
+  border: 2px solid #06003e;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
-
   margin-bottom: 2%;
 }
 
+.startBtn:hover {
+  background: #030046;
+}
+.quizBtn {
+  background: #001224;
+  color: white;
+  border: 2px solid #06003e;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 2%;
+
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
 .quizBtn:hover {
-  background: #b91c1c;
+  /* box-shadow: 0 0 25px rgba(255, 0, 0, 0.5); */
+}
+
+.quizBtn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(15deg);
+  transition: 0.5s;
+}
+
+.quizBtn:hover::after {
+  left: 120%;
+}
+
+/* test */
+.optionsBtnTitans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+
+  color: white;
+
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 2%;
+
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
+  position: relative;
+  overflow: hidden;
+  background-color: #0b111b;
+}
+
+.optionsBtnTitans button {
+  color: rgb(255, 255, 255);
+  background-color: #0b111b;
+  border: 1px solid #444;
+}
+
+.optionsBtnTitans:hover {
+  background: #535252;
+
+  box-shadow: 0 0 25px rgba(60, 60, 60, 0.5);
+}
+
+.optionsBtnTitans::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+
+  transform: rotate(15deg);
+  transition: 1s;
+}
+
+.optionsBtnTitans:hover::after {
+  left: 120%;
 }
 
 .titan-card {
@@ -243,10 +330,13 @@
 .card-content {
   flex: 1;
   background-color: #0d1321;
-  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  width: 100%;
 }
 
 .titan-name {
@@ -254,37 +344,54 @@
   font-size: 1.8rem;
   color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .titan-holder {
+  margin-left: -35%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   font-size: 0.95rem;
   color: #8d99ae;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .titan-desc {
-  color: #bdc3c7;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 25px;
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 auto 20px auto;
+  max-width: 90%;
+  margin-left: 10%;
 }
 
 .titan-stats {
   list-style: none;
-  margin-top: 10px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .titan-stats li {
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .stats-green {
@@ -351,6 +458,7 @@
   width: 100%;
   backface-visibility: hidden;
   border-radius: 50px;
+  margin-bottom: 10%;
 }
 
 .face-arriere {
@@ -400,18 +508,18 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: #3f0000;
+  background: rgba(11, 17, 27, 0.8);
   color: white;
   padding: 15px;
   border-radius: 10px;
   box-sizing: border-box;
-  border: 1px solid red;
+  border: 2px solid grey;
 
   text-align: center;
 }
 
 .jeu-dans-carte h3 {
-  color: #ff4444;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -420,7 +528,7 @@
 }
 
 .quizContainer {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 /* centrer la main qst */
@@ -474,7 +582,7 @@
   font-size: 1.2rem;
   font-weight: 900;
   cursor: pointer;
-  background-color: #ff0000;
+  background: rgba(11, 17, 27, 0.8);
   color: white;
   border: none;
   border-radius: 5px;

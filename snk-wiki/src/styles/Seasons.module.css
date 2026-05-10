@@ -47,8 +47,9 @@
 }
 
 .mainPic img {
+  border: 2px solid rgb(99, 79, 0);
   margin-top: 3%;
-  border-radius: 10px;
+  border-radius: 50px;
   transition: transform 1s ease-out;
 }
 .mainPic img:hover {
@@ -67,12 +68,17 @@
   align-items: center;
   justify-content: center;
   padding: 50px 20px;
-  background: rgba(11, 17, 27, 0.8);
+  background-color: rgb(50, 37, 0);
   border-radius: 15px;
-  border: 1px solid var(--rouge-snk);
+  margin-bottom: 5%;
   margin: 20px auto;
   max-width: 600px;
-  border: 1px solid rgb(126, 78, 2);
+  border: 2px solid rgb(126, 78, 2);
+}
+
+.startContainer button {
+  background: #211700;
+  border: 2px solid rgb(126, 78, 2);
 }
 
 .introText {
@@ -90,7 +96,7 @@
 .startBtn {
   background: rgba(11, 17, 27, 0.8);
   color: white;
-  border: 1px solid rgb(126, 78, 2);
+  border: 2px solid rgb(126, 78, 2);
   cursor: pointer;
   transition: 0.3s;
   padding: 10px 40px;
@@ -98,19 +104,45 @@
 }
 
 .quizBtn {
-  background: rgba(11, 17, 27, 0.8);
+  background: #251a00;
   color: white;
-  border: 1px solid burlywood;
+  border: 2px solid #3e3520;
+  padding: 10px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
-  padding: 10px 40px;
-  border-radius: 10px;
+  margin-bottom: 2%;
+
+  letter-spacing: 3px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Animation au survol des choix */
 
 .quizBtn:hover {
-  background: #b91c1c;
+  background: #965203;
+
+  box-shadow: 0 0 25px rgba(150, 82, 3, 0.5);
 }
 
+.quizBtn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(15deg);
+  transition: 0.5s;
+}
+
+.quizBtn:hover::after {
+  left: 120%;
+}
 /* Système de Flip Card */
 .seasonsGrid {
   max-width: 900px;
@@ -118,6 +150,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-top: 10%;
 }
 
 .cardContainer {

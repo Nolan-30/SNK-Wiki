@@ -160,7 +160,7 @@ const Characters = () => {
         <div className="chrono">
           {!victoireTotale && (
             <div className="startContainer">
-              <button onClick={demarrer} className="quizBtn">
+              <button onClick={demarrer} className="startBtn">
                 <p className="startTxt">Démarrer l'Exploration </p>
               </button>
               <p className="introText">

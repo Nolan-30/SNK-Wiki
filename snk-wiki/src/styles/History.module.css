@@ -19,6 +19,10 @@
   margin-top: 80px;
 }
 
+.titrePrincipalConteneur {
+  border-radius: 50px;
+}
+
 /* subtitle */
 
 .titrePrincipalConteneur p {
@@ -43,7 +47,7 @@
   transition:
     transform 0.6s ease-out,
     box-shadow 0.6s ease-out;
-  border-radius: 10px;
+  border-radius: 50px;
   border: 3px solid rgba(85, 85, 85, 0.489);
   max-width: 100%; /* Responsive */
   height: auto;
@@ -74,12 +78,10 @@
 }
 
 .boiteContenu {
-  border-top: 1px solid rgba(85, 85, 85, 0.489);
-  border-bottom: 1px solid rgba(85, 85, 85, 0.489);
-  background-color: var(--bleu-fond-boite);
+  border: 2px solid #3e3520;
+  background-color: rgb(17, 14, 8);
   padding: 50px;
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 .sectionTexte {
@@ -88,7 +90,7 @@
 
 .sousTitre {
   font-family: "Cinzel", serif;
-  color: var(--rouge-snk);
+  color: rgb(113, 62, 7);
   font-size: 1.2rem;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -110,49 +112,6 @@
   margin-top: 30px;
 }
 
-/* --- Style des Cartes de thèmes --- */
-.carte {
-  background-color: var(--bleu-fond-carte);
-  padding: 25px;
-  border-radius: 4px;
-  position: relative;
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-  overflow: hidden;
-}
-
-.carte:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(201, 42, 42, 0.3);
-}
-
-.carte::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.carteBlanche::before {
-  background-color: #e0e0e0;
-}
-
-.carteRouge::before {
-  background-color: var(--rouge-snk);
-}
-
-.carte h3 {
-  color: var(--blanc-texte);
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  font-family: "Cinzel", serif;
-}
-
 /* partie quiz */
 .locked {
   opacity: 0.4;
@@ -161,17 +120,16 @@
 }
 
 .lockedText {
-  color: #b91c1c;
+  color: rgb(113, 62, 7);
   font-weight: bold;
   text-align: center;
   padding: 20px;
 }
 
 .activeQuiz {
-  border: 2px solid #b91c1c;
+  border: 2px solid #3e3520;
   padding: 20px;
   border-radius: 10px;
-  background: rgba(185, 28, 28, 0.05);
 }
 
 .quizBox {
@@ -196,10 +154,10 @@
   font-size: 1rem;
 }
 
-.quizBtn {
-  background: #161f2d;
+.startBtn {
+  background: #251a00;
   color: white;
-  border: 1px solid #b91c1c;
+  border: 2px solid #3e3520;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -207,8 +165,48 @@
   margin-bottom: 2%;
 }
 
+.startBtn:hover {
+  background: #965203;
+  box-shadow: 0 0 25px rgba(150, 82, 3, 0.5);
+}
+.quizBtn {
+  background: #251a00;
+  color: white;
+  border: 2px solid #3e3520;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 2%;
+
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
 .quizBtn:hover {
-  background: #b91c1c;
+  background: #965203;
+
+  box-shadow: 0 0 25px rgba(150, 82, 3, 0.5);
+}
+
+.quizBtn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(15deg);
+  transition: 0.5s;
+}
+
+.quizBtn:hover::after {
+  left: 120%;
 }
 
 /* empeche de cliquer sur les autres reponses */
@@ -243,9 +241,9 @@
   align-items: center;
   justify-content: center;
   padding: 50px 20px;
-  background: rgba(11, 17, 27, 0.8);
+  background-color: rgb(17, 14, 8);
   border-radius: 15px;
-  border: 1px solid var(--rouge-snk);
+  border: 2px solid #3e3520;
   margin: 20px auto;
   max-width: 600px;
   height: 250px;
@@ -256,25 +254,6 @@
   font-size: 1.5rem;
   margin-bottom: 25px;
   text-align: center;
-}
-
-.startBtn {
-  background: var(--rouge-snk);
-  color: white;
-  border: none;
-  padding: 15px 35px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition:
-    transform 0.3s,
-    background 0.3s;
-}
-
-.startBtn:hover {
-  background: #9a1616;
-  transform: scale(1.05);
 }
 
 .timeTxt {
@@ -435,10 +414,6 @@
 @media (max-width: 768px) {
   .grilleCartes {
     grid-template-columns: 1fr;
-  }
-
-  .boiteContenu {
-    padding: 25px;
   }
 
   .historyTitle {

@@ -205,7 +205,7 @@ const Titans = () => {
         {!quizActive && !victoireTotale && !defaiteTemps && (
           <div className={styles.startContainer}>
             <button onClick={lancerExploration} className={styles.quizBtn}>
-              <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
+              <p className={styles.startTxt}>Démarrer l'Exploration </p>
             </button>
             <p className={styles.introText}>
               Faites face aux prédateurs originels de ce monde.
@@ -261,12 +261,10 @@ const Titans = () => {
                     <div className={styles["card-content"]}>
                       <h2 className={styles["titan-name"]}>{titan.nom}</h2>
                       <p className={styles["titan-holder"]}>
-                        Détenteur actuel :{" "}
-                        <strong>
-                          <span className={styles[titan.holderClass]}>
-                            {titan.holder}
-                          </span>
-                        </strong>
+                        Détenteur actuel :
+                        <span className={styles[titan.holderClass]}>
+                          {titan.holder}
+                        </span>
                       </p>
                       <p className={styles["titan-desc"]}>{titan.desc}</p>
                       <ul
@@ -294,7 +292,7 @@ const Titans = () => {
                   ) : (
                     <div className={styles.quizContainer}>
                       <h2 className={styles.questionQuiz}>{titan.q}</h2>
-                      <div className={styles["options-boutons-titans"]}>
+                      <div className={styles["optionsBtnTitans"]}>
                         {titan.choix.map((choixTexte, i) => (
                           <button
                             key={i}

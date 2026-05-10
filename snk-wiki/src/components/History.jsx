@@ -157,7 +157,7 @@ const History = () => {
       {/* Affichage du Chrono et du Bouton */}
       {!quizLance && !victoireTotale && (
         <div className={styles.startContainer}>
-          <button onClick={lancerExploration} className={styles.quizBtn}>
+          <button onClick={lancerExploration} className={styles.startBtn}>
             <p className={styles.startTxt}>Démarrer l'Exploration </p>
           </button>
           <p className={styles.introText}>
@@ -223,7 +223,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 1 && (
-              <p className={styles.lockedText}>🔒 Chapitre verrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitre Verrouillée</p>
             )
           )}
         </section>
@@ -252,7 +252,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 2 && (
-              <p className={styles.lockedText}>🔒 Section verrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitre Verrouillée</p>
             )
           )}
         </section>
@@ -281,7 +281,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 3 && (
-              <p className={styles.lockedText}>🔒 Chapitreverrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitre Verrouillée</p>
             )
           )}
         </section>
@@ -310,7 +310,7 @@ const History = () => {
             />
           ) : (
             unlockedCount < 4 && (
-              <p className={styles.lockedText}>🔒 Chapitreverrouillée</p>
+              <p className={styles.lockedText}>🔒 Chapitre Verrouillée</p>
             )
           )}
         </section>

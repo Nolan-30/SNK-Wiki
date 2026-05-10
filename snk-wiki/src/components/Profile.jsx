@@ -42,9 +42,7 @@ const Profile = () => {
     <div className={styles.profileContainer} data-aos="fade-up">
       <div className={styles.header}>
         <h1 className={styles.title}>Profil du Bataillon</h1>
-        <p className={styles.username}>
-          Soldat : <span>{stats.username}</span>
-        </p>
+        <img src="images/profil.png" height={500} />
       </div>
 
       <div className={styles.statsGrid}>

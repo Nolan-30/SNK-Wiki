@@ -21,6 +21,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+.logo-bataillon img {
+  margin-top: -5%;
+  margin-bottom: 10%;
+}
 
 a {
   text-decoration: none;

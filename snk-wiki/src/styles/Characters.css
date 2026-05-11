@@ -131,8 +131,8 @@
 .personnages-container {
   display: flex;
   justify-content: center;
-  margin-left: 2%;
-  gap: 130px;
+
+  gap: 100px;
   margin-top: 1%;
   border-radius: 10px;
   margin-bottom: 5%;

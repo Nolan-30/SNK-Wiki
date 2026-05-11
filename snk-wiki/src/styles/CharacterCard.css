@@ -40,36 +40,22 @@
 
 .personnage-carte img {
   border: 3px solid transparent;
-  border-radius: 10px;
+  border-radius: 20px 20px 5px 5px;
   margin: 0;
   border-left: 1px solid rgba(41, 41, 41, 0.489);
   border-right: 1px solid rgba(41, 41, 41, 0.489);
 
-  transition: transform 1s ease-out;
+  transition: 0.5s;
 }
 
 .face-arriere img {
-  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  /* border-bottom: 10px solid rgba(0, 94, 8, 0.5); */
 }
 
 .personnage-carte:hover img {
-  transform: scale(1.02);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 223, 19, 0.5);
+  border: 2px solid #256e00;
 }
-
-/* .nom-perso {
-  font-size: 20px;
-  font-family: "Playfair Display", serif;
-  font-weight: 900;
-  font-style: italic;
-  text-align: center;
-  margin: 10px 0 5px 0;
-}
-
-.nom-perso a {
-  text-decoration: none;
-  transition: 1s;
-} */
 
 .degrader-blanc {
   background: linear-gradient(to right, #ffffff, #5a5a5a);
@@ -78,19 +64,17 @@
 }
 
 .description-container {
+  margin-top: -5%;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
+  background: #0b3900;
+  border: 2px solid #256e00;
+  border-radius: 5px 5px 20px 20px;
 }
 
 .description-perso {
-  /* a garder au cas ou */
-  /* display: flex;
-  justify-content: center; */
-  /* margin-top: -20px;
-  margin-left: 5%; */
-
-  border-radius: 10px;
-  border-bottom: 10px solid rgba(41, 41, 41, 0.489);
+  border-bottom: 10px solid rgba(0, 94, 8, 0.5);
   border-left: 1px solid rgba(41, 41, 41, 0.489);
   border-right: 1px solid rgba(41, 41, 41, 0.489);
 }
@@ -99,5 +83,5 @@
   transition: 1s;
   padding: 10px;
   width: 250px;
-  color: #c2c0c0;
+  color: #ffffff;
 }

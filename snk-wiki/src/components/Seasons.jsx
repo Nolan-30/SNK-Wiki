@@ -353,7 +353,7 @@ const Seasons = () => {
             </button>
           </div>
           <div className={styles.defaiteImage}>
-            <img src="images/defaite-saison.png" alt="Défaite" />
+            <img src="images/defaite-saison.png" alt="Défaite" height={200} />
           </div>
         </div>
       )}

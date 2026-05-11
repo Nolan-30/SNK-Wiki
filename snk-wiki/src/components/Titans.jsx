@@ -192,12 +192,7 @@ const Titans = () => {
         </h1>
 
         <span className={styles["founding-titan"]}>
-          <img
-            src="images/titan-originel.jpg"
-            height="500"
-            width="600"
-            alt="titan originel"
-          />
+          <img src="images/titan-originel.jpg" alt="titan originel" />
         </span>
 
         <div className={styles["border-grey"]}></div>
@@ -375,7 +370,7 @@ const Titans = () => {
           >
             {errors >= 5
               ? "La puissance des primordiaux vous a submergé. Les murs sont tombés."
-              : "L'opportunité de frapper est passée. Les Titans ont brisé les lignes de défense avant votre analyse."}
+              : "Les Titans ont brisé les lignes de défense avant votre analyse."}
           </p>
 
           <div className={styles.defaiteBoutons}>

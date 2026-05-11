@@ -147,12 +147,12 @@ const History = () => {
           {/* Le récit d'une humanité murée. */}
           Entre secrets d'État et lutte désespérée pour la liberté.
         </p>
+
         <img
           src="images/ymir.jpg"
           alt="Ymir Fritz"
           className={styles.historyHeroImg}
         />
-        <div className={styles.separateurRouge}></div>
       </div>
       {/* Affichage du Chrono et du Bouton */}
       {!quizLance && !victoireTotale && (

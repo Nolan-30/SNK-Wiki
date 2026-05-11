@@ -48,12 +48,13 @@
 
 .mainPic img {
   border: 2px solid rgb(99, 79, 0);
-  margin-top: 3%;
   border-radius: 50px;
-  transition: transform 1s ease-out;
+  transition: 0.5s;
+  width: 800px;
+  height: 400px;
 }
 .mainPic img:hover {
-  transform: scale(1.02);
+  transform: scale(1.1);
   box-shadow: 0 0 10px rgba(106, 94, 24, 0.993);
 }
 
@@ -416,21 +417,28 @@ p {
 }
 
 .messageVictoireFinal h1 {
-  font-size: 4rem;
+  margin-top: -10%;
+  font-size: 3rem;
   color: #ffcc00; /* Jaune doré pour le trophée */
   text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
   margin-bottom: 20px;
 }
 
 .messageVictoireFinal p {
+  margin-top: -2%;
   font-size: 1.5rem;
   color: white;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .victoireImage img {
   border-radius: 50px;
   margin-top: 5%;
-  height: 400px;
+  height: 300px;
+  transition: 0.5s;
+}
+.victoireImage img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgb(255, 204, 0);
 }
 
 /* VICTOIRE BOUTONS */
@@ -467,7 +475,7 @@ p {
 
 /* --- Message de defaite --- */
 .messageDefaite {
-  margin-top: -20%;
+  margin-top: -18%;
   position: fixed;
   top: 0;
   left: 0;
@@ -484,7 +492,7 @@ p {
 }
 
 .messageDefaite h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #b91c1c;
   margin-bottom: 20px;
   font-family: "Cinzel", serif;
@@ -492,14 +500,14 @@ p {
 
 .messageDefaite p {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 40px;
 }
 
 .defaiteImage img {
   border-radius: 50px;
-  margin-top: 7%;
-  height: 400px;
+  margin-top: 10%;
+  height: 300px;
   transition: 0.5s;
 }
 

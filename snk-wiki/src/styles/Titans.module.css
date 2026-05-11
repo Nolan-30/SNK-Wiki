@@ -72,17 +72,20 @@
 }
 
 .founding-titan img {
+  margin-top: -25px;
   background:
     linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)) padding-box,
     linear-gradient(to right, #868686, #767676, #ff0000, #a40000, #5b0000)
       border-box;
-  transition: transform 1s ease-out;
+  transition: 0.5s;
   border-radius: 50px;
   border: 2px solid yellow;
+  height: 400px;
+  width: 600px;
 }
 
 .founding-titan img:hover {
-  transform: scale(1.03);
+  transform: scale(1.1);
   box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
@@ -597,6 +600,7 @@
 /* --- MESSAGE DE VICTOIRE FINAL --- */
 
 .messageVictoireFinal {
+  margin-top: 2%;
   position: fixed;
   top: 0;
   left: 0;
@@ -614,7 +618,7 @@
 }
 
 .messageVictoireFinal h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   color: #ffcc00; /* Jaune doré pour le trophée */
   text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
   margin-bottom: 20px;
@@ -628,7 +632,13 @@
 .victoireImage img {
   border-radius: 50px;
   margin-top: 5%;
-  height: 400px;
+  height: 300px;
+  transition: 0.5s;
+}
+
+.victoireImage img:hover {
+  box-shadow: 0 0 10px rgb(255, 204, 0);
+  transform: scale(1.1);
 }
 
 /* VICTOIRE BOUTONS */
@@ -683,7 +693,7 @@
 }
 
 .messageDefaite h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #b91c1c;
   margin-bottom: 20px;
   font-family: "Cinzel", serif;
@@ -697,7 +707,7 @@
 .defaiteImage img {
   margin-top: 5%;
   border-radius: 50px;
-  height: 400px;
+  height: 300px;
   transition: 0.3s;
 }
 

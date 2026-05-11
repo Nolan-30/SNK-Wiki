@@ -12,7 +12,7 @@ const Characters = () => {
   const [feedback, setFeedback] = useState(null);
   const [victoireTotale, setvictoireTotale] = useState(false);
   const [temps, setTemps] = useState(0);
-  const [canExplore, setCanExplore] = useState(true);
+  const [canExplore, setCanExplore] = useState(false);
   const [defaiteTemps, setDefaiteTemps] = useState(false);
   const [errors, setErrors] = useState(0);
 
@@ -152,7 +152,7 @@ const Characters = () => {
           </a>
         </p>
         <div className="img-bat">
-          <img src="public/images/bataillon.jpg" height="500" alt="Bataillon" />
+          <img src="public/images/bataillon.jpg" alt="Bataillon" />
         </div>
       </div>
 

@@ -48,9 +48,11 @@
     transform 0.6s ease-out,
     box-shadow 0.6s ease-out;
   border-radius: 50px;
-  border: 3px solid rgba(85, 85, 85, 0.489);
-  max-width: 100%; /* Responsive */
-  height: auto;
+  border: 2px solid #3e3520;
+  max-width: 100%;
+  width: 800px;
+  height: 400px;
+  margin-bottom: 5%;
 }
 
 .historyHeroImg:hover {
@@ -69,15 +71,8 @@
   letter-spacing: 1px;
 }
 
-.separateurRouge {
-  width: 60px;
-  height: 3px;
-  background-color: var(--rouge-snk);
-  margin: 30px auto 10% auto;
-  border-bottom: 1px solid rgba(255, 0, 0, 0.489);
-}
-
 .boiteContenu {
+  margin-top: 10%;
   border: 2px solid #3e3520;
   background-color: rgb(17, 14, 8);
   padding: 50px;
@@ -244,7 +239,9 @@
   background-color: rgb(17, 14, 8);
   border-radius: 15px;
   border: 2px solid #3e3520;
+
   margin: 20px auto;
+
   max-width: 600px;
   height: 250px;
 }
@@ -335,7 +332,7 @@
 
 /* --- Message de defaite --- */
 .messageDefaite {
-  margin-top: -45%;
+  margin-top: -5%;
   position: fixed;
   top: 0;
   left: 0;
@@ -352,7 +349,7 @@
 }
 
 .messageDefaite h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #b91c1c;
   margin-bottom: 20px;
   font-family: "Cinzel", serif;
@@ -360,13 +357,14 @@
 
 .messageDefaite p {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 40px;
 }
+
 .defaiteImage img {
-  margin-top: 5%;
   border-radius: 50px;
-  height: 400px;
+  margin-top: 10%;
+  height: 300px;
   transition: 0.5s;
 }
 
@@ -396,7 +394,7 @@
 }
 
 .defaiteBoutons button:last-child {
-  background: #b91c1c;
+  background: #ff0000;
   color: white;
 }
 

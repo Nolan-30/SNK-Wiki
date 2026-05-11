@@ -73,7 +73,7 @@
   align-items: center;
   justify-content: center;
   padding: 50px 20px;
-  background: rgba(11, 17, 27, 0.8);
+  background-color: rgb(1, 50, 1);
   border-radius: 15px;
   border: 1px solid var(--rouge-snk);
   margin: 20px auto;
@@ -104,7 +104,7 @@
 }
 
 .startBtn:hover {
-  background: #9a1616;
+  background: #ffffff;
   transform: scale(1.05);
 }
 
@@ -174,9 +174,47 @@
   margin-bottom: 15px;
 }
 
+.quizBtn {
+  background: #00411d;
+  color: white;
+  border: 2px solid #198620;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 2%;
+
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0, 102, 22, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.quizBtn:hover {
+  box-shadow: 0 0 25px rgba(1, 72, 0, 0.5);
+}
+
+.quizBtn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(15deg);
+  transition: 0.5s;
+}
+
+.quizBtn:hover::after {
+  left: 120%;
+}
+
 .btn-reponse-quiz {
-  background: white;
-  color: black;
+  background: rgb(1, 58, 0);
+  color: rgb(255, 255, 255);
   border: none;
   padding: 8px;
   margin: 5px 0;
@@ -379,45 +417,6 @@
   box-shadow: 0 0 25px rgba(15, 94, 8, 0.5);
 }
 
-.quizBtn {
-  background: #251a00;
-  color: white;
-  border: 2px solid #3e3520;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-bottom: 2%;
-
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: bold;
-  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.quizBtn:hover {
-  background: #965203;
-
-  box-shadow: 0 0 25px rgba(150, 82, 3, 0.5);
-}
-
-.quizBtn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 20%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(15deg);
-  transition: 0.5s;
-}
-
-.quizBtn:hover::after {
-  left: 120%;
-}
 #affichage {
   margin-top: 2%;
   color: white;

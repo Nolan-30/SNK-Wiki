@@ -344,6 +344,16 @@ p {
   margin-bottom: 3%;
 }
 
+/* Survol btn */
+.startBtn {
+  transition: transform 0.3s;
+}
+
+.startBtn:hover {
+  background: rgb(111, 72, 0);
+  transform: scale(1.05);
+}
+
 .success {
   color: #10b981;
 }

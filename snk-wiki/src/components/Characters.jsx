@@ -183,7 +183,7 @@ const Characters = () => {
             {etape === "question" && questionActuelle && (
               <div>
                 <h2>{questionActuelle.qst}</h2>
-                <div id="options-boutons">
+                <div className="quizBtn">
                   {questionActuelle.choix.map((c) => (
                     <button
                       key={c}

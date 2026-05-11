@@ -149,6 +149,7 @@
 .startBtn:hover {
   background: #030046;
 }
+
 .quizBtn {
   background: #001224;
   color: white;
@@ -561,7 +562,7 @@
 }
 
 .btn-reponse-quiz:hover {
-  background-color: #db3838;
+  background-color: #777777;
 }
 
 .feedback-mini-titans {

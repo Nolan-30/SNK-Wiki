@@ -52,7 +52,7 @@ const Titans = () => {
     if (timerActive && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTempsEcoule((prev) => {
-          if (prev >= 1000) {
+          if (prev >= 60000000000) {
             setDefaiteTemps(true);
             setTimerActive(false);
             setQuizActive(false);
@@ -132,7 +132,7 @@ const Titans = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 5) {
+      if (newErrors >= 3) {
         setTimerActive(false);
         setDefaiteTemps(true);
         setQuizActive(false);
@@ -313,7 +313,7 @@ const Titans = () => {
 
               {showContinueBtn && index === unlockedCount && (
                 <button
-                  className={styles["btn-continuer-titan"]}
+                  className={styles["btn-continuer"]}
                   onClick={gererContinuer}
                 >
                   Continuer →

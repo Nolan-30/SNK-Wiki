@@ -264,20 +264,27 @@ p {
 }
 
 .continueBtn {
-  background-color: rgb(131, 109, 48);
+  background: #251a00;
   color: white;
   border: none;
-  padding: 10px 30px;
-  border-radius: 5px;
+  padding: 15px 30px;
+  border-radius: 20px;
   font-weight: bold;
   cursor: pointer;
+  border: 2px solid rgb(126, 78, 2);
+}
+
+.continueBtn:hover {
+  background: #965203;
+  box-shadow: 0 0 25px rgba(150, 82, 3, 0.5);
 }
 
 .btnValiderSaison {
+  background: #251a00;
   margin-top: 15px;
   padding: 10px;
   cursor: pointer;
-  background-color: #e63946;
+  /* background-color: #e63946; */
   color: white;
   border: none;
   border-radius: 5px;
@@ -285,6 +292,10 @@ p {
   width: 100%;
 }
 
+.btnValiderSaison:hover {
+  background: #965203;
+  box-shadow: 0 0 25px rgba(150, 82, 3, 0.5);
+}
 /* Face Arrière */
 .seasonThumbnail {
   width: 60%;
@@ -373,7 +384,7 @@ p {
 /* --- FLOU SUR LES CARTES LOCKED --- */
 
 .locked {
-  filter: blur(8px);
+  filter: blur(5px);
   opacity: 0.6;
   pointer-events: none; /* empeche tt interact° av la carte */
   transition: all 0.5s ease;

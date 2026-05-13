@@ -30,7 +30,7 @@ const Seasons = () => {
     if (activeTimer && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 1000) {
+          if (prev >= 10000000000) {
             setDefaiteTemps(true);
             setActiveTimer(false);
             setQuizLance(false);
@@ -80,7 +80,7 @@ const Seasons = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 5) {
+      if (newErrors >= 4) {
         setActiveTimer(false);
         setDefaiteTemps(true); // affichage du msg defaite
         setQuizLance(false);
@@ -155,9 +155,9 @@ const Seasons = () => {
 
       {/* Bouton Démarrer */}
       {!quizLance && !victoireTotale && unlockedCount < seasonsData.length && (
-        <div className={styles.startContainer}>
+        <div className={styles.startContainer} data-aos="fade-up">
           <button onClick={lancerExploration} className={styles.startBtn}>
-            <p className={styles.startTxt}>Démarrer l'Exploration ⚔️</p>
+            <p className={styles.startTxt}>Démarrer l'Exploration </p>
           </button>
           <p className={styles.introText}>
             Parcourez les chapitres d'un combat sans fin.
@@ -184,6 +184,7 @@ const Seasons = () => {
               <div
                 key={season.id}
                 className={`${styles.cardContainer} ${isLocked ? styles.locked : ""}`}
+                data-aos="fade-up"
               >
                 {isLocked && (
                   <div className={styles.lockedOverlay}>🔒 Verrouillé</div>
@@ -199,14 +200,20 @@ const Seasons = () => {
                     isCurrent &&
                     currentQuiz &&
                     currentQuiz.questions ? (
-                      <div className={styles.quizContent}>
-                        <p className={styles.stepIndicator}>
+                      <div className={styles.quizContent} data-aos="fade-up">
+                        <p
+                          className={styles.stepIndicator}
+                          data-aos="fade-right"
+                        >
                           Question {currentStep + 1} /{" "}
                           {currentQuiz.questions.length}
                         </p>
 
                         {etape === "indice" ? (
-                          <div className={styles.indiceBox}>
+                          <div
+                            className={styles.indiceBox}
+                            data-aos="fade-right"
+                          >
                             <h3>💡 INDICE</h3>
                             <p>{currentQuiz.questions[currentStep].indice}</p>
                           </div>
@@ -256,7 +263,7 @@ const Seasons = () => {
                           >
                             {currentStep < currentQuiz.questions.length - 1
                               ? "Continuer →"
-                              : "Terminer le Quiz ! 🔓"}
+                              : "Débloquer cette saison ! 🔓"}
                           </button>
                         )}
                       </div>

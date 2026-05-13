@@ -46,7 +46,7 @@ const Characters = () => {
     if (jeuLance && !victoireTotale && !defaiteTemps) {
       interval = setInterval(() => {
         setTemps((prev) => {
-          if (prev >= 1000) {
+          if (prev >= 6000000) {
             setDefaiteTemps(true);
             setJeuLance(false);
             return 5;
@@ -115,7 +115,7 @@ const Characters = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 5) {
+      if (newErrors >= 4) {
         setDefaiteTemps(true);
         setJeuLance(false);
       } else {
@@ -173,7 +173,7 @@ const Characters = () => {
         </div>
 
         {jeuLance && persoActuel && (
-          <div id="jeu-dans-carte">
+          <div id="jeu-dans-carte" data-aos="fade-right">
             {etape === "indice" && (
               <div>
                 <h3>INDICE</h3>
@@ -182,8 +182,8 @@ const Characters = () => {
             )}
             {etape === "question" && questionActuelle && (
               <div>
-                <h2>{questionActuelle.qst}</h2>
-                <div className="quizBtn">
+                <h2 data-aos="fade-right">{questionActuelle.qst}</h2>
+                <div className="quizBtn" data-aos="fade-right">
                   {questionActuelle.choix.map((c) => (
                     <button
                       key={c}

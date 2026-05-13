@@ -48,12 +48,8 @@
   transition: 0.5s;
 }
 
-.face-arriere img {
-  /* border-bottom: 10px solid rgba(0, 94, 8, 0.5); */
-}
-
 .personnage-carte:hover img {
-  box-shadow: 0 0 10px rgba(0, 223, 19, 0.5);
+  box-shadow: 0 0 10px rgba(1, 82, 7, 0.5);
   border: 2px solid #256e00;
 }
 
@@ -68,8 +64,8 @@
   border-radius: 20px;
   display: flex;
   justify-content: center;
-  background: #0b3900;
-  border: 2px solid #256e00;
+  background-color: rgb(0, 30, 0);
+  border: 2px solid rgb(0, 57, 0);
   border-radius: 5px 5px 20px 20px;
 }
 

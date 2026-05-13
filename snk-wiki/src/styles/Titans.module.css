@@ -109,6 +109,10 @@
   margin-bottom: 10%;
 }
 
+.startContainer button {
+  border-radius: 50px;
+}
+
 .introText {
   color: #ccc;
   font-size: 1.5rem;
@@ -130,27 +134,16 @@
 }
 
 .startBtn:hover {
-  transform: scale(1.05);
+  background: #030046;
+}
+
+.startBtn:hover {
+  transform: scale(1.1);
 }
 
 .startTxt {
   padding: 10px 50px;
   font-size: 1rem;
-}
-
-.startBtn {
-  background: #250000;
-  color: white;
-  border: 2px solid #06003e;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-bottom: 2%;
-}
-
-.startBtn:hover {
-  background: #030046;
 }
 
 .quizBtn {
@@ -166,13 +159,9 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
-  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
+  box-shadow: 0 0 15px rgb(0, 64, 107);
   position: relative;
   overflow: hidden;
-}
-
-.quizBtn:hover {
-  /* box-shadow: 0 0 25px rgba(255, 0, 0, 0.5); */
 }
 
 .quizBtn::after {
@@ -209,7 +198,7 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
-  box-shadow: 0 0 15px rgba(150, 82, 3, 0.2);
+  /* box-shadow: 0 0 15px rgba(150, 82, 3, 0.2); */
   position: relative;
   overflow: hidden;
   background-color: #0b111b;
@@ -218,13 +207,17 @@
 .optionsBtnTitans button {
   color: rgb(255, 255, 255);
   background-color: #0b111b;
-  border: 1px solid #444;
+  border: 2px solid #06003e;
+}
+
+.optionsBtnTitans button:hover {
+  background: #06003e;
 }
 
 .optionsBtnTitans:hover {
-  background: #535252;
+  /* background: #0f023d; */
 
-  box-shadow: 0 0 25px rgba(60, 60, 60, 0.5);
+  box-shadow: 0 0 15px rgba(18, 3, 131, 0.5);
 }
 
 .optionsBtnTitans::after {
@@ -244,10 +237,12 @@
 }
 
 .titan-card {
+  background: rgba(11, 17, 27, 0.8);
   display: flex;
   flex-direction: row;
   background-color: transparent;
-  border-radius: 50px;
+  border-radius: 20px;
+  border: 2px solid #06003e;
   overflow: hidden;
   margin-bottom: 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -387,7 +382,7 @@
 
 .titan-stats li {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #06003e;
   padding: 8px 16px;
   border-radius: 25px;
   font-size: 0.85rem;
@@ -517,7 +512,7 @@
   padding: 15px;
   border-radius: 10px;
   box-sizing: border-box;
-  border: 2px solid grey;
+  border: 2px solid #06003e;
 
   text-align: center;
 }
@@ -574,13 +569,13 @@
   font-size: 1.2rem;
 }
 
-/* btn continuer */
-.btn-continuer-titan {
+.btn-continuer {
   display: block;
 
   margin: 20px auto;
   margin-top: 10%;
   margin-left: 0px;
+  margin-bottom: 100px;
 
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -590,6 +585,12 @@
   color: white;
   border: none;
   border-radius: 5px;
+  transition: 0.5s;
+}
+
+.btn-continuer:hover {
+  box-shadow: 0 0 15px rgb(0, 0, 70);
+  transform: scale(1.1);
 }
 
 .page-suivante a {
@@ -619,7 +620,7 @@
 
 .messageVictoireFinal h1 {
   font-size: 3rem;
-  color: #ffcc00; /* Jaune doré pour le trophée */
+  color: #ffcc00;
   text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
   margin-bottom: 20px;
 }

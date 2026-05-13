@@ -28,7 +28,7 @@ const History = () => {
       interval = setInterval(() => {
         setTemps((prev) => {
           // lose si on atteint 50s
-          if (prev >= 1000) {
+          if (prev >= 300000) {
             setActiveTimer(false);
             setDefaiteTemps(true);
             setQuizLance(false);
@@ -60,7 +60,7 @@ const History = () => {
       const newErrors = errors + 1;
       setErrors(newErrors);
 
-      if (newErrors >= 5) {
+      if (newErrors >= 3) {
         setActiveTimer(false);
         setDefaiteTemps(true); // affichage du msg defaite
         setQuizLance(false);
@@ -126,7 +126,7 @@ const History = () => {
     }
   };
 
-  // transformer les secondes en 00:00
+  // transforme les secondes en 00:00
   const formaterTemps = (secondesTotal) => {
     const minutes = Math.floor(secondesTotal / 60);
     const secondes = secondesTotal % 60;
@@ -387,7 +387,7 @@ const QuizZone = ({
   nextStep,
   etape,
 }) => (
-  <div className={styles.quizBox}>
+  <div className={styles.quizBox} data-aos="fade-right">
     {data?.questions?.[currentStep] && (
       <>
         {/* Affichage conditionnel selon l'étape */}
@@ -397,7 +397,7 @@ const QuizZone = ({
           </div>
         ) : (
           <>
-            <p className={styles.quizQuestion}>
+            <p className={styles.quizQuestion} data-aos="fade-right">
               {data.questions[currentStep].qst}
             </p>
             <div className={styles.optionsGrid}>
@@ -409,6 +409,7 @@ const QuizZone = ({
                   }
                   className={styles.quizBtn}
                   disabled={showNextBtn}
+                  data-aos="fade-right"
                 >
                   {c}
                 </button>

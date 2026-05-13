@@ -73,13 +73,17 @@
   align-items: center;
   justify-content: center;
   padding: 50px 20px;
-  background-color: rgb(1, 50, 1);
+  background-color: rgb(0, 30, 0);
   border-radius: 15px;
   border: 1px solid var(--rouge-snk);
   margin: 20px auto;
   max-width: 600px;
   margin-bottom: 5%;
-  border: 2px solid green;
+  border: 2px solid rgb(0, 57, 0);
+}
+
+.startContainer button {
+  border-radius: 50px;
 }
 
 .introText {
@@ -152,8 +156,8 @@
 }
 
 #jeu-dans-carte {
-  background-color: rgb(1, 50, 1);
-  border: 1px solid rgba(5, 193, 11, 0.489);
+  background-color: rgb(0, 30, 0);
+  border: 2px solid rgb(0, 57, 0);
   border-radius: 10px;
   padding: 20px;
   margin: 0 auto 40px;
@@ -175,9 +179,9 @@
 }
 
 .quizBtn {
-  background: #00411d;
+  background-color: rgb(0, 30, 0);
   color: white;
-  border: 2px solid #198620;
+  border: 2px solid rgb(0, 57, 0);
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -410,11 +414,11 @@
 .startBtn {
   background: #0b3900;
   color: white;
-  border: 2px solid #256e00;
+  border: 2px solid rgb(0, 86, 0);
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
   margin-bottom: 2%;
 }
 

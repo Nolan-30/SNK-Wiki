@@ -1,6 +1,6 @@
 # 🛡️ SNK-WIKI - Shinzou Wo Sasageyo ! ⚔️
 
-Bienvenue sur le projet SNK-Wiki, l'encyclopédie ultime sur l'univers de L'Attaque des Titans. Ce projet est une application web Fullstack permettant d'explorer l'histoire, les personnages et les Titans. Testez vos connaissances grâce à un Quiz interactif et débloquez l'accès aux pages de chaque saison à chaque fois que vous terminez un quiz avec succès ! 🎓
+Bienvenue sur le projet SNK-Wiki, l'encyclopédie ultime sur l'univers de L'Attaque des Titans. Ce projet est une application web Fullstack permettant d'explorer l'histoire, les personnages, les Titans et les saisons. Testez vos connaissances grâce à un Quiz interactif et débloquez l'accès aux pages de chaque saison à chaque fois que vous terminez un quiz avec succès ! 🎓
 
 ---
 

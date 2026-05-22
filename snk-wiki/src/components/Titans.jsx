@@ -184,15 +184,12 @@ const Titans = () => {
     <div className={styles["bg-black"]}>
       <main className={styles["titans-container"]} data-aos="fade-right">
         <h1 className={styles.titre}>
-          <span className={styles["degrader-jaune"]}>
-            {/* Les Neufs */}
-            Titans Primordiaux
-          </span>
+          <span className={styles["degrader-bleu"]}>Titans Primordiaux</span>
           <p>Découvrez les puissances originelles.</p>
         </h1>
 
         <span className={styles["founding-titan"]}>
-          <img src="images/titan-originel.jpg" alt="titan originel" />
+          <img src="images/titan-originel.png" alt="titan originel" />
         </span>
 
         <div className={styles["border-grey"]}></div>
@@ -209,7 +206,7 @@ const Titans = () => {
         )}
 
         {quizActive && (
-          <div className={styles.affichageTempsLive}>
+          <div className={styles.chrono}>
             <p>{formaterTemps(tempsEcoule)}</p>
           </div>
         )}

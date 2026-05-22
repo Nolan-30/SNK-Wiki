@@ -13,8 +13,14 @@
 }
 
 .header img {
+  margin-top: 2%;
   border-radius: 50px;
   border: 2px solid rgb(255, 0, 0);
+  transition: transform 1s ease-out;
+}
+
+.header img:hover {
+  transform: scale(1.1);
 }
 
 .title {

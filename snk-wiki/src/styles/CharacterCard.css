@@ -48,10 +48,10 @@
   transition: 0.5s;
 }
 
-.personnage-carte:hover img {
+/* .personnage-carte:hover img {
   box-shadow: 0 0 10px rgba(1, 82, 7, 0.5);
   border: 2px solid #256e00;
-}
+} */
 
 .degrader-blanc {
   background: linear-gradient(to right, #ffffff, #5a5a5a);
@@ -70,7 +70,7 @@
 }
 
 .description-perso {
-  border-bottom: 10px solid rgba(0, 94, 8, 0.5);
+  border-top: 10px solid rgba(0, 94, 8, 0.5);
   border-left: 1px solid rgba(41, 41, 41, 0.489);
   border-right: 1px solid rgba(41, 41, 41, 0.489);
 }

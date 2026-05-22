@@ -1,7 +1,103 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
 
-.degrader-jaune {
-  background: linear-gradient(to right, #ffffff, #e7f47b);
+/* COULEURS TITANS */
+
+.visual-assaillant {
+  background: radial-gradient(circle at center, #03a52c 0%, #000000 100%);
+}
+.visual-assaillant img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(0, 114, 13);
+}
+
+.visual-colossal {
+  background: radial-gradient(circle at center, #ff0000 0%, #000000 100%);
+}
+.visual-colossal img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+.visual-armored {
+  background: radial-gradient(circle at center, #ffffff 0%, #887544 100%);
+}
+.visual-armored img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(230, 213, 132);
+}
+
+.visual-bestial {
+  background: radial-gradient(
+    circle at center,
+    rgb(128, 89, 0) 0%,
+    #000000 100%
+  );
+}
+.visual-bestial img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(60, 42, 0);
+}
+
+.visual-marteau {
+  background: radial-gradient(
+    circle at center,
+    rgb(18, 129, 213) 0%,
+    #000000 100%
+  );
+}
+.visual-marteau img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.visual-feminin {
+  background: radial-gradient(circle at center, #ffffff 0%, #6e6e6e 100%);
+}
+.visual-feminin img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #ffffff;
+}
+
+.stats-green {
+  color: #00410a;
+}
+.stats-red {
+  color: red;
+}
+.stats-beige {
+  color: rgb(230, 213, 132);
+}
+.stats-brown {
+  color: rgb(60, 42, 0);
+}
+.stats-cyan {
+  color: rgb(122, 197, 255);
+}
+.stats-white {
+  color: #ffffff;
+}
+
+.holder-green {
+  color: #00410a;
+}
+.holder-beige {
+  color: rgb(230, 213, 132);
+}
+.holder-red {
+  color: red;
+}
+.holder-brown {
+  color: rgb(60, 42, 0);
+}
+.holder-cyan {
+  color: rgb(122, 197, 255);
+}
+.holder-white {
+  color: #ffffff;
+}
+
+.degrader-bleu {
+  background: linear-gradient(to right, #013482, #000326);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -48,12 +144,12 @@
 
 .face-avant img {
   border-radius: 10px;
-  transition: transform 1s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .face-avant:hover img {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgb(255, 0, 0);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgb(0, 7, 142);
 }
 
 .titans-container {
@@ -79,14 +175,14 @@
       border-box;
   transition: 0.5s;
   border-radius: 50px;
-  border: 2px solid yellow;
+  border: 2px solid #06003e;
   height: 400px;
   width: 600px;
 }
 
 .founding-titan img:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 10px rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgb(17, 0, 125);
 }
 
 .border-grey {
@@ -103,7 +199,7 @@
   padding: 50px 20px;
   background: rgba(11, 17, 27, 0.8);
   border-radius: 15px;
-  border: 2px solid #06003e;
+  border: 2px solid #09005d;
   margin: 20px auto;
   max-width: 600px;
   margin-bottom: 10%;
@@ -255,6 +351,7 @@
 }
 
 .card-visual {
+  background: rgba(11, 17, 27, 0.8);
   flex: 1;
   display: flex;
   justify-content: center;
@@ -268,62 +365,6 @@
   transition: transform 1s ease-out;
   display: block;
   border-radius: 10px;
-}
-
-.visual-assaillant {
-  background: radial-gradient(circle at center, #03a52c 0%, #000000 100%);
-}
-.visual-assaillant img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgb(0, 114, 13);
-}
-
-.visual-colossal {
-  background: radial-gradient(circle at center, #ff0000 0%, #000000 100%);
-}
-.visual-colossal img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgb(255, 0, 0);
-}
-
-.visual-armored {
-  background: radial-gradient(circle at center, #ffffff 0%, #887544 100%);
-}
-.visual-armored img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgb(230, 213, 132);
-}
-
-.visual-bestial {
-  background: radial-gradient(
-    circle at center,
-    rgb(128, 89, 0) 0%,
-    #000000 100%
-  );
-}
-.visual-bestial img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgb(60, 42, 0);
-}
-
-.visual-marteau {
-  background: radial-gradient(
-    circle at center,
-    rgb(18, 129, 213) 0%,
-    #000000 100%
-  );
-}
-.visual-marteau img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgb(255, 255, 255);
-}
-
-.visual-feminin {
-  background: radial-gradient(circle at center, #ffffff 0%, #6e6e6e 100%);
-}
-.visual-feminin img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px #ffffff;
 }
 
 .card-content {
@@ -340,6 +381,7 @@
 
 .titan-name {
   font-family: "Cinzel", serif;
+  font-weight: 900;
   font-size: 1.8rem;
   color: #ffffff;
   text-transform: uppercase;
@@ -349,25 +391,28 @@
 }
 
 .titan-holder {
-  margin-left: -35%;
+  margin-left: -32%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-size: 0.95rem;
-  color: #8d99ae;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+
   margin-bottom: 15px;
   width: 100%;
 }
 
 .titan-desc {
-  color: #ddd;
+  color: #8d99ae;
   font-size: 0.95rem;
   line-height: 1.6;
+
   margin: 0 auto 20px auto;
   max-width: 90%;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 
 .titan-stats {
@@ -387,48 +432,10 @@
   border-radius: 25px;
   font-size: 0.85rem;
   font-weight: bold;
-  color: #fff;
+  color: #8d99ae;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-}
-
-.stats-green {
-  color: #00410a;
-}
-.stats-red {
-  color: red;
-}
-.stats-beige {
-  color: rgb(230, 213, 132);
-}
-.stats-brown {
-  color: rgb(60, 42, 0);
-}
-.stats-cyan {
-  color: rgb(122, 197, 255);
-}
-.stats-white {
-  color: #ffffff;
-}
-
-.holder-green {
-  color: #00410a;
-}
-.holder-beige {
-  color: rgb(230, 213, 132);
-}
-.holder-red {
-  color: red;
-}
-.holder-brown {
-  color: rgb(60, 42, 0);
-}
-.holder-cyan {
-  color: rgb(122, 197, 255);
-}
-.holder-white {
-  color: #ffffff;
 }
 
 .titan-holder strong {
@@ -457,7 +464,7 @@
   width: 100%;
   backface-visibility: hidden;
   border-radius: 50px;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 
 .face-arriere {
@@ -483,6 +490,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 5%;
+  color: #0f0099;
 }
 
 #btn-action {
